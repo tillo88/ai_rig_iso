@@ -1,0 +1,66 @@
+2026-07-17T12:45:21.578556+00:00 tilloGPT-hermes passwd[1354]: password for 'tillo' changed by 'root'
+2026-07-17T12:45:21.579216+00:00 tilloGPT-hermes systemd-logind[1523]: New seat seat0.
+2026-07-17T12:45:21.579225+00:00 tilloGPT-hermes systemd-logind[1523]: Watching system buttons on /dev/input/event1 (Power Button)
+2026-07-17T12:45:21.579235+00:00 tilloGPT-hermes systemd-logind[1523]: Watching system buttons on /dev/input/event0 (Sleep Button)
+2026-07-17T12:45:21.579241+00:00 tilloGPT-hermes systemd-logind[1523]: Watching system buttons on /dev/input/event2 (USB usb keyboard)
+2026-07-17T12:45:21.579244+00:00 tilloGPT-hermes systemd-logind[1523]: Watching system buttons on /dev/input/event3 (USB usb keyboard Consumer Control)
+2026-07-17T12:45:21.579246+00:00 tilloGPT-hermes systemd-logind[1523]: Watching system buttons on /dev/input/event4 (USB usb keyboard System Control)
+2026-07-17T12:45:31.168137+00:00 tilloGPT-hermes systemd-logind[1523]: The system will reboot now!
+2026-07-17T12:45:31.190742+00:00 tilloGPT-hermes systemd-logind[1523]: System is rebooting.
+2026-07-17T12:46:58.871159+00:00 tilloGPT-hermes systemd-logind[1293]: New seat seat0.
+2026-07-17T12:46:58.871176+00:00 tilloGPT-hermes systemd-logind[1293]: Watching system buttons on /dev/input/event1 (Power Button)
+2026-07-17T12:46:58.871185+00:00 tilloGPT-hermes systemd-logind[1293]: Watching system buttons on /dev/input/event0 (Sleep Button)
+2026-07-17T12:46:58.871193+00:00 tilloGPT-hermes systemd-logind[1293]: Watching system buttons on /dev/input/event2 (USB usb keyboard)
+2026-07-17T12:46:58.871206+00:00 tilloGPT-hermes systemd-logind[1293]: Watching system buttons on /dev/input/event3 (USB usb keyboard Consumer Control)
+2026-07-17T12:46:58.871213+00:00 tilloGPT-hermes systemd-logind[1293]: Watching system buttons on /dev/input/event4 (USB usb keyboard System Control)
+2026-07-17T12:47:18.597485+00:00 tilloGPT-hermes login[1791]: PAM unable to dlopen(pam_lastlog.so): /usr/lib/security/pam_lastlog.so: cannot open shared object file: No such file or directory
+2026-07-17T12:47:18.597726+00:00 tilloGPT-hermes login[1791]: PAM adding faulty module: pam_lastlog.so
+2026-07-17T12:47:21.615576+00:00 tilloGPT-hermes login[1791]: pam_unix(login:session): session opened for user tillo(uid=1000) by tillo(uid=0)
+2026-07-17T12:47:21.621365+00:00 tilloGPT-hermes systemd-logind[1293]: New session 1 of user tillo.
+2026-07-17T12:47:21.645353+00:00 tilloGPT-hermes (systemd): pam_unix(systemd-user:session): session opened for user tillo(uid=1000) by tillo(uid=0)
+2026-07-17T12:54:21.107399+00:00 tilloGPT-hermes sudo:    tillo : TTY=tty1 ; PWD=/home/tillo ; USER=root ; COMMAND=/usr/local/bin/populate-cache.sh
+2026-07-17T12:54:21.107916+00:00 tilloGPT-hermes sudo: pam_unix(sudo:session): session opened for user root(uid=0) by tillo(uid=1000)
+2026-07-17T12:55:01.424539+00:00 tilloGPT-hermes CRON[2299]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-17T12:55:01.429084+00:00 tilloGPT-hermes CRON[2299]: pam_unix(cron:session): session closed for user root
+2026-07-17T13:05:01.436915+00:00 tilloGPT-hermes CRON[2317]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-17T13:05:01.441423+00:00 tilloGPT-hermes CRON[2317]: pam_unix(cron:session): session closed for user root
+2026-07-17T13:15:01.448480+00:00 tilloGPT-hermes CRON[2337]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-17T13:15:01.452714+00:00 tilloGPT-hermes CRON[2337]: pam_unix(cron:session): session closed for user root
+2026-07-17T13:17:01.458496+00:00 tilloGPT-hermes CRON[2341]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-17T13:17:01.542203+00:00 tilloGPT-hermes CRON[2341]: pam_unix(cron:session): session closed for user root
+2026-07-17T13:25:01.550286+00:00 tilloGPT-hermes CRON[2353]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-17T13:25:01.554070+00:00 tilloGPT-hermes CRON[2353]: pam_unix(cron:session): session closed for user root
+2026-07-17T13:31:15.500518+00:00 tilloGPT-hermes systemd-logind[1293]: Watching system buttons on /dev/input/event2 (USB usb keyboard)
+2026-07-17T13:31:15.506019+00:00 tilloGPT-hermes systemd-logind[1293]: Watching system buttons on /dev/input/event3 (USB usb keyboard Consumer Control)
+2026-07-17T13:31:15.507761+00:00 tilloGPT-hermes systemd-logind[1293]: Watching system buttons on /dev/input/event4 (USB usb keyboard System Control)
+2026-07-17T13:33:45.023516+00:00 tilloGPT-hermes systemd-logind[1293]: The system will reboot now!
+2026-07-17T13:35:12.974485+00:00 tilloGPT-hermes systemd-logind[1171]: New seat seat0.
+2026-07-17T13:35:12.975062+00:00 tilloGPT-hermes systemd-logind[1171]: Watching system buttons on /dev/input/event1 (Power Button)
+2026-07-17T13:35:12.975142+00:00 tilloGPT-hermes systemd-logind[1171]: Watching system buttons on /dev/input/event0 (Sleep Button)
+2026-07-17T13:35:12.975218+00:00 tilloGPT-hermes systemd-logind[1171]: Watching system buttons on /dev/input/event2 (USB usb keyboard)
+2026-07-17T13:35:12.975315+00:00 tilloGPT-hermes systemd-logind[1171]: Watching system buttons on /dev/input/event3 (USB usb keyboard Consumer Control)
+2026-07-17T13:35:12.975433+00:00 tilloGPT-hermes systemd-logind[1171]: Watching system buttons on /dev/input/event4 (USB usb keyboard System Control)
+2026-07-17T13:45:01.099681+00:00 tilloGPT-hermes CRON[2189]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-17T13:45:01.123987+00:00 tilloGPT-hermes CRON[2189]: pam_unix(cron:session): session closed for user root
+2026-07-17T13:51:04.177581+00:00 tilloGPT-hermes sshd[2216]: Server listening on 0.0.0.0 port 22.
+2026-07-17T13:51:04.177737+00:00 tilloGPT-hermes sshd[2216]: Server listening on :: port 22.
+2026-07-17T13:51:04.177897+00:00 tilloGPT-hermes sshd[2218]: Connection reset by 192.168.1.103 port 49987 [preauth]
+2026-07-17T13:52:19.028633+00:00 tilloGPT-hermes sshd[2222]: Accepted password for tillo from 192.168.1.103 port 61768 ssh2
+2026-07-17T13:52:19.034914+00:00 tilloGPT-hermes sshd[2222]: pam_unix(sshd:session): session opened for user tillo(uid=1000) by tillo(uid=0)
+2026-07-17T13:52:19.045022+00:00 tilloGPT-hermes systemd-logind[1171]: New session 2 of user tillo.
+2026-07-17T13:52:19.130490+00:00 tilloGPT-hermes (systemd): pam_unix(systemd-user:session): session opened for user tillo(uid=1000) by tillo(uid=0)
+2026-07-17T13:54:05.932942+00:00 tilloGPT-hermes sudo:    tillo : TTY=pts/0 ; PWD=/home/tillo ; USER=root ; COMMAND=/usr/bin/nano /var/log/ai-rig-stage-smart.log
+2026-07-17T13:54:05.935348+00:00 tilloGPT-hermes sudo: pam_unix(sudo:session): session opened for user root(uid=0) by tillo(uid=1000)
+2026-07-17T13:54:10.424359+00:00 tilloGPT-hermes sudo: pam_unix(sudo:session): session closed for user root
+2026-07-17T13:55:01.112029+00:00 tilloGPT-hermes CRON[2398]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2026-07-17T13:55:01.138119+00:00 tilloGPT-hermes CRON[2398]: pam_unix(cron:session): session closed for user root
+2026-07-17T13:56:16.125935+00:00 tilloGPT-hermes sshd[2413]: Accepted password for tillo from 192.168.1.100 port 53090 ssh2
+2026-07-17T13:56:16.128850+00:00 tilloGPT-hermes sshd[2413]: pam_unix(sshd:session): session opened for user tillo(uid=1000) by tillo(uid=0)
+2026-07-17T13:56:16.135480+00:00 tilloGPT-hermes systemd-logind[1171]: New session 5 of user tillo.
+2026-07-17T13:56:16.426980+00:00 tilloGPT-hermes sshd[2468]: Received disconnect from 192.168.1.100 port 53090:11: disconnected by user
+2026-07-17T13:56:16.427674+00:00 tilloGPT-hermes sshd[2468]: Disconnected from user tillo 192.168.1.100 port 53090
+2026-07-17T13:56:16.427751+00:00 tilloGPT-hermes sshd[2413]: pam_unix(sshd:session): session closed for user tillo
+2026-07-17T13:56:16.429057+00:00 tilloGPT-hermes systemd-logind[1171]: Session 5 logged out. Waiting for processes to exit.
+2026-07-17T13:56:16.429396+00:00 tilloGPT-hermes systemd-logind[1171]: Removed session 5.
+2026-07-17T13:57:04.499594+00:00 tilloGPT-hermes sshd[2470]: Connection closed by 192.168.1.103 port 47684 [preauth]
+2

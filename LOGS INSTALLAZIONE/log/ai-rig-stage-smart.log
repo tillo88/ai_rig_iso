@@ -1,0 +1,15 @@
+=== Stage smart-drivedb - Fri Jul 17 12:45:22 UTC 2026 ===
+Nessun drivedb bakeato in /opt/cache/drivedb/drivedb.h (download-cache.sh non l'ha scaricato?).
+drivedb attivo aggiornato meno di 30 giorni fa: salto update-smart-drivedb.
+NOTA: 0x9220 non trovato nel drivedb attivo. L'autodetect non funzionera', ma ai-rig-smart.sh usa comunque -d sntrealtek.
+=== Stage smart-drivedb completato - Fri Jul 17 12:45:22 UTC 2026 ===
+=== Stage smart-drivedb - ven 17 lug 2026, 12:46:57, UTC ===
+Nessun drivedb bakeato in /opt/cache/drivedb/drivedb.h (download-cache.sh non l'ha scaricato?).
+drivedb attivo aggiornato meno di 30 giorni fa: salto update-smart-drivedb.
+NOTA: 0x9220 non trovato nel drivedb attivo. L'autodetect non funzionera', ma ai-rig-smart.sh usa comunque -d sntrealtek.
+=== Stage smart-drivedb completato - ven 17 lug 2026, 12:46:57, UTC ===
+=== Stage smart-drivedb - ven 17 lug 2026, 13:35:19, UTC ===
+drivedb bakeato installato in /var/lib/smartmontools/drivedb/drivedb.h
+drivedb attivo aggiornato meno di 30 giorni fa: salto update-smart-drivedb.
+OK: ID USB 0x9220 (RTL9220) presente nel drivedb attivo -> autodetect possibile.
+=== Stage smart-drivedb completato - ven 17 lug 2026, 13:35:19, UTC ===

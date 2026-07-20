@@ -1,0 +1,15 @@
+f3b27f6cb2516d87ce62d1d1ddba2dbe0b1e715fe0c728105274a4eaebf82681  docs/POST-BIOS-NOTES.md
+5b230e9af4141486289556fb3e904d5ccdb1ef3550e7ed5ddbcc833de8bc4973  pi-bot/ai-rig-wol-bot.py
+68b59137f2b2c67289d108fe22d9e63cf681744109e4c4a4d97544de54730b33  pi-bot/config.env.example
+445753743df4f9907b16853239815605368c069aaa4423f05b9481adf55591bf  rig-common-scripts/60-automem.sh
+bc3cba561646f5e826c98f617bdf106933699616af6265e84d345756780b7a64  rig-common-scripts/90-verify.sh
+109cf0dd2213fbcd58917adf96dba273fab38ce0563e975bea69a8f2454bcb36  rig-common-scripts/ai-rig-select-role.sh
+78248133cd5a4d2ae9e95b16e5c45ea6b02c8af9928f95285a102adf97569660  rig-common-scripts/populate-cache.sh
+99704c0b84289fd68b4efed7604e41cdfcf4bf97a2fe22c44b17c5e28cf86e1c  rig-common-systemd/ai-rig-first-boot.service
+17efc5fbbdf000ea96a9e49d1867dd1cc3b21e059147707b3730c043db72169c  rig-common-systemd/ai-rig-stage-automem.service
+157581edb69ba81c4387552d6908c4c0ae5252abd8e363c3146195bafd109f58  rig-roles/teacher/scripts/teacher-bot.py
+4332a3334253e7b5fe81a9d039f33828cf78ad3b83d4c3b18d99bd440b62d88f  scripts/05-generate-nocloud.sh
+93dfc0f5db5efadfd6abcdd1683972c15e3c6c84c3b27c76cd33d63a23d4c74e  templates/ai-rig-hermes-extras.service.tmpl
+8d7ec0e9e22214e42bd3c549f095ac46da81feba35bf8fb2faac25f03f3c44db  templates/hermes-extras.sh.tmpl
+81ada77ff79fe34aef943ea625e86c94cc2432f8bd6824532a23b550e47c6680  templates/llama-server@.service.tmpl
+NEW  config/teacher-bot.env.example

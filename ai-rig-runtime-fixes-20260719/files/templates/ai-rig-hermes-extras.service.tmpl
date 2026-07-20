@@ -1,0 +1,20 @@
+[Unit]
+Description=AI Rig - Hermes extras (Hermes-Agent + ComfyUI)
+After=ai-rig-stage-role.service ai-rig-stage-shareddisk.service ai-rig-librarian.service docker.service network-online.target
+Wants=ai-rig-librarian.service network-online.target
+Requires=ai-rig-stage-role.service ai-rig-stage-shareddisk.service docker.service
+RequiresMountsFor=__SHARED_MOUNT_PATH__
+ConditionPathExists=/var/lib/ai-rig/stage-role-done
+ConditionPathExists=!/var/lib/ai-rig/stage-hermes-extras-done
+StartLimitIntervalSec=0
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/40-hermes-extras.sh
+RemainAfterExit=yes
+TimeoutStartSec=3600
+Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,19 @@
+Origin: Ubuntu
+Label: Ubuntu
+Suite: noble
+Version: 24.04
+Codename: noble
+Date: Thu, 25 Apr 2024 15:10:33 UTC
+Architectures: amd64 i386
+Components: main restricted
+Description: Ubuntu Noble 24.04
+Acquire-By-Hash: yes
+SHA256:
+ 9bf1ce86f0eb77349fc63fb9fbb677c993347171fbbfdef7511b44635c2bed66    15760 restricted/binary-amd64/Packages.gz
+ e955b7874124357d2f4e502ae9f79aea624d2f368aed4e33a08c52eb86925589    97631 restricted/binary-amd64/Packages
+ 5a69a9cbdda7d644543910914de34f0caeb7febec7ca475a3e11eaf025304225      825 restricted/binary-i386/Packages.gz
+ 972c907ec6a8d68489dee795acddf3f0876c1a20445ea2418b7734773aa4df29     2117 restricted/binary-i386/Packages
+ 20125e6ad249ad5a486b5867e2903ed453061ecc047c122849241036cd37f92f    75614 main/binary-amd64/Packages.gz
+ e64ee65fc238edd04d7ecfc5f48ccb11c6237c60ec9356b37f1d7cd05da8e8d6   272707 main/binary-amd64/Packages
+ 6d2b383db9f326578a379d340c99e0bae00e825a5224df794a9322f62b92ac48    12999 main/binary-i386/Packages.gz
+ a7657853eb9782f90b6195a20ea20b7a384dbd3e09f078602cd788db1ad02912    39667 main/binary-i386/Packages

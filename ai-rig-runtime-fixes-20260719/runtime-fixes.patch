@@ -1,0 +1,1071 @@
+diff -ruN a/config/teacher-bot.env.example b/config/teacher-bot.env.example
+--- a/config/teacher-bot.env.example	1970-01-01 00:00:00.000000000 +0000
++++ b/config/teacher-bot.env.example	2026-07-19 02:04:58.791409522 +0000
+@@ -0,0 +1,12 @@
++# Copia in config/teacher-bot.env (file locale NON versionato) e compila.
++BOT_TOKEN="CHANGEME_ROTATE_TOKEN"
++ALLOWED_CHAT_IDS="CHANGEME_CHAT_ID"
++LLAMA_URL="http://localhost:8080"
++LLAMA_SERVICE="llama-server@teacher.service"
++ROLE_FILE="/etc/ai-rig/role"
++MODEL_NAME=""
++POLL_INTERVAL_SECONDS="15"
++WATCHDOG_FAIL_THRESHOLD="3"
++HEALTH_TIMEOUT_SECONDS="8"
++WATCHDOG_STARTUP_GRACE_SECONDS="900"
++ASK_TIMEOUT_SECONDS="300"
+diff -ruN a/docs/POST-BIOS-NOTES.md b/docs/POST-BIOS-NOTES.md
+--- a/docs/POST-BIOS-NOTES.md	2026-07-15 17:26:36.000000000 +0000
++++ b/docs/POST-BIOS-NOTES.md	2026-07-19 02:04:58.791945081 +0000
+@@ -89,3 +89,12 @@
+ - Sudoers bakeato dalla ISO (`/etc/sudoers.d/ai-rig-bot`): il bot puo' eseguire
+   senza password SOLO `ai-rig-select-role.sh`, `grub-reboot`,
+   `systemctl poweroff|reboot`.
++
++
++## Fix runtime consolidati 2026-07-19
++
++- Il cambio ruolo scrive `next_entry` nel GRUB centrale e imposta dinamicamente `BootNext` sulla ESP DEVIN tramite seriale/PARTUUID.
++- DEVIN viene riportato al primo posto nel `BootOrder` senza numeri `BootXXXX` hardcoded.
++- Il bot Pi accetta una sola operazione distruttiva alla volta, ignora duplicati/comandi vecchi e mantiene 60 secondi di OFF reale prima del WOL.
++- ComfyUI usa modelli e output sul disco condiviso; non conserva più i 31 GB dei modelli sulla root HERMES.
++- AutoMem non usa più `make dev` al boot e non ripete `make install` se gli input non cambiano.
+diff -ruN a/pi-bot/ai-rig-wol-bot.py b/pi-bot/ai-rig-wol-bot.py
+--- a/pi-bot/ai-rig-wol-bot.py	2026-07-15 17:25:10.000000000 +0000
++++ b/pi-bot/ai-rig-wol-bot.py	2026-07-19 02:06:53.237580451 +0000
+@@ -12,6 +12,7 @@
+ import json
+ import logging
+ import subprocess
++import threading
+ from pathlib import Path
+ 
+ # =============================================================================
+@@ -60,12 +61,19 @@
+ # poweroff -> attesa che il rig sia DAVVERO offline -> COLD_BOOT_WAIT secondi
+ # di scarica/assestamento -> WOL ripetuto -> attesa boot. Tutti sovrascrivibili
+ # in config.env; i default vanno bene per il rig attuale.
+-COLD_BOOT_WAIT = int(CFG.get("COLD_BOOT_WAIT", "120"))
++COLD_BOOT_WAIT = int(CFG.get("COLD_BOOT_WAIT", "60"))
+ OFFLINE_TIMEOUT = int(CFG.get("OFFLINE_TIMEOUT", "180"))
+ ONLINE_TIMEOUT = int(CFG.get("ONLINE_TIMEOUT", "300"))
+ WOL_REPEAT = int(CFG.get("WOL_REPEAT", "3"))
++ROLE_TIMEOUT = int(CFG.get("ROLE_TIMEOUT", "420"))
++API_READY_TIMEOUT = int(CFG.get("API_READY_TIMEOUT", "900"))
++MAX_DESTRUCTIVE_COMMAND_AGE = int(CFG.get("MAX_DESTRUCTIVE_COMMAND_AGE", "180"))
+ 
+ ROLES = ("devin", "hermes", "teacher")
++DESTRUCTIVE_COMMANDS = {"/wakeup", "/devin", "/hermes", "/teacher"}
++OPERATION_LOCK = threading.Lock()
++VERIFY_LOCK = threading.Lock()
++ACTIVE_OPERATION = None
+ 
+ # Log: journald cattura gia' stdout (StreamHandler) via systemd. Il file in
+ # /var/log e' un extra comodo, ma l'utente 'pi' non puo' crearlo da solo: se
+@@ -200,11 +208,17 @@
+ 
+ 
+ def get_verify_log() -> str:
++    """Rigenera il report sul ruolo attivo, poi lo legge."""
+     try:
+-        r = ssh_run(f"cat {RIG_VERIFY_LOG} 2>/dev/null || echo 'Log non trovato'", timeout=10)
+-        return r.stdout if r.returncode == 0 else f"Errore SSH: {r.stderr}"
++        cmd = ("sudo /usr/local/bin/90-verify.sh >/dev/null 2>&1; rc=$?; "
++               f"cat {RIG_VERIFY_LOG} 2>/dev/null || echo 'Log non trovato'; exit $rc")
++        r = ssh_run(cmd, timeout=API_READY_TIMEOUT + 60)
++        output = r.stdout.strip()
++        if output:
++            return output
++        return f"Verifica fallita: {(r.stderr or 'nessun output').strip()}"
+     except Exception as e:
+-        return f"Impossibile connettersi: {e}"
++        return f"Impossibile eseguire la verifica: {e}"
+ 
+ 
+ def format_status(status: dict) -> str:
+@@ -274,6 +288,32 @@
+     return False
+ 
+ 
++def wait_role(target: str, timeout: int):
++    deadline = time.time() + timeout
++    while time.time() < deadline:
++        role = read_current_role(retries=1)
++        if role == target:
++            return role
++        time.sleep(5)
++    return None
++
++
++def wait_api_ready(timeout: int) -> bool:
++    import urllib.request
++    deadline = time.time() + timeout
++    while time.time() < deadline:
++        try:
++            req = urllib.request.Request(
++                f"http://{RIG_IP}:{RIG_API_PORT}/health", method="GET")
++            with urllib.request.urlopen(req, timeout=5) as response:
++                if response.status == 200:
++                    return True
++        except Exception:
++            pass
++        time.sleep(5)
++    return False
++
++
+ def notify(chat_id, text: str) -> None:
+     """Aggiornamenti intermedi durante il cambio ruolo (dura minuti: senza
+     questi messaggi sembra che il bot sia morto)."""
+@@ -323,7 +363,10 @@
+     if current is None:
+         return "❌ Rig online ma SSH non risponde ancora. Riprova tra poco."
+     if current == target:
+-        return f"✅ Gia' sul ruolo richiesto ({target})."
++        notify(chat_id, f"✅ Ruolo {target} gia' attivo. Verifico le API...")
++        if wait_api_ready(API_READY_TIMEOUT):
++            return f"✅ Gia' sul ruolo richiesto ({target}); API pronta."
++        return f"⚠️ Ruolo {target} attivo, ma API non pronta entro {API_READY_TIMEOUT}s."
+ 
+     # 1) Imposta il prossimo boot + poweroff, in un colpo solo e con verifica
+     #    sul rig (exit != 0 => niente e' cambiato, NON tocco l'alimentazione).
+@@ -374,12 +417,16 @@
+         return (f"❌ Il rig non risponde dopo il WOL. Se e' fermo sul logo MSI: "
+                 "guarda gli EZ Debug LED (VGA=GPU/riser) e vedi docs/POST-BIOS-NOTES.md.")
+ 
+-    # 5) Conferma ruolo.
+-    confirmed = read_current_role(retries=12)
+-    if confirmed == target:
+-        return f"✅ Cold boot completato. Rig ora su ruolo: {target}"
+-    return (f"⚠️ Rig acceso ma ruolo letto: {confirmed or 'sconosciuto'} "
+-            f"(atteso {target}). Verifica con /status.")
++    # 5) Conferma ruolo e API (il ping arriva molto prima del modello).
++    confirmed = wait_role(target, ROLE_TIMEOUT)
++    if confirmed != target:
++        return (f"⚠️ Rig acceso ma ruolo non confermato entro {ROLE_TIMEOUT}s "
++                f"(atteso {target}). Verifica con /status.")
++    notify(chat_id, f"✅ Ruolo {target} confermato. Attendo le API del modello...")
++    if wait_api_ready(API_READY_TIMEOUT):
++        return f"✅ Cold boot completato. Ruolo {target} e API pronti."
++    return (f"⚠️ Ruolo {target} attivo, ma API non pronta entro "
++            f"{API_READY_TIMEOUT}s. Controlla /status e i log llama-server.")
+ 
+ 
+ # =============================================================================
+@@ -419,28 +466,100 @@
+ 
+ HELP_TEXT = (
+     "🤖 *AI Rig WOL Bot*\n\n"
+-    "• /wakeup - Accende il rig (ruolo di default)\n"
+-    "• /status - Stato + ruolo attivo\n"
+-    "• /verify - Ultimo report di verifica\n"
+-    "• /devin /hermes /teacher - Passa a quel ruolo con COLD BOOT\n"
+-    "  (poweroff → attesa → WOL: ~4-6 min, con aggiornamenti in chat)\n"
++    "• /wakeup - Accende il rig e attende che sia online\n"
++    "• /status - Stato, ruolo attivo e operazione in corso\n"
++    "• /verify - Rigenera e invia il report di verifica\n"
++    "• /devin /hermes /teacher - Passa al ruolo con COLD BOOT\n"
++    "  (una sola operazione alla volta; duplicati ignorati)\n"
+     "• /help - Questo messaggio\n\n"
+     f"Rig: `{RIG_IP}`"
+ )
+ 
+ 
+-def handle_command(text: str, chat_id) -> str:
+-    cmd = text.split("@")[0].strip()
++def normalized_command(text: str) -> str:
++    first = text.split(maxsplit=1)[0] if text else ""
++    return first.split("@")[0].strip().lower()
++
++
++def get_active_operation():
++    with OPERATION_LOCK:
++        return dict(ACTIVE_OPERATION) if ACTIVE_OPERATION else None
++
++
++def operation_status_line() -> str:
++    op = get_active_operation()
++    if not op:
++        return "Nessuna operazione di accensione/cambio ruolo in corso."
++    elapsed = int(time.time() - op["started_at"])
++    return f"Operazione in corso: {op['name']} (~{elapsed}s)"
+ 
+-    if cmd == "/wakeup":
+-        return ("⚡ Pacchetto WOL inviato. Il rig dovrebbe avviarsi in 10-30s (ruolo di default)."
+-                if send_wol(RIG_MAC) else "❌ Errore invio WOL.")
++
++def wakeup_rig(chat_id) -> str:
++    if is_online():
++        role = read_current_role(retries=1)
++        return f"✅ Rig gia' online (ruolo: {role or 'sconosciuto'})."
++    if not send_wol_burst():
++        return "❌ Invio WOL fallito."
++    notify(chat_id, f"⚡ WOL inviato (x{WOL_REPEAT}); attendo il rig online...")
++    if not wait_online(ONLINE_TIMEOUT):
++        return f"❌ Rig non online entro {ONLINE_TIMEOUT}s."
++    role = read_current_role(retries=6)
++    if wait_api_ready(API_READY_TIMEOUT):
++        return f"✅ Rig online, ruolo {role or 'sconosciuto'}, API pronta."
++    return (f"⚠️ Rig online, ruolo {role or 'sconosciuto'}, ma API non pronta "
++            f"entro {API_READY_TIMEOUT}s.")
++
++
++def operation_worker(name: str, chat_id) -> None:
++    global ACTIVE_OPERATION
++    try:
++        result = wakeup_rig(chat_id) if name == "wakeup" else switch_role(name, chat_id)
++        send_message(chat_id, result, markdown=False)
++    except Exception as e:
++        logger.exception("Errore nell'operazione %s", name)
++        send_message(chat_id, f"❌ Errore operazione {name}: {e}", markdown=False)
++    finally:
++        with OPERATION_LOCK:
++            ACTIVE_OPERATION = None
++
++
++def start_operation(name: str, chat_id):
++    global ACTIVE_OPERATION
++    with OPERATION_LOCK:
++        if ACTIVE_OPERATION:
++            return False, dict(ACTIVE_OPERATION)
++        ACTIVE_OPERATION = {"name": name, "started_at": time.time(), "chat_id": chat_id}
++    threading.Thread(
++        target=operation_worker, args=(name, chat_id),
++        name=f"ai-rig-{name}", daemon=True).start()
++    return True, None
++
++
++def verify_worker(chat_id) -> None:
++    try:
++        send_message(chat_id, "📋 Rigenero il report di verifica...", markdown=False)
++        report = get_verify_log()
++        send_message(chat_id, "📋 Report aggiornato:\n\n" + report[:3700], markdown=False)
++    finally:
++        VERIFY_LOCK.release()
++
++
++def start_verify(chat_id) -> bool:
++    if not VERIFY_LOCK.acquire(blocking=False):
++        return False
++    threading.Thread(target=verify_worker, args=(chat_id,),
++                     name="ai-rig-verify", daemon=True).start()
++    return True
++
++
++def handle_command(text: str, chat_id) -> str:
++    cmd = normalized_command(text)
+     if cmd == "/status":
+-        return format_status(check_rig_status())
++        return format_status(check_rig_status()) + "\n" + operation_status_line()
+     if cmd == "/verify":
+-        return "📋 Ultimo report:\n\n```\n" + escape_markdown(get_verify_log())[:3500] + "\n```"
+-    if cmd.lstrip("/") in ROLES:
+-        return switch_role(cmd.lstrip("/"), chat_id)
++        return ("📋 Verifica avviata; riceverai il report appena pronto."
++                if start_verify(chat_id)
++                else "⏳ Una verifica e' gia' in corso.")
+     if cmd in ("/help", "/start"):
+         return HELP_TEXT
+     return "Comando non riconosciuto. /help per la lista."
+@@ -480,6 +599,29 @@
+                     continue
+ 
+                 logger.info(f"Comando da @{username} ({chat_id}): {text}")
++                cmd = normalized_command(text)
++
++                if cmd in DESTRUCTIVE_COMMANDS:
++                    age = max(0, int(time.time() - msg.get("date", int(time.time()))))
++                    if age > MAX_DESTRUCTIVE_COMMAND_AGE:
++                        logger.warning("Comando distruttivo vecchio ignorato: %s (%ss)", cmd, age)
++                        send_message(chat_id,
++                                     f"⏭️ Comando {cmd} vecchio di {age}s ignorato.",
++                                     markdown=False)
++                        continue
++                    name = "wakeup" if cmd == "/wakeup" else cmd.lstrip("/")
++                    started, active = start_operation(name, chat_id)
++                    if started:
++                        send_message(chat_id,
++                                     f"▶️ Operazione {name} avviata. /status resta disponibile.",
++                                     markdown=False)
++                    else:
++                        elapsed = int(time.time() - active["started_at"])
++                        send_message(chat_id,
++                                     f"⏳ Ignorato: operazione {active['name']} gia' attiva da ~{elapsed}s.",
++                                     markdown=False)
++                    continue
++
+                 try:
+                     reply = handle_command(text, chat_id)
+                 except Exception as e:
+diff -ruN a/pi-bot/config.env.example b/pi-bot/config.env.example
+--- a/pi-bot/config.env.example	2026-07-17 00:06:18.000000000 +0000
++++ b/pi-bot/config.env.example	2026-07-19 02:04:58.791220278 +0000
+@@ -1,12 +1,12 @@
+ # /etc/ai-rig-bot/config.env
+-# Permessi consigliati: chmod 600, chown pi:pi (contiene il BOT_TOKEN)
++# Permessi consigliati: chmod 600, chown tillo:tillo (contiene il BOT_TOKEN)
+ 
+ BOT_TOKEN="RECUPERA_DA_config/rig.env_SUL_TUO_PROGETTO_ISO"
+ RIG_MAC="AA:BB:CC:DD:EE:FF"
+ RIG_IP="192.168.1.100"
+ RIG_API_PORT="8080"
+ RIG_SSH_USER="tillo"
+-RIG_SSH_KEY="/home/pi/.ssh/ai_rig"          # chiave privata del bot, la .pub va in cache/ai-rig-bot.pub del progetto ISO
++RIG_SSH_KEY="/home/tillo/.ssh/ai_rig"          # chiave privata del bot, la .pub va in cache/ai-rig-bot.pub del progetto ISO
+ RIG_VERIFY_LOG="/var/log/ai-rig-verify.log"
+ 
+ # Chi puo' comandare il bot. ID numerico Telegram (consigliato, immutabile) — scrivi
+@@ -17,9 +17,12 @@
+ # Con 7 GPU il reboot caldo puo' bloccarsi sul logo MSI (reset PCIe incompleto
+ # dopo stress). Il cambio ruolo fa: poweroff -> attesa offline -> COLD_BOOT_WAIT
+ # secondi -> WOL ripetuto. Default gia' buoni: scommentare solo per cambiare.
+-#COLD_BOOT_WAIT="120"      # secondi di scarica/assestamento PCIe a rig spento
++#COLD_BOOT_WAIT="60"      # secondi di scarica/assestamento PCIe a rig spento
+ #OFFLINE_TIMEOUT="180"     # max attesa che il rig risulti davvero spento
+-#ONLINE_TIMEOUT="300"      # max attesa boot dopo il WOL
++#ONLINE_TIMEOUT="300"      # max attesa ping dopo il WOL
++#ROLE_TIMEOUT="420"          # max attesa conferma del ruolo via SSH
++#API_READY_TIMEOUT="900"     # max attesa API/modello dopo conferma ruolo
++#MAX_DESTRUCTIVE_COMMAND_AGE="180"  # ignora comandi vecchi dopo restart
+ #WOL_REPEAT="3"            # magic packet ripetuti (2s di distanza)
+ 
+ # Fase B (opzionale, sperimentale) — vedi README-netboot.md. Lascia false finche'
+diff -ruN a/rig-common-scripts/60-automem.sh b/rig-common-scripts/60-automem.sh
+--- a/rig-common-scripts/60-automem.sh	2026-07-07 10:16:26.000000000 +0000
++++ b/rig-common-scripts/60-automem.sh	2026-07-19 02:04:58.788349901 +0000
+@@ -1,41 +1,39 @@
+-#!/bin/bash
++#!/usr/bin/env bash
+ # =============================================================================
+-# AutoMem (FalkorDB + Qdrant + API Flask), dati sul 4° disco condiviso.
+-# Segue il flusso ufficiale documentato (git clone -> make install -> make dev),
+-# NON un docker-compose scritto da zero — piu' sicuro contro modifiche future
+-# del repo upstream.
++# AutoMem (FalkorDB + Qdrant + API), dati persistenti sul disco condiviso.
++# Installazione idempotente: make install solo quando cambiano gli input;
++# avvio normale con docker compose up -d (mai make dev / compose down al boot).
+ # =============================================================================
+-set -e
++set -Eeuo pipefail
+ exec >> /var/log/ai-rig-stage-automem.log 2>&1
+-echo "=== Stage AutoMem - $(date) ==="
++trap 'rc=$?; echo "!!! AutoMem fallito alla riga $LINENO (rc=$rc)" >&2' ERR
+ 
+-mkdir -p /var/lib/ai-rig
++echo "=== Stage AutoMem - $(date -Iseconds) ==="
++
++STATE_DIR="/var/lib/ai-rig"
++STAMP="$STATE_DIR/automem-install.sha256"
+ MOUNT_PATH="__SHARED_MOUNT_PATH__"
++MIN_ROOT_FREE_GIB="${AUTOMEM_MIN_ROOT_FREE_GIB:-25}"
++
++mkdir -p "$STATE_DIR"
+ 
+ if [ ! -d "$MOUNT_PATH" ] || ! mountpoint -q "$MOUNT_PATH"; then
+-    echo "!!! $MOUNT_PATH non montato (4° disco assente/non arrivato). Salto AutoMem." >&2
++    echo "!!! $MOUNT_PATH non montato. Salto AutoMem; ritentera' al prossimo boot." >&2
+     exit 0
+ fi
+-if ! command -v docker &> /dev/null; then
+-    echo "!!! docker non installato su questo ruolo. Salto." >&2
++if ! command -v docker >/dev/null 2>&1 || ! docker info >/dev/null 2>&1; then
++    echo "!!! Docker non disponibile. Salto AutoMem; ritentera' al prossimo boot." >&2
+     exit 0
+ fi
+ 
+ mkdir -p "${MOUNT_PATH}/automem/falkordb" "${MOUNT_PATH}/automem/qdrant"
+ 
+-if [ ! -d /opt/automem ]; then
++if [ ! -d /opt/automem/.git ]; then
++    rm -rf /opt/automem
+     git clone --depth 1 https://github.com/verygoodplugins/automem.git /opt/automem
+ fi
+ cd /opt/automem
+ 
+-# Ubuntu 24.04 ha python3.12 di default -> 'make install' lo trova da solo.
+-make install
+-
+-# Override dei volumi per puntare i dati sul disco condiviso invece che in un
+-# volume Docker anonimo (che sparirebbe cambiando ruolo). ATTENZIONE: i nomi
+-# servizio 'falkordb'/'qdrant' sono quelli documentati nell'architettura del
+-# progetto — se 'docker compose config --services' mostra nomi diversi dopo
+-# un aggiornamento upstream, aggiorna questo file di conseguenza.
+ cat > docker-compose.override.yml << EOFOVERRIDE
+ services:
+   falkordb:
+@@ -46,10 +44,48 @@
+       - ${MOUNT_PATH}/automem/qdrant:/qdrant/storage
+ EOFOVERRIDE
+ 
+-echo "Servizi definiti nel compose (verifica falkordb/qdrant siano tra questi):"
+-docker compose config --services || true
++SERVICES="$(docker compose config --services)"
++grep -qx 'falkordb' <<<"$SERVICES" || { echo "!!! servizio falkordb assente dal compose upstream" >&2; exit 1; }
++grep -qx 'qdrant' <<<"$SERVICES" || { echo "!!! servizio qdrant assente dal compose upstream" >&2; exit 1; }
++
++automem_hash() {
++    local -a files=()
++    while IFS= read -r -d '' f; do files+=("$f"); done < <(
++        find . -maxdepth 1 -type f \
++            \( -name 'Makefile' -o -name 'requirements*.txt' -o -name 'pyproject.toml' -o -name 'poetry.lock' \) \
++            -print0 | sort -z
++    )
++    [ "${#files[@]}" -gt 0 ] || { echo "nessun-input-install"; return; }
++    sha256sum "${files[@]}" | sha256sum | awk '{print $1}'
++}
++
++INSTALL_HASH="$(automem_hash)"
++NEEDS_INSTALL=1
++[ -s "$STAMP" ] && [ "$(cat "$STAMP")" = "$INSTALL_HASH" ] && NEEDS_INSTALL=0
++NEEDS_IMAGE=0
++[ -n "$(docker compose images -q 2>/dev/null | head -n1)" ] || NEEDS_IMAGE=1
++
++if [ "$NEEDS_INSTALL" -eq 1 ] || [ "$NEEDS_IMAGE" -eq 1 ]; then
++    FREE_KIB="$(df -Pk / | awk 'NR==2 {print $4}')"
++    MIN_KIB=$((MIN_ROOT_FREE_GIB * 1024 * 1024))
++    if [ "$FREE_KIB" -lt "$MIN_KIB" ]; then
++        echo "!!! Spazio root insufficiente per install/build AutoMem: servono almeno ${MIN_ROOT_FREE_GIB} GiB liberi." >&2
++        df -h /
++        exit 1
++    fi
++fi
++
++if [ "$NEEDS_INSTALL" -eq 1 ]; then
++    echo "Input AutoMem nuovi o primo avvio: eseguo make install una sola volta."
++    make install
++    printf '%s\n' "$INSTALL_HASH" > "$STAMP"
++else
++    echo "make install gia' completato per questi input: salto."
++fi
+ 
+-make dev
++echo "Avvio/riconcilio i container AutoMem in background..."
++docker compose up -d
++docker compose ps
+ 
+-echo "=== AutoMem avviato (dati su ${MOUNT_PATH}/automem) - $(date) ==="
+-echo "Verifica: curl http://localhost:8001/health"
++touch "$STATE_DIR/stage-automem-ready"
++echo "=== AutoMem pronto (dati su ${MOUNT_PATH}/automem) - $(date -Iseconds) ==="
+diff -ruN a/rig-common-scripts/90-verify.sh b/rig-common-scripts/90-verify.sh
+--- a/rig-common-scripts/90-verify.sh	2026-07-15 17:22:58.000000000 +0000
++++ b/rig-common-scripts/90-verify.sh	2026-07-19 02:04:58.789354397 +0000
+@@ -10,6 +10,11 @@
+     source "/etc/ai-rig/${ROLE}.env"
+ fi
+ PORT="${ROLE_LLAMA_PORT:-8080}"
++http_code() {
++    local code
++    code="$(curl -sS -o /dev/null -w '%{http_code}' "$1" 2>/dev/null || true)"
++    [ -n "$code" ] && echo "$code" || echo 000
++}
+ 
+ echo "Attendo le API (max 15 min)..." | tee -a "$REPORT"
+ for ((i=1; i<=180; i++)); do
+@@ -28,11 +33,11 @@
+ systemctl is-active --quiet "llama-server@${ROLE}.service" \
+     && echo "✅ ATTIVO" | tee -a "$REPORT" || echo "❌ NON ATTIVO" | tee -a "$REPORT"
+ 
+-HEALTH=$(curl -s -o /dev/null -w "%{http_code}" "http://localhost:${PORT}/health" 2>/dev/null || echo "000")
++HEALTH="$(http_code "http://localhost:${PORT}/health")"
+ echo "API Health: HTTP ${HEALTH}" | tee -a "$REPORT"
+ 
+ echo -e "\n--- Understory (memoria OKF condivisa) ---" | tee -a "$REPORT"
+-USTORY_HEALTH=$(curl -s -o /dev/null -w "%{http_code}" "http://127.0.0.1:3800/api/tree" 2>/dev/null || echo "000")
++USTORY_HEALTH="$(http_code "http://127.0.0.1:3800/api/tree")"
+ if [ "$USTORY_HEALTH" = "200" ]; then
+     echo "✅ Understory attivo (HTTP 200)" | tee -a "$REPORT"
+ else
+@@ -43,7 +48,7 @@
+ else
+     echo "⚠️ Bundle Understory/Git non trovato" | tee -a "$REPORT"
+ fi
+-LIBRARIAN_HEALTH=$(curl -s -o /dev/null -w "%{http_code}" "http://127.0.0.1:3810/health" 2>/dev/null || echo "000")
++LIBRARIAN_HEALTH="$(http_code "http://127.0.0.1:3810/health")"
+ if [ "$LIBRARIAN_HEALTH" = "200" ]; then
+     echo "✅ Librarian MCP attivo su 127.0.0.1:3810" | tee -a "$REPORT"
+ else
+@@ -89,6 +94,26 @@
+     echo "⚠️ smartctl/ai-rig-smart.sh non disponibili" | tee -a "$REPORT"
+ fi
+ 
++
++echo -e "\n--- Spazio dischi ---" | tee -a "$REPORT"
++df -hT / /mnt/ai-rig-shared 2>&1 | tee -a "$REPORT"
++ROOT_USE="$(df -P / | awk 'NR==2 {gsub(/%/, "", $5); print $5}')"
++if [ "${ROOT_USE:-0}" -ge 90 ]; then
++    echo "❌ Root critica: ${ROOT_USE}% usato" | tee -a "$REPORT"
++elif [ "${ROOT_USE:-0}" -ge 80 ]; then
++    echo "⚠️ Root alta: ${ROOT_USE}% usato" | tee -a "$REPORT"
++else
++    echo "✅ Spazio root nella norma: ${ROOT_USE}% usato" | tee -a "$REPORT"
++fi
++if mountpoint -q /mnt/ai-rig-shared; then
++    echo "✅ Disco condiviso montato" | tee -a "$REPORT"
++else
++    echo "❌ Disco condiviso NON montato" | tee -a "$REPORT"
++fi
++for path in /var/lib/containerd /var/lib/docker /opt/cache; do
++    [ -e "$path" ] && du -sh "$path" 2>/dev/null | tee -a "$REPORT" || true
++done
++
+ echo -e "\n--- RAM ---" | tee -a "$REPORT"
+ free -h | tee -a "$REPORT"
+ 
+diff -ruN a/rig-common-scripts/ai-rig-select-role.sh b/rig-common-scripts/ai-rig-select-role.sh
+--- a/rig-common-scripts/ai-rig-select-role.sh	2026-07-16 08:16:20.000000000 +0000
++++ b/rig-common-scripts/ai-rig-select-role.sh	2026-07-19 02:06:53.238131945 +0000
+@@ -1,100 +1,147 @@
+-#!/bin/bash
++#!/usr/bin/env bash
+ # =============================================================================
+-# ai-rig-select-role.sh — imposta il PROSSIMO ruolo di boot (devin|hermes|teacher)
+-# scrivendo nel grubenv del GRUB CENTRALE, poi opzionalmente spegne.
+-#
+-# PERCHE' NON basta `grub-reboot` e basta: il boot manager centrale e' il GRUB
+-# del disco DEVIN (grub-centralize.sh + grub-stable-entries.sh). `grub-reboot`
+-# scrive nel grubenv del sistema SU CUI GIRA: lanciato da HERMES o TEACHER
+-# scriverebbe il LORO grubenv, che il GRUB di devin non legge mai -> il cambio
+-# ruolo sembrava fatto ma al reboot tornava il ruolo di prima. Questo script:
+-#   - se gira su DEVIN: grub-reboot normale (il grubenv giusto e' locale);
+-#   - se gira su HERMES/TEACHER: monta la partizione /boot del disco DEVIN
+-#     (trovata per SERIALE da disks.env, mai /dev/sdX) e scrive next_entry la'.
+-#
+-# Uso (dal bot Pi via SSH, o a mano):
+-#   sudo ai-rig-select-role.sh hermes              # solo imposta il prossimo boot
+-#   sudo ai-rig-select-role.sh hermes --poweroff   # imposta + spegne (cold boot:
+-#                                                  # il Pi aspetta, poi manda WOL)
+-#
+-# Exit code: 0 = next_entry impostato e VERIFICATO; !=0 = niente e' cambiato.
+-# Il bot NON deve spegnere/accendere se questo script fallisce.
++# Imposta il prossimo ruolo nel grubenv centrale DEVIN e forza il prossimo
++# ingresso firmware sulla ESP DEVIN, localizzata dinamicamente per seriale e
++# PARTUUID. Nessun BootXXXX o /dev/sdX hardcoded.
+ # =============================================================================
+-set -euo pipefail
+-
+-TARGET="${1:?Uso: $0 <devin|hermes|teacher> [--poweroff]}"
+-case "$TARGET" in
+-    devin|hermes|teacher) ;;
+-    *) echo "!!! Ruolo sconosciuto: '$TARGET' (validi: devin hermes teacher)" >&2; exit 2 ;;
+-esac
++set -Eeuo pipefail
+ 
++usage() { echo "Uso: $0 <devin|hermes|teacher> [--poweroff]"; }
++TARGET="${1:-}"
++ACTION="${2:-}"
++case "$TARGET" in devin|hermes|teacher) ;; *) usage >&2; exit 2 ;; esac
++case "$ACTION" in ""|--poweroff) ;; *) usage >&2; exit 2 ;; esac
+ [ "$(id -u)" -eq 0 ] || { echo "!!! Serve root (sudo)." >&2; exit 3; }
++[ -d /sys/firmware/efi ] || { echo "!!! Sistema non avviato in UEFI." >&2; exit 3; }
++command -v efibootmgr >/dev/null 2>&1 || { echo "!!! efibootmgr assente." >&2; exit 3; }
++
++CURRENT="$(cat /etc/ai-rig/role 2>/dev/null || echo unknown)"
++CONFIG="/opt/cache/config/disks.env"
++[ -f "$CONFIG" ] || { echo "!!! $CONFIG mancante." >&2; exit 5; }
++# shellcheck disable=SC1090
++source "$CONFIG"
++[ -n "${DEVIN_DISK_SERIAL:-}" ] || { echo "!!! DEVIN_DISK_SERIAL assente." >&2; exit 5; }
++
++trim() { awk '{$1=$1; print}' <<<"${1:-}"; }
++disk_for_serial() {
++    local want="$1" dev serial
++    local -a matches=()
++    while read -r dev; do
++        serial="$(trim "$(lsblk -dno SERIAL "$dev" 2>/dev/null | head -n1)")"
++        [ "$serial" = "$want" ] && matches+=("$dev")
++    done < <(lsblk -dnpo NAME,TYPE | awk '$2=="disk"{print $1}')
++    [ "${#matches[@]}" -eq 1 ] || {
++        echo "!!! Disco DEVIN non univoco per seriale '$want': ${matches[*]:-nessuno}" >&2
++        return 1
++    }
++    echo "${matches[0]}"
++}
+ 
+-CURRENT=$(cat /etc/ai-rig/role 2>/dev/null || echo "unknown")
++entry_for_partuuid() {
++    local want="${1,,}" line
++    while IFS= read -r line; do
++        if [[ "${line,,}" == *"$want"* ]] && [[ "$line" =~ ^Boot([0-9A-Fa-f]{4}) ]]; then
++            printf '%s\n' "${BASH_REMATCH[1]^^}"
++            return 0
++        fi
++    done < <(efibootmgr -v 2>/dev/null)
++    return 1
++}
++
++DEVIN_DISK="$(disk_for_serial "$DEVIN_DISK_SERIAL")"
++ESP_GUID="c12a7328-f81f-11d2-ba4b-00a0c93ec93b"
++DEVIN_ESP=""
++while read -r part ptype; do
++    if [ "${ptype,,}" = "$ESP_GUID" ]; then DEVIN_ESP="$part"; break; fi
++done < <(lsblk -lnpo NAME,PARTTYPE "$DEVIN_DISK")
++[ -b "$DEVIN_ESP" ] || { echo "!!! ESP DEVIN non trovata su $DEVIN_DISK." >&2; exit 6; }
++DEVIN_ESP_PARTUUID="$(blkid -s PARTUUID -o value "$DEVIN_ESP" 2>/dev/null || true)"
++[ -n "$DEVIN_ESP_PARTUUID" ] || { echo "!!! PARTUUID ESP DEVIN assente." >&2; exit 6; }
++DEVIN_BOOT="$(entry_for_partuuid "$DEVIN_ESP_PARTUUID" || true)"
++[ -n "$DEVIN_BOOT" ] || { echo "!!! Entry EFI DEVIN non trovata per PARTUUID $DEVIN_ESP_PARTUUID." >&2; exit 6; }
++
++ENVFILE=""
++MNT="/run/ai-rig-devin-boot"
++AUTO_MOUNTED=0
++cleanup() {
++    if [ "$AUTO_MOUNTED" -eq 1 ]; then umount "$MNT" 2>/dev/null || true; fi
++}
++trap cleanup EXIT
+ 
+ verify_next_entry() {
+-    # $1 = comando grub-editenv "list" gia' formattato (file opzionale)
+-    local envfile="${1:-}"
+     local out
+-    if [ -n "$envfile" ]; then
+-        out=$(grub-editenv "$envfile" list 2>/dev/null || true)
+-    else
+-        out=$(grub-editenv list 2>/dev/null || true)
+-    fi
+-    echo "$out" | grep -q "^next_entry=${TARGET}$"
++    if [ -n "$ENVFILE" ]; then out="$(grub-editenv "$ENVFILE" list 2>/dev/null || true)"
++    else out="$(grub-editenv list 2>/dev/null || true)"; fi
++    grep -q "^next_entry=${TARGET}$" <<<"$out"
++}
++unset_next_entry() {
++    if [ -n "$ENVFILE" ]; then grub-editenv "$ENVFILE" unset next_entry 2>/dev/null || true
++    else grub-editenv unset next_entry 2>/dev/null || true; fi
+ }
+ 
+-if [ "$CURRENT" = "devin" ]; then
+-    # Il grubenv centrale e' il nostro /boot/grub/grubenv
++if [ "$CURRENT" = devin ]; then
+     grub-reboot "$TARGET"
+-    if ! verify_next_entry; then
+-        echo "!!! grub-reboot eseguito ma next_entry=$TARGET NON risulta in grub-editenv list." >&2
+-        exit 4
+-    fi
+-    echo "OK: prossimo boot -> $TARGET (grubenv locale di devin)"
+ else
+-    # Siamo su hermes/teacher: dobbiamo scrivere il grubenv del disco DEVIN.
+-    source /opt/cache/config/disks.env 2>/dev/null || {
+-        echo "!!! /opt/cache/config/disks.env mancante: non posso trovare il disco devin." >&2
+-        exit 5
+-    }
+-    disk=$(lsblk -dno NAME,SERIAL | awk -v s="$DEVIN_DISK_SERIAL" '$2==s {print $1}' | head -n1)
+-    [ -n "$disk" ] || { echo "!!! Disco devin (serial $DEVIN_DISK_SERIAL) non trovato." >&2; exit 5; }
+-
+-    # NIENTE indici di partizione fissi (il layout e' cambiato almeno una
+-    # volta: ora 1=bios_grub, 2=esp, 3=/boot, 4=root — vedi fix 2026-07-16).
+-    # Si risolve per CONTENUTO, come grub-stable-entries.sh: la /boot di
+-    # devin e' la ext4 che contiene grub/grubenv alla radice.
+-    MNT="/run/ai-rig-devin-boot"
+     mkdir -p "$MNT"
+-    cleanup() { umount "$MNT" 2>/dev/null || true; }
+-    trap cleanup EXIT
+-
+-    GRUBENV=""
+-    for part in $(lsblk -lno NAME,TYPE,FSTYPE "/dev/${disk}" | awk '$2=="part" && $3=="ext4" {print $1}'); do
+-        mount "/dev/${part}" "$MNT" 2>/dev/null || continue
+-        if [ -f "${MNT}/grub/grubenv" ]; then
+-            GRUBENV="${MNT}/grub/grubenv"
+-            break
+-        fi
++    while read -r part fstype; do
++        [ "$fstype" = ext4 ] || continue
++        mount "$part" "$MNT" 2>/dev/null || continue
++        AUTO_MOUNTED=1
++        if [ -f "$MNT/grub/grubenv" ]; then ENVFILE="$MNT/grub/grubenv"; break; fi
+         umount "$MNT"
+-    done
+-    [ -n "$GRUBENV" ] || { echo "!!! Nessuna partizione del disco devin contiene grub/grubenv (grub-stable-entries.sh mai eseguito su devin?)." >&2; exit 6; }
++        AUTO_MOUNTED=0
++    done < <(lsblk -lnpo NAME,FSTYPE "$DEVIN_DISK")
++    [ -n "$ENVFILE" ] || { echo "!!! grubenv centrale DEVIN non trovato." >&2; exit 6; }
++    grub-editenv "$ENVFILE" set next_entry="$TARGET"
++fi
+ 
+-    grub-editenv "$GRUBENV" set next_entry="$TARGET"
+-    if ! verify_next_entry "$GRUBENV"; then
+-        echo "!!! Scrittura next_entry=$TARGET nel grubenv di devin NON verificata." >&2
+-        exit 4
++verify_next_entry || { unset_next_entry; echo "!!! next_entry=$TARGET non verificata." >&2; exit 4; }
++
++# Mantiene DEVIN primo anche se il firmware ha riordinato le entry.
++BOOT_ORDER="$(efibootmgr | awk '/^BootOrder:/{print toupper($2); exit}')"
++NEW_ORDER="$DEVIN_BOOT"
++IFS=',' read -ra ENTRIES <<<"$BOOT_ORDER"
++for entry in "${ENTRIES[@]}"; do
++    entry="${entry^^}"
++    [ -n "$entry" ] || continue
++    [ "$entry" = "$DEVIN_BOOT" ] && continue
++    NEW_ORDER+=",$entry"
++done
++if [ "${BOOT_ORDER%%,*}" != "$DEVIN_BOOT" ]; then
++    if ! efibootmgr --bootorder "$NEW_ORDER"; then
++        unset_next_entry
++        echo "!!! Impossibile mettere DEVIN primo nel BootOrder." >&2
++        exit 7
+     fi
+-    sync
+-    umount "$MNT"
+-    trap - EXIT
+-    echo "OK: prossimo boot -> $TARGET (grubenv del disco devin, scritto da $CURRENT)"
++fi
++VERIFIED_ORDER="$(efibootmgr | awk '/^BootOrder:/{print toupper($2); exit}')"
++if [ "${VERIFIED_ORDER%%,*}" != "$DEVIN_BOOT" ]; then
++    unset_next_entry
++    echo "!!! BootOrder non verificato: $VERIFIED_ORDER" >&2
++    exit 7
++fi
++
++if ! efibootmgr --bootnext "$DEVIN_BOOT"; then
++    unset_next_entry
++    echo "!!! Impostazione BootNext DEVIN fallita." >&2
++    exit 8
++fi
++ACTUAL_NEXT="$(efibootmgr | awk '/^BootNext:/{print toupper($2); exit}')"
++if [ "$ACTUAL_NEXT" != "$DEVIN_BOOT" ]; then
++    unset_next_entry
++    echo "!!! BootNext non verificato: richiesto $DEVIN_BOOT, letto ${ACTUAL_NEXT:-vuoto}." >&2
++    exit 8
+ fi
+ 
+-if [ "${2:-}" = "--poweroff" ]; then
+-    echo "Spegnimento tra 2s (cold boot: riaccensione via WOL dal Pi)..."
+-    # systemd-run: il poweroff parte DOPO che questo script (e la sessione SSH
+-    # del bot) hanno fatto in tempo a chiudersi con exit code pulito.
+-    systemd-run --on-active=2s /usr/bin/systemctl poweroff >/dev/null 2>&1 || systemctl poweroff
++sync
++cleanup
++AUTO_MOUNTED=0
++trap - EXIT
++printf 'OK: prossimo ruolo=%s; BootNext=Boot%s (ESP DEVIN %s); BootOrder=%s\n' \
++    "$TARGET" "$DEVIN_BOOT" "$DEVIN_ESP_PARTUUID" "$VERIFIED_ORDER"
++
++if [ "$ACTION" = --poweroff ]; then
++    echo "Spegnimento tra 2s; il Pi attendera' il periodo OFF prima del WOL."
++    systemd-run --on-active=2s /usr/bin/systemctl poweroff >/dev/null 2>&1 \
++        || systemctl poweroff
+ fi
+diff -ruN a/rig-common-scripts/populate-cache.sh b/rig-common-scripts/populate-cache.sh
+--- a/rig-common-scripts/populate-cache.sh	2026-07-18 04:39:55.000000000 +0000
++++ b/rig-common-scripts/populate-cache.sh	2026-07-19 02:06:53.236652771 +0000
+@@ -14,6 +14,7 @@
+ REBOOT=1
+ STATE_DIR="/var/lib/ai-rig"
+ BUILD_ID_FILE="/etc/ai-rig/build-id"
++SHARED_MOUNT_PATH="__SHARED_MOUNT_PATH__"
+ 
+ usage() {
+     echo "Uso: sudo populate-cache.sh [--no-reboot] [/percorso/cache]"
+@@ -136,7 +137,29 @@
+ copy_item "$SRC/models/$ROLE" /opt/cache/models/ role
+ 
+ if [ "$ROLE" = "hermes" ] && [ -d "$SRC/comfyui-models" ]; then
+-    copy_item "$SRC/comfyui-models" /opt/cache/ hermes
++    mountpoint -q "$SHARED_MOUNT_PATH" \
++        || die "disco condiviso non montato: $SHARED_MOUNT_PATH"
++
++    SHARED_COMFY="$SHARED_MOUNT_PATH/comfyui-models"
++    mkdir -p "$SHARED_COMFY"
++    echo "  [hermes] comfyui-models -> $SHARED_COMFY"
++    rsync "${RSYNC_OPTS[@]}" \
++        "$SRC/comfyui-models/" \
++        "$SHARED_COMFY/"
++
++    # Verifica metadati/dimensioni senza rileggere tutti i 31 GB con checksum.
++    VERIFY_LIST="$(mktemp)"
++    if ! rsync -aHn --delete --itemize-changes \
++        "$SRC/comfyui-models/" "$SHARED_COMFY/" > "$VERIFY_LIST"; then
++        rm -f "$VERIFY_LIST"
++        die "errore durante la verifica ComfyUI"
++    fi
++    if [ -s "$VERIFY_LIST" ]; then
++        sed -n '1,20p' "$VERIFY_LIST" >&2
++        rm -f "$VERIFY_LIST"
++        die "verifica ComfyUI fallita: sorgente e disco condiviso differiscono"
++    fi
++    rm -f "$VERIFY_LIST"
+ fi
+ 
+ # Verifica destinazione prima di abilitare alcun servizio.
+diff -ruN a/rig-common-systemd/ai-rig-first-boot.service b/rig-common-systemd/ai-rig-first-boot.service
+--- a/rig-common-systemd/ai-rig-first-boot.service	2026-07-17 23:17:22.000000000 +0000
++++ b/rig-common-systemd/ai-rig-first-boot.service	2026-07-19 02:04:58.787990143 +0000
+@@ -1,7 +1,7 @@
+ [Unit]
+ Description=AI Rig - First-boot autopopulate
+-After=ai-rig-stage-network.service local-fs.target
+-Wants=ai-rig-stage-network.service
++After=ai-rig-stage-network.service ai-rig-stage-shareddisk.service local-fs.target
++Wants=ai-rig-stage-network.service ai-rig-stage-shareddisk.service
+ ConditionPathExists=!/var/lib/ai-rig/populate-cache-done
+ 
+ [Service]
+diff -ruN a/rig-common-systemd/ai-rig-stage-automem.service b/rig-common-systemd/ai-rig-stage-automem.service
+--- a/rig-common-systemd/ai-rig-stage-automem.service	2026-07-07 10:16:51.000000000 +0000
++++ b/rig-common-systemd/ai-rig-stage-automem.service	2026-07-19 02:04:58.788527279 +0000
+@@ -1,12 +1,14 @@
+ [Unit]
+ Description=AI Rig - AutoMem (shared memory across roles)
+-After=ai-rig-stage-shareddisk.service docker.service
+-Requires=ai-rig-stage-shareddisk.service
+-Wants=docker.service
++After=ai-rig-stage-shareddisk.service docker.service network-online.target
++Requires=ai-rig-stage-shareddisk.service docker.service
++Wants=network-online.target
++
+ [Service]
+ Type=oneshot
+ ExecStart=/usr/local/bin/60-automem.sh
+ RemainAfterExit=yes
+-TimeoutStartSec=600
++TimeoutStartSec=3600
++
+ [Install]
+ WantedBy=multi-user.target
+diff -ruN a/rig-roles/teacher/scripts/teacher-bot.py b/rig-roles/teacher/scripts/teacher-bot.py
+--- a/rig-roles/teacher/scripts/teacher-bot.py	2026-07-10 15:27:21.000000000 +0000
++++ b/rig-roles/teacher/scripts/teacher-bot.py	2026-07-19 02:06:53.238676780 +0000
+@@ -69,6 +69,7 @@
+ WATCHDOG_FAIL_THRESHOLD = int(CFG.get("WATCHDOG_FAIL_THRESHOLD", "3"))
+ ASK_TIMEOUT_SECONDS = int(CFG.get("ASK_TIMEOUT_SECONDS", "300"))  # modello Thinking: lento
+ HEALTH_TIMEOUT_SECONDS = int(CFG.get("HEALTH_TIMEOUT_SECONDS", "8"))
++WATCHDOG_STARTUP_GRACE_SECONDS = int(CFG.get("WATCHDOG_STARTUP_GRACE_SECONDS", "900"))
+ 
+ _handlers = [logging.StreamHandler()]
+ try:
+@@ -100,17 +101,41 @@
+     "notified_down": False,   # ho gia' avvisato per la caduta in corso?
+     "watch_enabled": True,
+     "last_periodic_check": 0,
++    "boot_id": "",
+ }
+ 
+ 
++def current_boot_id() -> str:
++    try:
++        return Path("/proc/sys/kernel/random/boot_id").read_text().strip()
++    except Exception:
++        return "unknown"
++
++
++def system_uptime_seconds() -> float:
++    try:
++        return float(Path("/proc/uptime").read_text().split()[0])
++    except Exception:
++        return WATCHDOG_STARTUP_GRACE_SECONDS
++
++
+ def load_state() -> dict:
+     try:
+         data = json.loads(STATE_FILE.read_text())
+         merged = dict(_DEFAULT_STATE)
+         merged.update(data)
+-        return merged
+     except Exception:
+-        return dict(_DEFAULT_STATE)
++        merged = dict(_DEFAULT_STATE)
++    boot_id = current_boot_id()
++    if merged.get("boot_id") != boot_id:
++        merged.update({
++            "boot_id": boot_id,
++            "last_healthy": None,
++            "consecutive_fail": 0,
++            "notified_down": False,
++            "last_periodic_check": 0,
++        })
++    return merged
+ 
+ 
+ def save_state(state: dict) -> None:
+@@ -257,6 +282,9 @@
+     if role != "teacher":
+         lines.append("⚠️ Il rig NON è in ruolo teacher: ForgeStudio non troverà l'insegnante.")
+     lines.append(f"Watchdog: {'attivo' if state.get('watch_enabled') else 'disattivato'}")
++    remaining = max(0, WATCHDOG_STARTUP_GRACE_SECONDS - int(system_uptime_seconds()))
++    if remaining:
++        lines.append(f"Grace avvio watchdog: ancora ~{remaining}s")
+     return "\n".join(lines)
+ 
+ 
+@@ -311,6 +339,14 @@
+ def run_watchdog(state: dict) -> None:
+     if not state.get("watch_enabled", True):
+         return
++    uptime = system_uptime_seconds()
++    if uptime < WATCHDOG_STARTUP_GRACE_SECONDS:
++        state["consecutive_fail"] = 0
++        state["notified_down"] = False
++        logger.debug(
++            "Watchdog in grace di avvio: %.0fs/%ss",
++            uptime, WATCHDOG_STARTUP_GRACE_SECONDS)
++        return
+     healthy = health_check()
+ 
+     if healthy:
+diff -ruN a/scripts/05-generate-nocloud.sh b/scripts/05-generate-nocloud.sh
+--- a/scripts/05-generate-nocloud.sh	2026-07-17 23:35:42.000000000 +0000
++++ b/scripts/05-generate-nocloud.sh	2026-07-19 02:04:58.787535396 +0000
+@@ -88,9 +88,12 @@
+         sed \
+             -e "s|__ROLE_LLAMA_PORT__|${port}|g" \
+             -e "s|__ROLE_CTX_SIZE__|${ctx}|g" \
++            -e "s|__SHARED_MOUNT_PATH__|$(_sedq "${SHARED_MOUNT_PATH}")|g" \
+             templates/hermes-extras.sh.tmpl > "${out_dir}/40-hermes-extras.sh"
+         chmod +x "${out_dir}/40-hermes-extras.sh"
+-        cp templates/ai-rig-hermes-extras.service.tmpl "${systemd_dir}/ai-rig-hermes-extras.service"
++        sed \
++            -e "s|__SHARED_MOUNT_PATH__|$(_sedq "${SHARED_MOUNT_PATH}")|g" \
++            templates/ai-rig-hermes-extras.service.tmpl > "${systemd_dir}/ai-rig-hermes-extras.service"
+     fi
+ }
+ 
+@@ -304,7 +307,7 @@
+       chown -R ${DEFAULT_USERNAME}:${DEFAULT_USERNAME} /home/${DEFAULT_USERNAME}/.ssh'
+     - >-
+       curtin in-target --target=/target -- bash -c '
+-      printf "%s\n" "${DEFAULT_USERNAME} ALL=(root) NOPASSWD: /usr/local/bin/ai-rig-select-role.sh *, /usr/bin/systemctl poweroff, /usr/bin/systemctl reboot, /usr/sbin/grub-reboot *" > /etc/sudoers.d/ai-rig-bot;
++      printf "%s\n" "${DEFAULT_USERNAME} ALL=(root) NOPASSWD: /usr/local/bin/ai-rig-select-role.sh *, /usr/local/bin/90-verify.sh, /usr/bin/systemctl poweroff, /usr/bin/systemctl reboot, /usr/sbin/grub-reboot *" > /etc/sudoers.d/ai-rig-bot;
+       chmod 0440 /etc/sudoers.d/ai-rig-bot;
+       visudo -cf /etc/sudoers.d/ai-rig-bot || rm -f /etc/sudoers.d/ai-rig-bot'
+     - curtin in-target --target=/target -- systemctl daemon-reload
+diff -ruN a/templates/ai-rig-hermes-extras.service.tmpl b/templates/ai-rig-hermes-extras.service.tmpl
+--- a/templates/ai-rig-hermes-extras.service.tmpl	2026-07-13 20:24:49.000000000 +0000
++++ b/templates/ai-rig-hermes-extras.service.tmpl	2026-07-19 02:04:58.788157225 +0000
+@@ -1,16 +1,20 @@
+ [Unit]
+ Description=AI Rig - Hermes extras (Hermes-Agent + ComfyUI)
+-After=ai-rig-stage-role.service ai-rig-librarian.service
+-Wants=ai-rig-librarian.service
+-Requires=ai-rig-stage-role.service
++After=ai-rig-stage-role.service ai-rig-stage-shareddisk.service ai-rig-librarian.service docker.service network-online.target
++Wants=ai-rig-librarian.service network-online.target
++Requires=ai-rig-stage-role.service ai-rig-stage-shareddisk.service docker.service
++RequiresMountsFor=__SHARED_MOUNT_PATH__
+ ConditionPathExists=/var/lib/ai-rig/stage-role-done
+ ConditionPathExists=!/var/lib/ai-rig/stage-hermes-extras-done
++StartLimitIntervalSec=0
+ 
+ [Service]
+ Type=oneshot
+ ExecStart=/usr/local/bin/40-hermes-extras.sh
+ RemainAfterExit=yes
+-TimeoutStartSec=1800
++TimeoutStartSec=3600
++Restart=on-failure
++RestartSec=60
+ 
+ [Install]
+ WantedBy=multi-user.target
+diff -ruN a/templates/hermes-extras.sh.tmpl b/templates/hermes-extras.sh.tmpl
+--- a/templates/hermes-extras.sh.tmpl	2026-07-13 20:24:49.000000000 +0000
++++ b/templates/hermes-extras.sh.tmpl	2026-07-19 02:04:58.787056128 +0000
+@@ -2,14 +2,15 @@
+ # =============================================================================
+ # Solo per il ruolo HERMES. Installa Hermes-Agent (installer ufficiale), lo punta
+ # al llama-server locale, gli collega AutoMem via MCP, e installa ComfyUI per la
+-# generazione immagini (checkpoint da /opt/cache/comfyui-models/, tu li scarichi
++# generazione immagini (checkpoint dal disco condiviso, popolati dalla cache 4 TB
+ # prima di buildare la ISO). Verificato contro la documentazione ufficiale
+ # Hermes-Agent (installer, mcp_servers, model/context_length) — l'UNICA parte
+ # non garantita al 100% e' la selezione automatica del "custom provider" locale:
+ # lo script prova, poi si AUTO-VERIFICA con una chiamata di test e ti avvisa
+ # chiaramente nei log se serve un `hermes setup` manuale una tantum.
+ # =============================================================================
+-set -e
++set -Eeuo pipefail
++trap 'rc=$?; echo "!!! Hermes extras fallito alla riga $LINENO (rc=$rc)" >&2' ERR
+ exec >> /var/log/ai-rig-hermes-extras.log 2>&1
+ echo "=== Hermes extras (Hermes-Agent + AutoMem + ComfyUI) - $(date) ==="
+ 
+@@ -23,6 +24,15 @@
+ CTX_SIZE="__ROLE_CTX_SIZE__"
+ HOME_DIR="/home/tillo"
+ SEARXNG_PORT=8081   # NON 8080: e' gia' occupato dal llama-server su questo stesso ruolo
++SHARED_MOUNT_PATH="__SHARED_MOUNT_PATH__"
++SHARED_COMFY_MODELS="$SHARED_MOUNT_PATH/comfyui-models"
++SHARED_COMFY_OUTPUT="$SHARED_MOUNT_PATH/comfyui-output"
++
++mountpoint -q "$SHARED_MOUNT_PATH" || {
++    echo "!!! Disco condiviso non montato: $SHARED_MOUNT_PATH" >&2
++    exit 1
++}
++mkdir -p "$SHARED_COMFY_MODELS" "$SHARED_COMFY_OUTPUT"
+ 
+ # --- SearXNG (ricerca web privata, self-hosted) ---
+ mkdir -p /opt/searxng
+@@ -112,10 +122,13 @@
+ 
+ # --- ComfyUI (comfy-cli, metodo ufficiale) ---
+ if [ ! -d /opt/comfyui ]; then
+-    pip install --break-system-packages comfy-cli || echo "!!! pip install comfy-cli fallito" >&2
+-    comfy --workspace /opt/comfyui install --nvidia --version latest \
+-        || echo "!!! comfy-cli install fallito, verifica manualmente (versione/flag potrebbero essere cambiati)" >&2
++    pip install --break-system-packages comfy-cli
++    comfy --workspace /opt/comfyui install --nvidia --version latest
+ fi
++[ -d /opt/comfyui ] || {
++    echo "!!! Installazione ComfyUI incompleta: /opt/comfyui assente" >&2
++    exit 1
++}
+ 
+ # Custom node necessario per caricare Flux in formato GGUF (city96/ComfyUI-GGUF)
+ if [ ! -d /opt/comfyui/custom_nodes/ComfyUI-GGUF ]; then
+@@ -124,22 +137,30 @@
+         || pip install --break-system-packages gguf
+ fi
+ 
+-# Collega i checkpoint dalla cache alle sottocartelle GIUSTE di ComfyUI — Flux non e'
+-# un checkpoint singolo come SDXL/Pony: unet+clip+vae vanno in cartelle separate,
+-# altrimenti ComfyUI non li trova.
++# Collega i checkpoint dal disco condiviso alle sottocartelle GIUSTE di ComfyUI.
++# Flux non e' un checkpoint singolo: unet+clip+vae vanno in cartelle separate.
+ mkdir -p /opt/comfyui/models/checkpoints /opt/comfyui/models/unet /opt/comfyui/models/clip /opt/comfyui/models/vae
+-if [ -d /opt/cache/comfyui-models ]; then
++if [ -d "$SHARED_COMFY_MODELS" ]; then
+     for sub in checkpoints unet clip vae; do
+-        [ -d "/opt/cache/comfyui-models/$sub" ] || continue
+-        for f in "/opt/cache/comfyui-models/$sub"/*; do
+-            [ -e "$f" ] || continue
+-            ln -sf "$f" "/opt/comfyui/models/$sub/$(basename "$f")"
++        [ -d "$SHARED_COMFY_MODELS/$sub" ] || continue
++        for f in "$SHARED_COMFY_MODELS/$sub"/*; do
++            [ -f "$f" ] || continue
++            ln -sfn "$f" "/opt/comfyui/models/$sub/$(basename "$f")"
+         done
+     done
+     echo "Checkpoint collegati: $(find /opt/comfyui/models/{checkpoints,unet,clip,vae} -type l 2>/dev/null | wc -l)"
+ else
+-    echo "⚠️  /opt/cache/comfyui-models/ vuota — metti li' Flux/SDXL/Pony prima del build ISO." >&2
++    echo "⚠️  $SHARED_COMFY_MODELS vuota — controlla la cache 4 TB e populate-cache.sh." >&2
+ fi
+ 
++# Anche gli output possono crescere molto: li manteniamo sul disco condiviso.
++if [ -d /opt/comfyui/output ] && [ ! -L /opt/comfyui/output ]; then
++    rsync -a /opt/comfyui/output/ "$SHARED_COMFY_OUTPUT/"
++    rm -rf /opt/comfyui/output
++elif [ -L /opt/comfyui/output ]; then
++    rm -f /opt/comfyui/output
++fi
++ln -s "$SHARED_COMFY_OUTPUT" /opt/comfyui/output
++
+ touch /var/lib/ai-rig/stage-hermes-extras-done
+ echo "=== Hermes extras completato - $(date) ==="
+diff -ruN a/templates/llama-server@.service.tmpl b/templates/llama-server@.service.tmpl
+--- a/templates/llama-server@.service.tmpl	2026-07-06 11:38:03.000000000 +0000
++++ b/templates/llama-server@.service.tmpl	2026-07-19 02:04:58.788945477 +0000
+@@ -2,6 +2,8 @@
+ Description=AI Rig - llama-server (%i)
+ After=network-online.target nvidia-persistenced.service ai-rig-stage-llama.target
+ Wants=network-online.target nvidia-persistenced.service
++StartLimitIntervalSec=60
++StartLimitBurst=3
+ 
+ [Service]
+ Type=simple
+@@ -13,8 +15,6 @@
+ ExecStart=/usr/local/bin/start-llama-%i.sh
+ Restart=always
+ RestartSec=10
+-StartLimitIntervalSec=60
+-StartLimitBurst=3
+ TimeoutStartSec=300
+ StandardOutput=append:/var/log/llama-server-%i.log
+ StandardError=append:/var/log/llama-server-%i.log

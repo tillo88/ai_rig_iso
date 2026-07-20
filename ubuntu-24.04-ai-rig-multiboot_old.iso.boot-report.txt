@@ -1,0 +1,21 @@
+xorriso 1.5.6 : RockRidge filesystem manipulator, libburnia project.
+
+xorriso : NOTE : Loading ISO image tree from LBA 0
+xorriso : UPDATE :    1209 nodes read in 1 seconds
+libisofs: NOTE : Found hidden El-Torito image for EFI.
+libisofs: NOTE : EFI image start and size: 1660599 * 2048 , 10160 * 512
+xorriso : NOTE : Detected El-Torito boot information which currently is set to be discarded
+Drive current: -indev '/home/tillo/ai-rig-iso-build/ubuntu-24.04-ai-rig-multiboot.iso'
+Media current: stdio file, overwriteable
+Media status : is written , is appendable
+Boot record  : El Torito , MBR protective-msdos-label grub2-mbr cyl-align-off GPT
+Media summary: 1 session, 1663305 data blocks, 3249m data,  776g free
+Volume id    : 'Ubuntu 24.04 AI Rig'
+El Torito catalog  : 1102  1
+El Torito cat path : /boot.catalog
+El Torito images   :   N  Pltf  B   Emul  Ld_seg  Hdpt  Ldsiz         LBA
+El Torito boot img :   1  BIOS  y   none  0x0000  0x00      4        1103
+El Torito boot img :   2  UEFI  y   none  0x0000  0x00  10160     1660599
+El Torito img path :   1  /boot/grub/i386-pc/eltorito.img
+El Torito img opts :   1  boot-info-table grub2-boot-info
+El Torito img blks :   2  2540

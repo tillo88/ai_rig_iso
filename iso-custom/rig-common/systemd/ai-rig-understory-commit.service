@@ -1,0 +1,7 @@
+[Unit]
+Description=AI Rig - commit shared Understory memory when quiescent
+After=ai-rig-stage-shareddisk.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/66-understory-commit.sh

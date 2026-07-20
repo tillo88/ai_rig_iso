@@ -1,0 +1,17 @@
+AI Rig Flow Fix Pack — validazione finale
+Data UTC: 2026-07-18T01:40:34Z
+
+Esito: OK
+- Sintassi Bash: 14 script verificati con bash -n
+- YAML: nocloud/auto/user-data originale e rendering DEVIN verificati con PyYAML
+- File richiesti da APPLICA-PATCH.sh: presenti
+- Template e artefatti generati: coerenti
+- Wipe anticipato nel selettore AUTO: assente
+- Marker populate-cache: scritto dopo copia/abilitazione
+- BootNext: impostato e verificato
+- Finalize globale: vincolato a DEVIN
+- GRUB: entry stabili, default DEVIN e BootOrder DEVIN verificati dagli script
+- llama-server: smoke test prima del marker stage-cuda-llama-done
+- Terminatori di riga: Unix/LF
+
+Nota: i test hardware reali (firmware UEFI, efibootmgr, GPU e dischi fisici) richiedono il rig.

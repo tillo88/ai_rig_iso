@@ -1,0 +1,99 @@
+Cloud-init v. 25.2-0ubuntu1~24.04.1 running 'init-local' at Fri, 17 Jul 2026 12:45:17 +0000. Up 16.09 seconds.
+Cloud-init v. 25.2-0ubuntu1~24.04.1 running 'init' at Fri, 17 Jul 2026 12:45:18 +0000. Up 17.38 seconds.
+ci-info: +++++++++++++++++++++++++++Net device info++++++++++++++++++++++++++++
+ci-info: +--------+-------+-----------+-----------+-------+-------------------+
+ci-info: | Device |   Up  |  Address  |    Mask   | Scope |     Hw-Address    |
+ci-info: +--------+-------+-----------+-----------+-------+-------------------+
+ci-info: |  eno1  | False |     .     |     .     |   .   | 2c:f0:5d:56:08:bc |
+ci-info: |   lo   |  True | 127.0.0.1 | 255.0.0.0 |  host |         .         |
+ci-info: |   lo   |  True |  ::1/128  |     .     |  host |         .         |
+ci-info: +--------+-------+-----------+-----------+-------+-------------------+
+ci-info: +++++++++++++++++++Route IPv6 info+++++++++++++++++++
+ci-info: +-------+-------------+---------+-----------+-------+
+ci-info: | Route | Destination | Gateway | Interface | Flags |
+ci-info: +-------+-------------+---------+-----------+-------+
+ci-info: +-------+-------------+---------+-----------+-------+
+Generating public/private rsa key pair.
+Your identification has been saved in /etc/ssh/ssh_host_rsa_key
+Your public key has been saved in /etc/ssh/ssh_host_rsa_key.pub
+The key fingerprint is:
+SHA256:/SdTj/K7wfY97p9CUWge63fJ7x3eChVQpaal4xjYxTU root@tilloGPT-hermes
+The key's randomart image is:
++---[RSA 3072]----+
+|            ..E..|
+|           . * + |
+|            = O  |
+|         + . O . |
+|        S + = = .|
+|           = B *.|
+|          . O B.+|
+|             X.+B|
+|              OXX|
++----[SHA256]-----+
+Generating public/private ecdsa key pair.
+Your identification has been saved in /etc/ssh/ssh_host_ecdsa_key
+Your public key has been saved in /etc/ssh/ssh_host_ecdsa_key.pub
+The key fingerprint is:
+SHA256:Q4jagt4lgY3TE09CU+v9FH0g2O0r+1BSKKrvzJRc1RE root@tilloGPT-hermes
+The key's randomart image is:
++---[ECDSA 256]---+
+|  .=.o  o..E.    |
+|  = *..o .=.o    |
+| + =.o...+.+ .   |
+| ..o+ o.o o..    |
+|. o..+ oSo ..    |
+|. ..= o ooo.     |
+| . o +   oo      |
+|    =    ..      |
+|    .=    ..     |
++----[SHA256]-----+
+Generating public/private ed25519 key pair.
+Your identification has been saved in /etc/ssh/ssh_host_ed25519_key
+Your public key has been saved in /etc/ssh/ssh_host_ed25519_key.pub
+The key fingerprint is:
+SHA256:5QqeCcA45lgKs45kCxlTaQuQK4Oqr+MsD0fDAyEyFHQ root@tilloGPT-hermes
+The key's randomart image is:
++--[ED25519 256]--+
+|X=oE             |
+|=*+              |
+|X=+.      .      |
+|X%..     o       |
+|O== . . S .      |
+|B..o o + .       |
+|+o.   + .        |
+|=o               |
+|+Bo              |
++----[SHA256]-----+
+Cloud-init v. 25.2-0ubuntu1~24.04.1 running 'modules:config' at Fri, 17 Jul 2026 12:45:20 +0000. Up 19.27 seconds.
+Generating locales (this might take a while)...
+  it_IT.UTF-8... done
+Generation complete.
+Cloud-init v. 25.2-0ubuntu1~24.04.1 running 'init-local' at Fri, 17 Jul 2026 12:46:49 +0000. Up 15.84 seconds.
+Cloud-init v. 25.2-0ubuntu1~24.04.1 running 'init' at Fri, 17 Jul 2026 12:46:57 +0000. Up 23.16 seconds.
+ci-info: ++++++++++++++++++++++++++++++++++++++++Net device info+++++++++++++++++++++++++++++++++++++++++
+ci-info: +------------+------+-----------------------------+---------------+--------+-------------------+
+ci-info: |   Device   |  Up  |           Address           |      Mask     | Scope  |     Hw-Address    |
+ci-info: +------------+------+-----------------------------+---------------+--------+-------------------+
+ci-info: | ai-rig-lan | True |        192.168.1.100        | 255.255.255.0 | global | 2c:f0:5d:56:08:bc |
+ci-info: | ai-rig-lan | True | fe80::2ef0:5dff:fe56:8bc/64 |       .       |  link  | 2c:f0:5d:56:08:bc |
+ci-info: |     lo     | True |          127.0.0.1          |   255.0.0.0   |  host  |         .         |
+ci-info: |     lo     | True |           ::1/128           |       .       |  host  |         .         |
+ci-info: +------------+------+-----------------------------+---------------+--------+-------------------+
+ci-info: ++++++++++++++++++++++++++++++Route IPv4 info+++++++++++++++++++++++++++++++
+ci-info: +-------+-------------+---------------+---------------+------------+-------+
+ci-info: | Route | Destination |    Gateway    |    Genmask    | Interface  | Flags |
+ci-info: +-------+-------------+---------------+---------------+------------+-------+
+ci-info: |   0   |   0.0.0.0   | 192.168.1.254 |    0.0.0.0    | ai-rig-lan |   UG  |
+ci-info: |   1   | 192.168.1.0 |    0.0.0.0    | 255.255.255.0 | ai-rig-lan |   U   |
+ci-info: +-------+-------------+---------------+---------------+------------+-------+
+ci-info: +++++++++++++++++++Route IPv6 info++++++++++++++++++++
+ci-info: +-------+-------------+---------+------------+-------+
+ci-info: | Route | Destination | Gateway | Interface  | Flags |
+ci-info: +-------+-------------+---------+------------+-------+
+ci-info: |   0   |  fe80::/64  |    ::   | ai-rig-lan |   U   |
+ci-info: |   2   |    local    |    ::   | ai-rig-lan |   U   |
+ci-info: |   3   |  multicast  |    ::   | ai-rig-lan |   U   |
+ci-info: +-------+-------------+---------+------------+-------+
+Cloud-init v. 25.2-0ubuntu1~24.04.1 running 'modules:config' at Fri, 17 Jul 2026 12:46:57 +0000. Up 23.55 seconds.
+Cloud-init v. 25.2-0ubuntu1~24.04.1 running 'modules:final' at Fri, 17 Jul 2026 12:47:00 +0000. Up 26.13 seconds.
+Cloud-init v. 25.2-0ubuntu1~24.04.1 finished at Fri, 17 Jul 2026 12:47:00 +0000. Datasource DataSourceNone.  Up 26.22 seconds

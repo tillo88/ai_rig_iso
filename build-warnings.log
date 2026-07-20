@@ -1,0 +1,7 @@
+5:[0;36m[STEP][0m Modalità PRODUCTION (fail-closed) attiva: warning critici → errori.
+8:[1;33m[WARN][0m La chiavetta USB dovra' essere da almeno 6GB (scritta raw con dd/Etcher, il filesystem FAT non c'entra).
+60:xorriso : WARNING : -volid text problematic as automatic mount point name
+61:xorriso : WARNING : -volid text does not comply to ISO 9660 / ECMA 119 rules
+66:libisofs: WARNING : Cannot add /dists/stable to Joliet tree. Symlinks can only be added to a Rock Ridge tree.
+67:libisofs: WARNING : More symbolic links were omitted from Joliet tree.
+68:libisofs: WARNING : Number of symbolic links omitted from Joliet tree: 6

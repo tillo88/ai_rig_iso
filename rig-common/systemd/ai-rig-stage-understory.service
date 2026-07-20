@@ -1,0 +1,14 @@
+[Unit]
+Description=AI Rig - Understory shared OKF memory
+After=ai-rig-stage-shareddisk.service docker.service network-online.target
+Requires=ai-rig-stage-shareddisk.service
+Wants=docker.service network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/65-understory.sh
+RemainAfterExit=yes
+TimeoutStartSec=900
+
+[Install]
+WantedBy=multi-user.target

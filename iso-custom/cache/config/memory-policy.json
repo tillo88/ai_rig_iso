@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "system": "ai-rig-librarian",
+  "principle": "share verified lessons, retain uncertain evidence privately",
+  "librarian": {
+    "role": "single memory interface for all agents",
+    "deterministic_first": true,
+    "llm_only_for": ["classification", "semantic_linking", "ambiguity_resolution", "distillation"],
+    "tools": {
+      "query": ["read"],
+      "add": ["read", "write"],
+      "update": ["read", "edit"],
+      "maintain": ["read", "lint", "propose_edit"],
+      "revoke": ["read", "change_status"]
+    },
+    "write_rules": ["enrich_before_create", "bidirectional_links", "quality_gate_before_shared_publish"],
+    "startup_seed": {
+      "enabled": true,
+      "content": "short live concept summary without private or quarantined data"
+    },
+    "maintenance": ["orphan_detection", "broken_link_detection", "contradiction_detection", "trace_logging"]
+  },
+  "agents": {
+    "devin": {
+      "primary_domains": ["software-engineering", "debugging", "automation", "systems"],
+      "can_read_shared_domains": ["*"],
+      "can_write_namespaces": ["agents/devin", "shared"]
+    },
+    "teacher": {
+      "primary_domains": ["vision", "gui-automation", "evaluation", "teaching"],
+      "can_read_shared_domains": ["*"],
+      "can_write_namespaces": ["agents/teacher", "shared"]
+    },
+    "hermes": {
+      "primary_domains": ["conversation", "planning", "research", "personal-assistance"],
+      "can_read_shared_domains": ["*"],
+      "can_write_namespaces": ["agents/hermes", "shared"]
+    }
+  },
+  "statuses": {
+    "raw": {"shared_recall": false, "publishable": false},
+    "pending_review": {"shared_recall": false, "publishable": false},
+    "candidate_success": {"shared_recall": false, "publishable": false},
+    "verified_success": {"shared_recall": true, "publishable": true, "polarity": "positive"},
+    "verified_failure": {"shared_recall": true, "publishable": true, "polarity": "negative"},
+    "human_confirmed": {"shared_recall": true, "publishable": true, "polarity": "positive"},
+    "inconclusive": {"shared_recall": false, "publishable": false},
+    "superseded": {"shared_recall": false, "publishable": false},
+    "revoked": {"shared_recall": false, "publishable": false}
+  },
+  "required_shared_metadata": [
+    "memory_id", "source_agent", "domain", "status", "polarity",
+    "created_at", "evidence", "provenance", "confidence"
+  ],
+  "verification": {
+    "self_report_is_sufficient": false,
+    "accepted": ["objective_test", "objective_phase_verifier", "human_confirmation", "reproducible_evidence"],
+    "negative_memories_must_be_explicitly_labelled": true
+  },
+  "retrieval": {
+    "cross_agent_shared_read": true,
+    "exclude_namespaces": ["raw", "quarantine", "private"],
+    "rank_order": ["task_relevance", "verification_status", "domain_match", "recency"],
+    "always_return_provenance": true
+  }
+}

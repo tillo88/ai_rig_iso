@@ -1,0 +1,644 @@
+
+Start-Date: 2026-02-10  00:17:11
+Commandline: apt-get install --reinstall apt
+Reinstall: apt:amd64 (2.7.14build2)
+End-Date: 2026-02-10  00:17:13
+
+Start-Date: 2026-02-10  00:17:16
+Commandline: apt-get install --reinstall base-files
+Reinstall: base-files:amd64 (13ubuntu10)
+End-Date: 2026-02-10  00:17:17
+
+Start-Date: 2026-02-10  00:17:20
+Commandline: apt-get install --reinstall base-passwd
+Reinstall: base-passwd:amd64 (3.6.3build1)
+End-Date: 2026-02-10  00:17:22
+
+Start-Date: 2026-02-10  00:17:26
+Commandline: apt-get install --reinstall bash
+Reinstall: bash:amd64 (5.2.21-2ubuntu4)
+End-Date: 2026-02-10  00:17:28
+
+Start-Date: 2026-02-10  00:17:31
+Commandline: apt-get install --reinstall bsdutils
+Reinstall: bsdutils:amd64 (1:2.39.3-9ubuntu6)
+End-Date: 2026-02-10  00:17:32
+
+Start-Date: 2026-02-10  00:17:38
+Commandline: apt-get install --reinstall coreutils
+Reinstall: coreutils:amd64 (9.4-3ubuntu6)
+End-Date: 2026-02-10  00:17:39
+
+Start-Date: 2026-02-10  00:17:43
+Commandline: apt-get install --reinstall dash
+Reinstall: dash:amd64 (0.5.12-6ubuntu5)
+End-Date: 2026-02-10  00:17:44
+
+Start-Date: 2026-02-10  00:17:47
+Commandline: apt-get install --reinstall debconf
+Reinstall: debconf:amd64 (1.5.86ubuntu1)
+End-Date: 2026-02-10  00:17:49
+
+Start-Date: 2026-02-10  00:17:52
+Commandline: apt-get install --reinstall debianutils
+Reinstall: debianutils:amd64 (5.17build1)
+End-Date: 2026-02-10  00:17:54
+
+Start-Date: 2026-02-10  00:17:57
+Commandline: apt-get install --reinstall diffutils
+Reinstall: diffutils:amd64 (1:3.10-1build1)
+End-Date: 2026-02-10  00:17:59
+
+Start-Date: 2026-02-10  00:18:04
+Commandline: apt-get install --reinstall dpkg
+Reinstall: dpkg:amd64 (1.22.6ubuntu6)
+End-Date: 2026-02-10  00:18:06
+
+Start-Date: 2026-02-10  00:18:09
+Commandline: apt-get install --reinstall e2fsprogs
+Reinstall: e2fsprogs:amd64 (1.47.0-2.4~exp1ubuntu4)
+End-Date: 2026-02-10  00:18:11
+
+Start-Date: 2026-02-10  00:18:15
+Commandline: apt-get install --reinstall findutils
+Reinstall: findutils:amd64 (4.9.0-5build1)
+End-Date: 2026-02-10  00:18:17
+
+Start-Date: 2026-02-10  00:18:20
+Commandline: apt-get install --reinstall gcc-14-base:amd64
+Reinstall: gcc-14-base:amd64 (14-20240412-0ubuntu1)
+End-Date: 2026-02-10  00:18:21
+
+Start-Date: 2026-02-10  00:18:24
+Commandline: apt-get install --reinstall gpgv
+Reinstall: gpgv:amd64 (2.4.4-2ubuntu17)
+End-Date: 2026-02-10  00:18:26
+
+Start-Date: 2026-02-10  00:18:29
+Commandline: apt-get install --reinstall grep
+Reinstall: grep:amd64 (3.11-4build1)
+End-Date: 2026-02-10  00:18:31
+
+Start-Date: 2026-02-10  00:18:34
+Commandline: apt-get install --reinstall gzip
+Reinstall: gzip:amd64 (1.12-1ubuntu3)
+End-Date: 2026-02-10  00:18:36
+
+Start-Date: 2026-02-10  00:18:38
+Commandline: apt-get install --reinstall hostname
+Reinstall: hostname:amd64 (3.23+nmu2ubuntu2)
+End-Date: 2026-02-10  00:18:40
+
+Start-Date: 2026-02-10  00:18:43
+Commandline: apt-get install --reinstall init-system-helpers
+Reinstall: init-system-helpers:amd64 (1.66ubuntu1)
+End-Date: 2026-02-10  00:18:45
+
+Start-Date: 2026-02-10  00:18:48
+Commandline: apt-get install --reinstall libacl1:amd64
+Reinstall: libacl1:amd64 (2.3.2-1build1)
+End-Date: 2026-02-10  00:18:49
+
+Start-Date: 2026-02-10  00:18:56
+Commandline: apt-get install --reinstall libapt-pkg6.0t64:amd64
+Reinstall: libapt-pkg6.0t64:amd64 (2.7.14build2)
+End-Date: 2026-02-10  00:18:58
+
+Start-Date: 2026-02-10  00:19:01
+Commandline: apt-get install --reinstall libassuan0:amd64
+Reinstall: libassuan0:amd64 (2.5.6-1build1)
+End-Date: 2026-02-10  00:19:02
+
+Start-Date: 2026-02-10  00:19:05
+Commandline: apt-get install --reinstall libattr1:amd64
+Reinstall: libattr1:amd64 (1:2.5.2-1build1)
+End-Date: 2026-02-10  00:19:07
+
+Start-Date: 2026-02-10  00:19:10
+Commandline: apt-get install --reinstall libaudit-common
+Reinstall: libaudit-common:amd64 (1:3.1.2-2.1build1)
+End-Date: 2026-02-10  00:19:11
+
+Start-Date: 2026-02-10  00:19:15
+Commandline: apt-get install --reinstall libaudit1:amd64
+Reinstall: libaudit1:amd64 (1:3.1.2-2.1build1)
+End-Date: 2026-02-10  00:19:16
+
+Start-Date: 2026-02-10  00:19:19
+Commandline: apt-get install --reinstall libblkid1:amd64
+Reinstall: libblkid1:amd64 (2.39.3-9ubuntu6)
+End-Date: 2026-02-10  00:19:21
+
+Start-Date: 2026-02-10  00:19:24
+Commandline: apt-get install --reinstall libbz2-1.0:amd64
+Reinstall: libbz2-1.0:amd64 (1.0.8-5.1)
+End-Date: 2026-02-10  00:19:26
+
+Start-Date: 2026-02-10  00:19:30
+Commandline: apt-get install --reinstall libc-bin
+Reinstall: libc-bin:amd64 (2.39-0ubuntu8)
+End-Date: 2026-02-10  00:19:32
+
+Start-Date: 2026-02-10  00:19:39
+Commandline: apt-get install --reinstall libc6:amd64
+Reinstall: libc6:amd64 (2.39-0ubuntu8)
+End-Date: 2026-02-10  00:19:42
+
+Start-Date: 2026-02-10  00:19:45
+Commandline: apt-get install --reinstall libcap-ng0:amd64
+Reinstall: libcap-ng0:amd64 (0.8.4-2build2)
+End-Date: 2026-02-10  00:19:47
+
+Start-Date: 2026-02-10  00:19:50
+Commandline: apt-get install --reinstall libcap2:amd64
+Reinstall: libcap2:amd64 (1:2.66-5ubuntu2)
+End-Date: 2026-02-10  00:19:51
+
+Start-Date: 2026-02-10  00:19:54
+Commandline: apt-get install --reinstall libcom-err2:amd64
+Reinstall: libcom-err2:amd64 (1.47.0-2.4~exp1ubuntu4)
+End-Date: 2026-02-10  00:19:56
+
+Start-Date: 2026-02-10  00:19:59
+Commandline: apt-get install --reinstall libcrypt1:amd64
+Reinstall: libcrypt1:amd64 (1:4.4.36-4build1)
+End-Date: 2026-02-10  00:20:00
+
+Start-Date: 2026-02-10  00:20:04
+Commandline: apt-get install --reinstall libdebconfclient0:amd64
+Reinstall: libdebconfclient0:amd64 (0.271ubuntu3)
+End-Date: 2026-02-10  00:20:05
+
+Start-Date: 2026-02-10  00:20:09
+Commandline: apt-get install --reinstall libext2fs2t64:amd64
+Reinstall: libext2fs2t64:amd64 (1.47.0-2.4~exp1ubuntu4)
+End-Date: 2026-02-10  00:20:10
+
+Start-Date: 2026-02-10  00:20:13
+Commandline: apt-get install --reinstall libffi8:amd64
+Reinstall: libffi8:amd64 (3.4.6-1build1)
+End-Date: 2026-02-10  00:20:15
+
+Start-Date: 2026-02-10  00:20:18
+Commandline: apt-get install --reinstall libgcc-s1:amd64
+Reinstall: libgcc-s1:amd64 (14-20240412-0ubuntu1)
+End-Date: 2026-02-10  00:20:19
+
+Start-Date: 2026-02-10  00:20:23
+Commandline: apt-get install --reinstall libgcrypt20:amd64
+Reinstall: libgcrypt20:amd64 (1.10.3-2build1)
+End-Date: 2026-02-10  00:20:25
+
+Start-Date: 2026-02-10  00:20:28
+Commandline: apt-get install --reinstall libgmp10:amd64
+Reinstall: libgmp10:amd64 (2:6.3.0+dfsg-2ubuntu6)
+End-Date: 2026-02-10  00:20:30
+
+Start-Date: 2026-02-10  00:20:35
+Commandline: apt-get install --reinstall libgnutls30t64:amd64
+Reinstall: libgnutls30t64:amd64 (3.8.3-1.1ubuntu3)
+End-Date: 2026-02-10  00:20:37
+
+Start-Date: 2026-02-10  00:20:40
+Commandline: apt-get install --reinstall libgpg-error0:amd64
+Reinstall: libgpg-error0:amd64 (1.47-3build2)
+End-Date: 2026-02-10  00:20:42
+
+Start-Date: 2026-02-10  00:20:45
+Commandline: apt-get install --reinstall libhogweed6t64:amd64
+Reinstall: libhogweed6t64:amd64 (3.9.1-2.2build1)
+End-Date: 2026-02-10  00:20:47
+
+Start-Date: 2026-02-10  00:20:49
+Commandline: apt-get install --reinstall libidn2-0:amd64
+Reinstall: libidn2-0:amd64 (2.3.7-2build1)
+End-Date: 2026-02-10  00:20:51
+
+Start-Date: 2026-02-10  00:20:54
+Commandline: apt-get install --reinstall liblz4-1:amd64
+Reinstall: liblz4-1:amd64 (1.9.4-1build1)
+End-Date: 2026-02-10  00:20:56
+
+Start-Date: 2026-02-10  00:20:59
+Commandline: apt-get install --reinstall liblzma5:amd64
+Reinstall: liblzma5:amd64 (5.6.1+really5.4.5-1)
+End-Date: 2026-02-10  00:21:00
+
+Start-Date: 2026-02-10  00:21:03
+Commandline: apt-get install --reinstall libmd0:amd64
+Reinstall: libmd0:amd64 (1.1.0-2build1)
+End-Date: 2026-02-10  00:21:05
+
+Start-Date: 2026-02-10  00:21:08
+Commandline: apt-get install --reinstall libmount1:amd64
+Reinstall: libmount1:amd64 (2.39.3-9ubuntu6)
+End-Date: 2026-02-10  00:21:09
+
+Start-Date: 2026-02-10  00:21:13
+Commandline: apt-get install --reinstall libncursesw6:amd64
+Reinstall: libncursesw6:amd64 (6.4+20240113-1ubuntu2)
+End-Date: 2026-02-10  00:21:14
+
+Start-Date: 2026-02-10  00:21:17
+Commandline: apt-get install --reinstall libnettle8t64:amd64
+Reinstall: libnettle8t64:amd64 (3.9.1-2.2build1)
+End-Date: 2026-02-10  00:21:19
+
+Start-Date: 2026-02-10  00:21:22
+Commandline: apt-get install --reinstall libnpth0t64:amd64
+Reinstall: libnpth0t64:amd64 (1.6-3.1build1)
+End-Date: 2026-02-10  00:21:23
+
+Start-Date: 2026-02-10  00:21:27
+Commandline: apt-get install --reinstall libp11-kit0:amd64
+Reinstall: libp11-kit0:amd64 (0.25.3-4ubuntu2)
+End-Date: 2026-02-10  00:21:28
+
+Start-Date: 2026-02-10  00:21:32
+Commandline: apt-get install --reinstall libpam-modules:amd64
+Reinstall: libpam-modules:amd64 (1.5.3-5ubuntu5)
+End-Date: 2026-02-10  00:21:34
+
+Start-Date: 2026-02-10  00:21:37
+Commandline: apt-get install --reinstall libpam-modules-bin
+Reinstall: libpam-modules-bin:amd64 (1.5.3-5ubuntu5)
+End-Date: 2026-02-10  00:21:38
+
+Start-Date: 2026-02-10  00:21:41
+Commandline: apt-get install --reinstall libpam-runtime
+Reinstall: libpam-runtime:amd64 (1.5.3-5ubuntu5)
+End-Date: 2026-02-10  00:21:43
+
+Start-Date: 2026-02-10  00:21:46
+Commandline: apt-get install --reinstall libpam0g:amd64
+Reinstall: libpam0g:amd64 (1.5.3-5ubuntu5)
+End-Date: 2026-02-10  00:21:48
+
+Start-Date: 2026-02-10  00:21:51
+Commandline: apt-get install --reinstall libpcre2-8-0:amd64
+Reinstall: libpcre2-8-0:amd64 (10.42-4ubuntu2)
+End-Date: 2026-02-10  00:21:53
+
+Start-Date: 2026-02-10  00:21:56
+Commandline: apt-get install --reinstall libproc2-0:amd64
+Reinstall: libproc2-0:amd64 (2:4.0.4-4ubuntu3)
+End-Date: 2026-02-10  00:21:57
+
+Start-Date: 2026-02-10  00:22:00
+Commandline: apt-get install --reinstall libseccomp2:amd64
+Reinstall: libseccomp2:amd64 (2.5.5-1ubuntu3)
+End-Date: 2026-02-10  00:22:02
+
+Start-Date: 2026-02-10  00:22:05
+Commandline: apt-get install --reinstall libselinux1:amd64
+Reinstall: libselinux1:amd64 (3.5-2ubuntu2)
+End-Date: 2026-02-10  00:22:07
+
+Start-Date: 2026-02-10  00:22:09
+Commandline: apt-get install --reinstall libsemanage-common
+Reinstall: libsemanage-common:amd64 (3.5-1build5)
+End-Date: 2026-02-10  00:22:11
+
+Start-Date: 2026-02-10  00:22:14
+Commandline: apt-get install --reinstall libsemanage2:amd64
+Reinstall: libsemanage2:amd64 (3.5-1build5)
+End-Date: 2026-02-10  00:22:15
+
+Start-Date: 2026-02-10  00:22:18
+Commandline: apt-get install --reinstall libsepol2:amd64
+Reinstall: libsepol2:amd64 (3.5-2build1)
+End-Date: 2026-02-10  00:22:20
+
+Start-Date: 2026-02-10  00:22:23
+Commandline: apt-get install --reinstall libsmartcols1:amd64
+Reinstall: libsmartcols1:amd64 (2.39.3-9ubuntu6)
+End-Date: 2026-02-10  00:22:24
+
+Start-Date: 2026-02-10  00:22:27
+Commandline: apt-get install --reinstall libss2:amd64
+Reinstall: libss2:amd64 (1.47.0-2.4~exp1ubuntu4)
+End-Date: 2026-02-10  00:22:28
+
+Start-Date: 2026-02-10  00:22:35
+Commandline: apt-get install --reinstall libssl3t64:amd64
+Reinstall: libssl3t64:amd64 (3.0.13-0ubuntu3)
+End-Date: 2026-02-10  00:22:37
+
+Start-Date: 2026-02-10  00:22:41
+Commandline: apt-get install --reinstall libstdc++6:amd64
+Reinstall: libstdc++6:amd64 (14-20240412-0ubuntu1)
+End-Date: 2026-02-10  00:22:43
+
+Start-Date: 2026-02-10  00:22:46
+Commandline: apt-get install --reinstall libsystemd0:amd64
+Reinstall: libsystemd0:amd64 (255.4-1ubuntu8)
+End-Date: 2026-02-10  00:22:48
+
+Start-Date: 2026-02-10  00:22:51
+Commandline: apt-get install --reinstall libtasn1-6:amd64
+Reinstall: libtasn1-6:amd64 (4.19.0-3build1)
+End-Date: 2026-02-10  00:22:52
+
+Start-Date: 2026-02-10  00:22:55
+Commandline: apt-get install --reinstall libtinfo6:amd64
+Reinstall: libtinfo6:amd64 (6.4+20240113-1ubuntu2)
+End-Date: 2026-02-10  00:22:57
+
+Start-Date: 2026-02-10  00:23:00
+Commandline: apt-get install --reinstall libudev1:amd64
+Reinstall: libudev1:amd64 (255.4-1ubuntu8)
+End-Date: 2026-02-10  00:23:02
+
+Start-Date: 2026-02-10  00:23:05
+Commandline: apt-get install --reinstall libunistring5:amd64
+Reinstall: libunistring5:amd64 (1.1-2build1)
+End-Date: 2026-02-10  00:23:07
+
+Start-Date: 2026-02-10  00:23:10
+Commandline: apt-get install --reinstall libuuid1:amd64
+Reinstall: libuuid1:amd64 (2.39.3-9ubuntu6)
+End-Date: 2026-02-10  00:23:11
+
+Start-Date: 2026-02-10  00:23:14
+Commandline: apt-get install --reinstall libxxhash0:amd64
+Reinstall: libxxhash0:amd64 (0.8.2-2build1)
+End-Date: 2026-02-10  00:23:16
+
+Start-Date: 2026-02-10  00:23:19
+Commandline: apt-get install --reinstall libzstd1:amd64
+Reinstall: libzstd1:amd64 (1.5.5+dfsg2-2build1)
+End-Date: 2026-02-10  00:23:21
+
+Start-Date: 2026-02-10  00:23:24
+Commandline: apt-get install --reinstall login
+Reinstall: login:amd64 (1:4.13+dfsg1-4ubuntu3)
+End-Date: 2026-02-10  00:23:25
+
+Start-Date: 2026-02-10  00:23:28
+Commandline: apt-get install --reinstall logsave
+Reinstall: logsave:amd64 (1.47.0-2.4~exp1ubuntu4)
+End-Date: 2026-02-10  00:23:29
+
+Start-Date: 2026-02-10  00:23:32
+Commandline: apt-get install --reinstall mawk
+Reinstall: mawk:amd64 (1.3.4.20240123-1build1)
+End-Date: 2026-02-10  00:23:34
+
+Start-Date: 2026-02-10  00:23:37
+Commandline: apt-get install --reinstall mount
+Reinstall: mount:amd64 (2.39.3-9ubuntu6)
+End-Date: 2026-02-10  00:23:38
+
+Start-Date: 2026-02-10  00:23:41
+Commandline: apt-get install --reinstall ncurses-base
+Reinstall: ncurses-base:amd64 (6.4+20240113-1ubuntu2)
+End-Date: 2026-02-10  00:23:42
+
+Start-Date: 2026-02-10  00:23:45
+Commandline: apt-get install --reinstall ncurses-bin
+Reinstall: ncurses-bin:amd64 (6.4+20240113-1ubuntu2)
+End-Date: 2026-02-10  00:23:47
+
+Start-Date: 2026-02-10  00:23:51
+Commandline: apt-get install --reinstall passwd
+Reinstall: passwd:amd64 (1:4.13+dfsg1-4ubuntu3)
+End-Date: 2026-02-10  00:23:52
+
+Start-Date: 2026-02-10  00:23:59
+Commandline: apt-get install --reinstall perl-base
+Reinstall: perl-base:amd64 (5.38.2-3.2build2)
+End-Date: 2026-02-10  00:24:01
+
+Start-Date: 2026-02-10  00:24:05
+Commandline: apt-get install --reinstall procps
+Reinstall: procps:amd64 (2:4.0.4-4ubuntu3)
+End-Date: 2026-02-10  00:24:06
+
+Start-Date: 2026-02-10  00:24:09
+Commandline: apt-get install --reinstall sed
+Reinstall: sed:amd64 (4.9-2build1)
+End-Date: 2026-02-10  00:24:11
+
+Start-Date: 2026-02-10  00:24:13
+Commandline: apt-get install --reinstall sensible-utils
+Reinstall: sensible-utils:amd64 (0.0.22)
+End-Date: 2026-02-10  00:24:15
+
+Start-Date: 2026-02-10  00:24:17
+Commandline: apt-get install --reinstall sysvinit-utils
+Reinstall: sysvinit-utils:amd64 (3.08-6ubuntu3)
+End-Date: 2026-02-10  00:24:19
+
+Start-Date: 2026-02-10  00:24:22
+Commandline: apt-get install --reinstall tar
+Reinstall: tar:amd64 (1.35+dfsg-3build1)
+End-Date: 2026-02-10  00:24:23
+
+Start-Date: 2026-02-10  00:24:26
+Commandline: apt-get install --reinstall ubuntu-keyring
+Reinstall: ubuntu-keyring:amd64 (2023.11.28.1)
+End-Date: 2026-02-10  00:24:28
+
+Start-Date: 2026-02-10  00:24:32
+Commandline: apt-get install --reinstall util-linux
+Reinstall: util-linux:amd64 (2.39.3-9ubuntu6)
+End-Date: 2026-02-10  00:24:34
+
+Start-Date: 2026-02-10  00:24:37
+Commandline: apt-get install --reinstall zlib1g:amd64
+Reinstall: zlib1g:amd64 (1:1.3.dfsg-3.1ubuntu2)
+End-Date: 2026-02-10  00:24:38
+
+Start-Date: 2026-02-10  00:25:02
+Commandline: apt-get --yes -oDebug::pkgDepCache::AutoInstall=yes --force-yes upgrade
+Upgrade: dpkg:amd64 (1.22.6ubuntu6, 1.22.6ubuntu6.5), libsmartcols1:amd64 (2.39.3-9ubuntu6, 2.39.3-9ubuntu6.4), libpam-runtime:amd64 (1.5.3-5ubuntu5, 1.5.3-5ubuntu5.5), coreutils:amd64 (9.4-3ubuntu6, 9.4-3ubuntu6.1), libaudit-common:amd64 (1:3.1.2-2.1build1, 1:3.1.2-2.1build1.1), apt:amd64 (2.7.14build2, 2.8.3), libacl1:amd64 (2.3.2-1build1, 2.3.2-1build1.1), libunistring5:amd64 (1.1-2build1, 1.1-2build1.1), libidn2-0:amd64 (2.3.7-2build1, 2.3.7-2build1.1), libtasn1-6:amd64 (4.19.0-3build1, 4.19.0-3ubuntu0.24.04.2), libselinux1:amd64 (3.5-2ubuntu2, 3.5-2ubuntu2.1), liblzma5:amd64 (5.6.1+really5.4.5-1, 5.6.1+really5.4.5-1ubuntu0.2), libhogweed6t64:amd64 (3.9.1-2.2build1, 3.9.1-2.2build1.1), libext2fs2t64:amd64 (1.47.0-2.4~exp1ubuntu4, 1.47.0-2.4~exp1ubuntu4.1), libp11-kit0:amd64 (0.25.3-4ubuntu2, 0.25.3-4ubuntu2.1), libproc2-0:amd64 (2:4.0.4-4ubuntu3, 2:4.0.4-4ubuntu3.2), libsystemd0:amd64 (255.4-1ubuntu8, 255.4-1ubuntu8.12), libmount1:amd64 (2.39.3-9ubuntu6, 2.39.3-9ubuntu6.4), libzstd1:amd64 (1.5.5+dfsg2-2build1, 1.5.5+dfsg2-2build1.1), util-linux:amd64 (2.39.3-9ubuntu6, 2.39.3-9ubuntu6.4), libudev1:amd64 (255.4-1ubuntu8, 255.4-1ubuntu8.12), libgpg-error0:amd64 (1.47-3build2, 1.47-3build2.1), libnettle8t64:amd64 (3.9.1-2.2build1, 3.9.1-2.2build1.1), libcom-err2:amd64 (1.47.0-2.4~exp1ubuntu4, 1.47.0-2.4~exp1ubuntu4.1), libcap2:amd64 (1:2.66-5ubuntu2, 1:2.66-5ubuntu2.2), libc6:amd64 (2.39-0ubuntu8, 2.39-0ubuntu8.7), libuuid1:amd64 (2.39.3-9ubuntu6, 2.39.3-9ubuntu6.4), gpgv:amd64 (2.4.4-2ubuntu17, 2.4.4-2ubuntu17.4), base-files:amd64 (13ubuntu10, 13ubuntu10.4), gzip:amd64 (1.12-1ubuntu3, 1.12-1ubuntu3.1), login:amd64 (1:4.13+dfsg1-4ubuntu3, 1:4.13+dfsg1-4ubuntu3.2), libgmp10:amd64 (2:6.3.0+dfsg-2ubuntu6, 2:6.3.0+dfsg-2ubuntu6.1), libpcre2-8-0:amd64 (10.42-4ubuntu2, 10.42-4ubuntu2.1), libseccomp2:amd64 (2.5.5-1ubuntu3, 2.5.5-1ubuntu3.1), procps:amd64 (2:4.0.4-4ubuntu3, 2:4.0.4-4ubuntu3.2), libapt-pkg6.0t64:amd64 (2.7.14build2, 2.8.3), mount:amd64 (2.39.3-9ubuntu6, 2.39.3-9ubuntu6.4), perl-base:amd64 (5.38.2-3.2build2, 5.38.2-3.2ubuntu0.2), libpam0g:amd64 (1.5.3-5ubuntu5, 1.5.3-5ubuntu5.5), libc-bin:amd64 (2.39-0ubuntu8, 2.39-0ubuntu8.7), libattr1:amd64 (1:2.5.2-1build1, 1:2.5.2-1build1.1), libaudit1:amd64 (1:3.1.2-2.1build1, 1:3.1.2-2.1build1.1), libssl3t64:amd64 (3.0.13-0ubuntu3, 3.0.13-0ubuntu3.7), libgnutls30t64:amd64 (3.8.3-1.1ubuntu3, 3.8.3-1.1ubuntu3.4), libblkid1:amd64 (2.39.3-9ubuntu6, 2.39.3-9ubuntu6.4), logsave:amd64 (1.47.0-2.4~exp1ubuntu4, 1.47.0-2.4~exp1ubuntu4.1), liblz4-1:amd64 (1.9.4-1build1, 1.9.4-1build1.1), libbz2-1.0:amd64 (1.0.8-5.1, 1.0.8-5.1build0.1), zlib1g:amd64 (1:1.3.dfsg-3.1ubuntu2, 1:1.3.dfsg-3.1ubuntu2.1), libmd0:amd64 (1.1.0-2build1, 1.1.0-2build1.1), bsdutils:amd64 (1:2.39.3-9ubuntu6, 1:2.39.3-9ubuntu6.4), libss2:amd64 (1.47.0-2.4~exp1ubuntu4, 1.47.0-2.4~exp1ubuntu4.1), libstdc++6:amd64 (14-20240412-0ubuntu1, 14.2.0-4ubuntu2~24.04), e2fsprogs:amd64 (1.47.0-2.4~exp1ubuntu4, 1.47.0-2.4~exp1ubuntu4.1), passwd:amd64 (1:4.13+dfsg1-4ubuntu3, 1:4.13+dfsg1-4ubuntu3.2), gcc-14-base:amd64 (14-20240412-0ubuntu1, 14.2.0-4ubuntu2~24.04), libgcc-s1:amd64 (14-20240412-0ubuntu1, 14.2.0-4ubuntu2~24.04)
+End-Date: 2026-02-10  00:25:08
+
+Start-Date: 2026-02-10  00:25:09
+Commandline: apt-get --yes -oDebug::pkgDepCache::AutoInstall=yes --force-yes dist-upgrade
+Install: libdb5.3t64:amd64 (5.3.28+dfsg2-7, automatic)
+Upgrade: libpam-modules:amd64 (1.5.3-5ubuntu5, 1.5.3-5ubuntu5.5), libpam-modules-bin:amd64 (1.5.3-5ubuntu5, 1.5.3-5ubuntu5.5)
+End-Date: 2026-02-10  00:25:10
+
+Start-Date: 2026-02-10  00:25:59
+Commandline: apt-get --yes -oDebug::pkgDepCache::AutoInstall=yes install adduser apparmor apport apport-core-dump-handler apt base-passwd bcache-tools btrfs-progs busybox-initramfs ca-certificates cloud-guest-utils cloud-init coreutils cpio cryptsetup cryptsetup-bin curl dbus dbus-bin dbus-daemon dbus-session-bus-common dbus-system-bus-common dbus-user-session debconf dhcpcd-base distro-info-data dmeventd dmsetup dpkg dracut-install e2fsprogs ethtool fdisk fuse3 gawk gcc-14-base gettext-base gir1.2-girepository-2.0 gir1.2-glib-2.0 gpgv init-system-helpers initramfs-tools initramfs-tools-bin initramfs-tools-core iproute2 klibc-utils kmod kpartx libacl1 libaio1t64 libapparmor1 libapt-pkg6.0t64 libargon2-1 libassuan0 libattr1 libaudit-common libaudit1 libblkid1 libbpf1 libbrotli1 libbsd0 libbz2-1.0 libc6 libcap-ng0 libcap2 libcap2-bin libcbor0.10 libcom-err2 libcrypt1 libcryptsetup12 libcurl4t64 libdb5.3t64 libdbus-1-3 libdebconfclient0 libdevmapper-event1.02.1 libdevmapper1.02.1 libdrm-common libdrm2 libedit2 libelf1t64 libexpat1 libext2fs2t64 libfdisk1 libffi8 libfido2-1 libfuse3-3 libgcc-s1 libgcrypt20 libgdbm-compat4t64 libgdbm6t64 libgirepository-1.0-1 libglib2.0-0t64 libgmp10 libgnutls30t64 libgpg-error0 libgssapi-krb5-2 libhogweed6t64 libicu74 libidn2-0 libinih1 libintl-perl libisns0t64 libjson-c5 libk5crypto3 libkeyutils1 libklibc libkmod2 libkrb5-3 libkrb5support0 libldap2 liblvm2cmd2.03 liblz4-1 liblzma5 liblzo2-2 libmd0 libmnl0 libmodule-find-perl libmodule-scandeps-perl libmount1 libmpfr6 libncursesw6 libnetplan1 libnettle8t64 libnghttp2-14 libnpth0t64 libopeniscsiusr libp11-kit0 libpam-modules libpam-modules-bin libpam-runtime libpam-systemd libpam0g libpci3 libpcre2-8-0 libperl5.38t64 libpopt0 libproc-processtable-perl libproc2-0 libpsl5t64 libpython3-stdlib libpython3.12-minimal libpython3.12-stdlib libreadline8t64 libreiserfscore0t64 librtmp1 libsasl2-2 libsasl2-modules-db libseccomp2 libselinux1 libsemanage-common libsemanage2 libsepol2 libsgutils2-1.46-2 libsigsegv2 libsmartcols1 libsort-naturally-perl libsqlite3-0 libss2 libssh-4 libssl3t64 libstdc++6 libsystemd-shared libsystemd0 libtasn1-6 libterm-readkey-perl libtinfo6 libudev1 libunistring5 liburcu8t64 libusb-1.0-0 libuuid1 libxtables12 libxxhash0 libyaml-0-2 libzstd1 linux-base logsave lsb-base lsb-release lvm2 mdadm media-types mount multipath-tools needrestart netbase netplan-generator netplan.io open-iscsi openssh-client openssl passwd pci.ids pciutils perl perl-base perl-modules-5.38 pollinate procps python-apt-common python3 python3-apport python3-apt python3-attr python3-blinker python3-certifi python3-cffi-backend python3-chardet python3-click python3-colorama python3-configobj python3-cryptography python3-dbus python3-debconf python3-distro python3-distro-info python3-distupgrade python3-gi python3-httplib2 python3-idna python3-jinja2 python3-json-pointer python3-jsonpatch python3-jsonschema python3-jwt python3-launchpadlib python3-lazr.restfulclient python3-lazr.uri python3-markupsafe python3-minimal python3-netplan python3-oauthlib python3-pkg-resources python3-problem-report python3-pyparsing python3-pyrsistent python3-requests python3-serial python3-six python3-update-manager python3-urllib3 python3-wadllib python3-xkit python3-yaml python3.12 python3.12-minimal readline-common sed sensible-utils sg3-utils sg3-utils-udev snapd squashfs-tools sudo systemd systemd-dev systemd-resolved systemd-sysv sysvinit-utils tar tzdata ubuntu-drivers-common ubuntu-keyring ubuntu-release-upgrader-core ubuntu-server-minimal ucf udev unattended-upgrades unminimize usbutils xfsprogs xxd xz-utils zlib1g lxd-installer
+Install: lsb-release:amd64 (12.0-2), libkeyutils1:amd64 (1.6.3-3build1), python3-blinker:amd64 (1.7.0-1), libxtables12:amd64 (1.8.10-3ubuntu2), libpolkit-agent-1-0:amd64 (124-2ubuntu1.24.04.2, automatic), dmeventd:amd64 (2:1.02.185-3ubuntu3.2), networkd-dispatcher:amd64 (2.2.4-1, automatic), initramfs-tools-core:amd64 (0.142ubuntu25.8), netplan-generator:amd64 (1.1.2-8ubuntu1~24.04.1), console-setup:amd64 (1.226ubuntu1, automatic), zstd:amd64 (1.5.5+dfsg2-2build1.1, automatic), udev:amd64 (255.4-1ubuntu8.12), krb5-locales:amd64 (1.20.1-6ubuntu2.6, automatic), python3.12:amd64 (3.12.3-1ubuntu0.11), python3-colorama:amd64 (0.4.6-4), python3-gi:amd64 (3.48.2-1), python3-tz:amd64 (2024.1-2, automatic), pciutils:amd64 (1:3.10.0-2build1), libgssapi-krb5-2:amd64 (1.20.1-6ubuntu2.6), netbase:amd64 (6.4), dhcpcd-base:amd64 (1:10.0.6-1ubuntu3.2), readline-common:amd64 (8.2-4build1), libnghttp2-14:amd64 (1.59.0-1ubuntu0.2), open-iscsi:amd64 (2.1.9-3ubuntu5.4), openssh-client:amd64 (1:9.6p1-3ubuntu13.14), python-babel-localedata:amd64 (2.10.3-3build1, automatic), python3-distupgrade:amd64 (1:24.04.28), libssh-4:amd64 (0.10.6-2ubuntu0.2), packagekit-tools:amd64 (1.2.8-2ubuntu1.4, automatic), libintl-perl:amd64 (1.33-1build3), xkb-data:amd64 (2.41-2ubuntu1.1, automatic), dbus-user-session:amd64 (1.14.10-4ubuntu4.1), libldap2:amd64 (2.6.10+dfsg-0ubuntu0.24.04.1), libgdbm-compat4t64:amd64 (1.23-5.1build1), cryptsetup-bin:amd64 (2:2.7.0-1ubuntu4.2), gpg:amd64 (2.4.4-2ubuntu17.4, automatic), libglib2.0-bin:amd64 (2.80.0-6ubuntu3.8, automatic), systemd-timesyncd:amd64 (255.4-1ubuntu8.12, automatic), perl:amd64 (5.38.2-3.2ubuntu0.2), polkitd:amd64 (124-2ubuntu1.24.04.2, automatic), tzdata:amd64 (2025b-0ubuntu0.24.04.1), libunwind8:amd64 (1.6.2-3build1.1, automatic), kbd:amd64 (2.6.4-2ubuntu2, automatic), python3-cffi-backend:amd64 (1.16.0-2build1), libldap-common:amd64 (2.6.10+dfsg-0ubuntu0.24.04.1, automatic), python3-minimal:amd64 (3.12.3-0ubuntu2.1), libpam-systemd:amd64 (255.4-1ubuntu8.12), sgml-base:amd64 (1.31, automatic), liblzo2-2:amd64 (2.10-2build4), libxmlb2:amd64 (0.3.18-1, automatic), lsb-base:amd64 (11.6), ucf:amd64 (3.0043+nmu1), python3-lazr.restfulclient:amd64 (0.14.6-1), sg3-utils:amd64 (1.46-3ubuntu4), libcap2-bin:amd64 (1:2.66-5ubuntu2.2), gir1.2-glib-2.0:amd64 (2.80.0-6ubuntu3.8), libpsl5t64:amd64 (0.21.2-1.1build1), libsasl2-modules:amd64 (2.1.28+dfsg1-5ubuntu3.1, automatic), libsasl2-2:amd64 (2.1.28+dfsg1-5ubuntu3.1), xxd:amd64 (2:9.1.0016-1ubuntu7.9), libexpat1:amd64 (2.6.1-2ubuntu0.3), python3-netplan:amd64 (1.1.2-8ubuntu1~24.04.1), ubuntu-drivers-common:amd64 (1:0.9.7.6ubuntu3.5), libcbor0.10:amd64 (0.10.2-1.2ubuntu2), libxmuu1:amd64 (2:1.1.3-3build2, automatic), initramfs-tools-bin:amd64 (0.142ubuntu25.8), libpython3.12-minimal:amd64 (3.12.3-1ubuntu0.11), apparmor:amd64 (4.0.1really4.0.1-0ubuntu0.24.04.5), libfido2-1:amd64 (1.14.0-1build3), kmod:amd64 (31+20240202-2ubuntu7.1), libisns0t64:amd64 (0.101-0.3build3), dbus-daemon:amd64 (1.14.10-4ubuntu4.1), python3-distro:amd64 (1.9.0-1), librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2build7), libreiserfscore0t64:amd64 (1:3.6.27-7.1build1), libsgutils2-1.46-2:amd64 (1.46-3ubuntu4), liblvm2cmd2.03:amd64 (2.03.16-3ubuntu3.2), libsigsegv2:amd64 (2.14-1ubuntu2), liburcu8t64:amd64 (0.14.0-3.1build1), software-properties-common:amd64 (0.99.49.3, automatic), pci.ids:amd64 (0.0~2024.03.31-1ubuntu0.1), libxau6:amd64 (1:1.0.9-1build6, automatic), python3-requests:amd64 (2.31.0+dfsg-1ubuntu1.1), libnss-systemd:amd64 (255.4-1ubuntu8.12, automatic), libpopt0:amd64 (1.19+dfsg-1build1), libxcb1:amd64 (1.15-1ubuntu2, automatic), libapparmor1:amd64 (4.0.1really4.0.1-0ubuntu0.24.04.5), keyboxd:amd64 (2.4.4-2ubuntu17.4, automatic), libreadline8t64:amd64 (8.2-4build1), xfsprogs:amd64 (6.6.0-1ubuntu2.1), plymouth-theme-ubuntu-text:amd64 (24.004.60-1ubuntu7.1, automatic), python3-httplib2:amd64 (0.20.4-3), python3:amd64 (3.12.3-0ubuntu2.1), libdbus-1-3:amd64 (1.14.10-4ubuntu4.1), python3-urllib3:amd64 (2.0.7-1ubuntu0.6), dbus-bin:amd64 (1.14.10-4ubuntu4.1), gnupg:amd64 (2.4.4-2ubuntu17.4, automatic), libsasl2-modules-db:amd64 (2.1.28+dfsg1-5ubuntu3.1), libmpfr6:amd64 (4.2.1-1build1.1), dracut-install:amd64 (060+5-1ubuntu3.3), libkrb5support0:amd64 (1.20.1-6ubuntu2.6), python3-software-properties:amd64 (0.99.49.3, automatic), squashfs-tools:amd64 (1:4.6.1-1build1), python3-pyparsing:amd64 (3.1.1-1), libbpf1:amd64 (1:1.3.0-2build2), libmnl0:amd64 (1.0.5-2build1), libeatmydata1:amd64 (131-1ubuntu1, automatic), python3-lazr.uri:amd64 (1.0.6-3), libgdbm6t64:amd64 (1.23-5.1build1), libxml2:amd64 (2.9.14+dfsg-1.3ubuntu3.7, automatic), gir1.2-packagekitglib-1.0:amd64 (1.2.8-2ubuntu1.4, automatic), xz-utils:amd64 (5.6.1+really5.4.5-1ubuntu0.2), libglib2.0-data:amd64 (2.80.0-6ubuntu3.8, automatic), libbsd0:amd64 (0.12.1-1build1.1), python3-jsonpatch:amd64 (1.32-3), cloud-guest-utils:amd64 (0.33-1), python-apt-common:amd64 (2.7.7ubuntu5.2), systemd:amd64 (255.4-1ubuntu8.12), gpg-agent:amd64 (2.4.4-2ubuntu17.4, automatic), libstemmer0d:amd64 (2.2.0-4build1, automatic), console-setup-linux:amd64 (1.226ubuntu1, automatic), lxd-installer:amd64 (4ubuntu0.1), shared-mime-info:amd64 (2.4-4, automatic), liblocale-gettext-perl:amd64 (1.07-6ubuntu5, automatic), fdisk:amd64 (2.39.3-9ubuntu6.4), libappstream5:amd64 (1.0.2-1build6, automatic), libcurl3t64-gnutls:amd64 (8.5.0-2ubuntu10.6, automatic), libyaml-0-2:amd64 (0.2.5-1build1), appstream:amd64 (1.0.2-1build6, automatic), gettext-base:amd64 (0.21-14ubuntu2), publicsuffix:amd64 (20231001.0357-0.1, automatic), python3-attr:amd64 (23.2.0-2), python3-pkg-resources:amd64 (68.1.2-2ubuntu1.2), python3-wadllib:amd64 (1.3.6-5), libsort-naturally-perl:amd64 (1.03-4), libfdisk1:amd64 (2.39.3-9ubuntu6.4), gdisk:amd64 (1.0.10-1build1, automatic), systemd-dev:amd64 (255.4-1ubuntu8.12), gawk:amd64 (1:5.2.1-2build3), libdrm-common:amd64 (2.4.125-1ubuntu0.1~24.04.1), libx11-data:amd64 (2:1.8.7-1build1, automatic), python3-babel:amd64 (2.10.3-3build1, automatic), usbutils:amd64 (1:017-3build1), packagekit:amd64 (1.2.8-2ubuntu1.4, automatic), python3-mdurl:amd64 (0.1.2-1, automatic), libgirepository-1.0-1:amd64 (1.80.1-1), xdg-user-dirs:amd64 (0.18-1build1, automatic), libfuse3-3:amd64 (3.14.0-5build1), python3-jsonschema:amd64 (4.10.3-2ubuntu1), lvm2:amd64 (2.03.16-3ubuntu3.2), python3-oauthlib:amd64 (3.2.2-1), python3-rich:amd64 (13.7.1-1, automatic), gir1.2-girepository-2.0:amd64 (1.80.1-1), klibc-utils:amd64 (2.0.13-4ubuntu0.2), libuchardet0:amd64 (0.0.8-1build1, automatic), libxkbcommon0:amd64 (1.6.0-1build1, automatic), libkrb5-3:amd64 (1.20.1-6ubuntu2.6), xauth:amd64 (1:1.1.2-1build1, automatic), libaio1t64:amd64 (0.3.113-6build1.1), cloud-init:amd64 (25.2-0ubuntu1~24.04.1), linux-base:amd64 (4.5ubuntu9+24.04.1), sg3-utils-udev:amd64 (1.46-3ubuntu4), libusb-1.0-0:amd64 (2:1.0.27-1), libmodule-find-perl:amd64 (0.16-2), python3-click:amd64 (8.1.6-2), libterm-readkey-perl:amd64 (2.38-2build4), media-types:amd64 (10.1.0), systemd-resolved:amd64 (255.4-1ubuntu8.12), libklibc:amd64 (2.0.13-4ubuntu0.2), python3-json-pointer:amd64 (2.0-0ubuntu1), ubuntu-server-minimal:amd64 (1.539.2), fuse3:amd64 (3.14.0-5build1), busybox-initramfs:amd64 (1:1.36.1-6ubuntu3.1), libk5crypto3:amd64 (1.20.1-6ubuntu2.6), python3-jinja2:amd64 (3.1.2-1ubuntu1.3), plymouth:amd64 (24.004.60-1ubuntu7.1, automatic), libpolkit-gobject-1-0:amd64 (124-2ubuntu1.24.04.2, automatic), mdadm:amd64 (4.3-1ubuntu2.1), python3-xkit:amd64 (0.5.0ubuntu6), cryptsetup-initramfs:amd64 (2:2.7.0-1ubuntu4.2, automatic), python3-apt:amd64 (2.7.7ubuntu5.2), dmsetup:amd64 (2:1.02.185-3ubuntu3.2), python3-serial:amd64 (3.5-2), unminimize:amd64 (0.2.1), snapd:amd64 (2.73+ubuntu24.04), systemd-hwe-hwdb:amd64 (255.1.6, automatic), apport-symptoms:amd64 (0.25, automatic), python3-certifi:amd64 (2023.11.17-1), libsqlite3-0:amd64 (3.45.1-1ubuntu2.5), libpackagekit-glib2-18:amd64 (1.2.8-2ubuntu1.4, automatic), pinentry-curses:amd64 (1.2.1-3ubuntu5, automatic), finalrd:amd64 (9build1, automatic), libjson-c5:amd64 (0.17-1build1), libopeniscsiusr:amd64 (2.1.9-3ubuntu5.4), libcurl4t64:amd64 (8.5.0-2ubuntu10.6), gpgsm:amd64 (2.4.4-2ubuntu17.4, automatic), python3-markdown-it:amd64 (3.0.0-2, automatic), python3-markupsafe:amd64 (2.1.5-1build2), python3-distro-info:amd64 (1.7build1), libdevmapper-event1.02.1:amd64 (2:1.02.185-3ubuntu3.2), dbus-session-bus-common:amd64 (1.14.10-4ubuntu4.1), libcryptsetup12:amd64 (2:2.7.0-1ubuntu4.2), python3-jwt:amd64 (2.7.0-1), adduser:amd64 (3.137ubuntu1), multipath-tools:amd64 (0.9.4-5ubuntu8.1), distro-info-data:amd64 (0.60ubuntu0.5), libgstreamer1.0-0:amd64 (1.24.2-1ubuntu0.1, automatic), ca-certificates:amd64 (20240203), thin-provisioning-tools:amd64 (0.9.0-2ubuntu5.1, automatic), python3-six:amd64 (1.16.0-4), eatmydata:amd64 (131-1ubuntu1, automatic), cryptsetup:amd64 (2:2.7.0-1ubuntu4.2), libpython3-stdlib:amd64 (3.12.3-0ubuntu2.1), libdw1t64:amd64 (0.190-1.1ubuntu0.1, automatic), python3-yaml:amd64 (6.0.1-2build2), btrfs-progs:amd64 (6.6.3-1.1build2), libbrotli1:amd64 (1.1.0-2build2), libdrm2:amd64 (2.4.125-1ubuntu0.1~24.04.1), sudo:amd64 (1.9.15p5-3ubuntu5.24.04.1), python3-update-manager:amd64 (1:24.04.12), libsystemd-shared:amd64 (255.4-1ubuntu8.12), netplan.io:amd64 (1.1.2-8ubuntu1~24.04.1), python3-apport:amd64 (2.28.1-0ubuntu3.8), keyboard-configuration:amd64 (1.226ubuntu1, automatic), libkmod2:amd64 (31+20240202-2ubuntu7.1), libxext6:amd64 (2:1.3.4-1build2, automatic), initramfs-tools:amd64 (0.142ubuntu25.8), cpio:amd64 (2.15+dfsg-1ubuntu2), dirmngr:amd64 (2.4.4-2ubuntu17.4, automatic), libksba8:amd64 (1.6.6-1build1, automatic), systemd-sysv:amd64 (255.4-1ubuntu8.12), python3-idna:amd64 (3.6-2ubuntu0.1), gnupg-utils:amd64 (2.4.4-2ubuntu17.4, automatic), python3-pygments:amd64 (2.17.2+dfsg-1, automatic), libpam-cap:amd64 (1:2.66-5ubuntu2.2, automatic), python3-chardet:amd64 (5.2.0+dfsg-1), unattended-upgrades:amd64 (2.9.1+nmu4ubuntu1), needrestart:amd64 (3.6-7ubuntu4.5), curl:amd64 (8.5.0-2ubuntu10.6), libduktape207:amd64 (2.7.0+tests-0ubuntu3, automatic), apport-core-dump-handler:amd64 (2.28.1-0ubuntu3.8), libargon2-1:amd64 (0~20190702+dfsg-4build1), python3-debconf:amd64 (1.5.86ubuntu1), python3-configobj:amd64 (5.0.8-3), xml-core:amd64 (0.19, automatic), gnupg-l10n:amd64 (2.4.4-2ubuntu17.4, automatic), ubuntu-release-upgrader-core:amd64 (1:24.04.28), gpg-wks-client:amd64 (2.4.4-2ubuntu17.4, automatic), libplymouth5:amd64 (24.004.60-1ubuntu7.1, automatic), libpci3:amd64 (1:3.10.0-2build1), python3.12-minimal:amd64 (3.12.3-1ubuntu0.11), perl-modules-5.38:amd64 (5.38.2-3.2ubuntu0.2), python3-cryptography:amd64 (41.0.7-4ubuntu0.1), libinih1:amd64 (55-1ubuntu2), libintl-xs-perl:amd64 (1.33-1build3, automatic), libx11-6:amd64 (2:1.8.7-1build1, automatic), ethtool:amd64 (1:6.7-1build1), python3-launchpadlib:amd64 (1.11.0-6), pollinate:amd64 (4.33-3.1ubuntu1.1), bcache-tools:amd64 (1.0.8-5build1), python3-pyrsistent:amd64 (0.20.0-1build2), libperl5.38t64:amd64 (5.38.2-3.2ubuntu0.2), python3-dbus:amd64 (1.3.2-5build3), groff-base:amd64 (1.23.0-3build2, automatic), libpng16-16t64:amd64 (1.6.43-5ubuntu0.4, automatic), dbus-system-bus-common:amd64 (1.14.10-4ubuntu4.1), dbus:amd64 (1.14.10-4ubuntu4.1), libelf1t64:amd64 (0.190-1.1ubuntu0.1), libpython3.12-stdlib:amd64 (3.12.3-1ubuntu0.11), libedit2:amd64 (3.1-20230828-1build1), libicu74:amd64 (74.2-1ubuntu3.1), kpartx:amd64 (0.9.4-5ubuntu8.1), python3-problem-report:amd64 (2.28.1-0ubuntu3.8), iproute2:amd64 (6.1.0-1ubuntu6.2), libnetplan1:amd64 (1.1.2-8ubuntu1~24.04.1), gpgconf:amd64 (2.4.4-2ubuntu17.4, automatic), libdevmapper1.02.1:amd64 (2:1.02.185-3ubuntu3.2), apport:amd64 (2.28.1-0ubuntu3.8), libxdmcp6:amd64 (1:1.1.3-0ubuntu6, automatic), python3-systemd:amd64 (235-1build4, automatic), iso-codes:amd64 (4.16.0-1, automatic), openssl:amd64 (3.0.13-0ubuntu3.7), libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.8), libatm1t64:amd64 (1:2.5.1-5.1build1, automatic), libproc-processtable-perl:amd64 (0.636-1build3), libevdev2:amd64 (1.13.1+dfsg-1build1, automatic), libmodule-scandeps-perl:amd64 (1.35-1ubuntu0.24.04.1)
+End-Date: 2026-02-10  00:26:45
+
+Start-Date: 2026-02-10  00:27:09
+Commandline: apt-get install --reinstall -y gdisk zstd unattended-upgrades xfsprogs multipath-tools kpartx cloud-init cloud-guest-utils thin-provisioning-tools software-properties-common snapd squashfs-tools sg3-utils pollinate packagekit-tools polkitd xml-core needrestart mdadm lvm2 libterm-readkey-perl libsort-naturally-perl libproc-processtable-perl:amd64 libmodule-scandeps-perl libmodule-find-perl libldap-common libintl-xs-perl libintl-perl libglib2.0-bin gpg-wks-client gnupg keyboxd gpgsm gpg-agent pinentry-curses gpg gnupg-utils finalrd fdisk eatmydata dmeventd dirmngr gpgconf curl initramfs-tools linux-base initramfs-tools-core cryptsetup cryptsetup-bin btrfs-progs bcache-tools appstream libsasl2-2:amd64 xz-utils xauth ubuntu-release-upgrader-core plymouth openssh-client libx11-data libedit2:amd64 groff-base gettext-base fuse3 cpio apparmor xxd xdg-user-dirs ucf systemd-timesyncd systemd-resolved sudo shared-mime-info python3-pygments networkd-dispatcher netplan.io ethtool netplan-generator libpam-cap:amd64 libnss-systemd:amd64 iproute2 libcap2-bin dmsetup dhcpcd-base libpam-systemd:amd64 dbus-daemon dbus-bin adduser kmod usbutils pciutils sgml-base perl libperl5.38t64:amd64 open-iscsi udev gawk apport python3-chardet lsb-release systemd ca-certificates openssl systemd-sysv python3 python3.12 readline-common python3-minimal python3.12-minimal console-setup keyboard-configuration xkb-data liblocale-gettext-perl libpam-modules:amd64 kbd procps ncurses-bin mawk libsemanage-common bash base-passwd tar sysvinit-utils sensible-utils sed init-system-helpers hostname grep findutils diffutils debconf debianutils dash libpam-runtime libaudit-common gpgv libc-bin util-linux perl-base passwd coreutils bsdutils base-files dpkg libpam-modules-bin apt mount e2fsprogs logsave login gzip
+Reinstall: dpkg:amd64 (1.22.6ubuntu6.5), lsb-release:amd64 (12.0-2), dmeventd:amd64 (2:1.02.185-3ubuntu3.2), networkd-dispatcher:amd64 (2.2.4-1), initramfs-tools-core:amd64 (0.142ubuntu25.8), netplan-generator:amd64 (1.1.2-8ubuntu1~24.04.1), console-setup:amd64 (1.226ubuntu1), zstd:amd64 (1.5.5+dfsg2-2build1.1), libpam-runtime:amd64 (1.5.3-5ubuntu5.5), udev:amd64 (255.4-1ubuntu8.12), coreutils:amd64 (9.4-3ubuntu6.1), python3.12:amd64 (3.12.3-1ubuntu0.11), pciutils:amd64 (1:3.10.0-2build1), dhcpcd-base:amd64 (1:10.0.6-1ubuntu3.2), readline-common:amd64 (8.2-4build1), open-iscsi:amd64 (2.1.9-3ubuntu5.4), openssh-client:amd64 (1:9.6p1-3ubuntu13.14), libaudit-common:amd64 (1:3.1.2-2.1build1.1), apt:amd64 (2.8.3), packagekit-tools:amd64 (1.2.8-2ubuntu1.4), libintl-perl:amd64 (1.33-1build3), xkb-data:amd64 (2.41-2ubuntu1.1), cryptsetup-bin:amd64 (2:2.7.0-1ubuntu4.2), gpg:amd64 (2.4.4-2ubuntu17.4), libglib2.0-bin:amd64 (2.80.0-6ubuntu3.8), systemd-timesyncd:amd64 (255.4-1ubuntu8.12), perl:amd64 (5.38.2-3.2ubuntu0.2), polkitd:amd64 (124-2ubuntu1.24.04.2), kbd:amd64 (2.6.4-2ubuntu2), libldap-common:amd64 (2.6.10+dfsg-0ubuntu0.24.04.1), python3-minimal:amd64 (3.12.3-0ubuntu2.1), libpam-systemd:amd64 (255.4-1ubuntu8.12), sgml-base:amd64 (1.31), sed:amd64 (4.9-2build1), tar:amd64 (1.35+dfsg-3build1), ucf:amd64 (3.0043+nmu1), sg3-utils:amd64 (1.46-3ubuntu4), libcap2-bin:amd64 (1:2.66-5ubuntu2.2), base-passwd:amd64 (3.6.3build1), libsasl2-2:amd64 (2.1.28+dfsg1-5ubuntu3.1), xxd:amd64 (2:9.1.0016-1ubuntu7.9), apparmor:amd64 (4.0.1really4.0.1-0ubuntu0.24.04.5), kmod:amd64 (31+20240202-2ubuntu7.1), dbus-daemon:amd64 (1.14.10-4ubuntu4.1), debconf:amd64 (1.5.86ubuntu1), software-properties-common:amd64 (0.99.49.3), libnss-systemd:amd64 (255.4-1ubuntu8.12), debianutils:amd64 (5.17build1), keyboxd:amd64 (2.4.4-2ubuntu17.4), xfsprogs:amd64 (6.6.0-1ubuntu2.1), python3:amd64 (3.12.3-0ubuntu2.1), dbus-bin:amd64 (1.14.10-4ubuntu4.1), gnupg:amd64 (2.4.4-2ubuntu17.4), squashfs-tools:amd64 (1:4.6.1-1build1), xz-utils:amd64 (5.6.1+really5.4.5-1ubuntu0.2), util-linux:amd64 (2.39.3-9ubuntu6.4), cloud-guest-utils:amd64 (0.33-1), systemd:amd64 (255.4-1ubuntu8.12), gpg-agent:amd64 (2.4.4-2ubuntu17.4), shared-mime-info:amd64 (2.4-4), liblocale-gettext-perl:amd64 (1.07-6ubuntu5), fdisk:amd64 (2.39.3-9ubuntu6.4), appstream:amd64 (1.0.2-1build6), gettext-base:amd64 (0.21-14ubuntu2), diffutils:amd64 (1:3.10-1build1), sensible-utils:amd64 (0.0.22), libsort-naturally-perl:amd64 (1.03-4), gdisk:amd64 (1.0.10-1build1), gawk:amd64 (1:5.2.1-2build3), libx11-data:amd64 (2:1.8.7-1build1), usbutils:amd64 (1:017-3build1), xdg-user-dirs:amd64 (0.18-1build1), lvm2:amd64 (2.03.16-3ubuntu3.2), libpam-modules:amd64 (1.5.3-5ubuntu5.5), xauth:amd64 (1:1.1.2-1build1), cloud-init:amd64 (25.2-0ubuntu1~24.04.1), linux-base:amd64 (4.5ubuntu9+24.04.1), libmodule-find-perl:amd64 (0.16-2), gpgv:amd64 (2.4.4-2ubuntu17.4), bash:amd64 (5.2.21-2ubuntu4), libterm-readkey-perl:amd64 (2.38-2build4), grep:amd64 (3.11-4build1), mawk:amd64 (1.3.4.20240123-1build1), systemd-resolved:amd64 (255.4-1ubuntu8.12), fuse3:amd64 (3.14.0-5build1), base-files:amd64 (13ubuntu10.4), plymouth:amd64 (24.004.60-1ubuntu7.1), gzip:amd64 (1.12-1ubuntu3.1), mdadm:amd64 (4.3-1ubuntu2.1), dmsetup:amd64 (2:1.02.185-3ubuntu3.2), login:amd64 (1:4.13+dfsg1-4ubuntu3.2), snapd:amd64 (2.73+ubuntu24.04), hostname:amd64 (3.23+nmu2ubuntu2), pinentry-curses:amd64 (1.2.1-3ubuntu5), finalrd:amd64 (9build1), gpgsm:amd64 (2.4.4-2ubuntu17.4), adduser:amd64 (3.137ubuntu1), findutils:amd64 (4.9.0-5build1), multipath-tools:amd64 (0.9.4-5ubuntu8.1), ca-certificates:amd64 (20240203), libpam-modules-bin:amd64 (1.5.3-5ubuntu5.5), init-system-helpers:amd64 (1.66ubuntu1), thin-provisioning-tools:amd64 (0.9.0-2ubuntu5.1), libsemanage-common:amd64 (3.5-1build5), procps:amd64 (2:4.0.4-4ubuntu3.2), eatmydata:amd64 (131-1ubuntu1), cryptsetup:amd64 (2:2.7.0-1ubuntu4.2), mount:amd64 (2.39.3-9ubuntu6.4), perl-base:amd64 (5.38.2-3.2ubuntu0.2), btrfs-progs:amd64 (6.6.3-1.1build2), sudo:amd64 (1.9.15p5-3ubuntu5.24.04.1), libc-bin:amd64 (2.39-0ubuntu8.7), netplan.io:amd64 (1.1.2-8ubuntu1~24.04.1), keyboard-configuration:amd64 (1.226ubuntu1), initramfs-tools:amd64 (0.142ubuntu25.8), cpio:amd64 (2.15+dfsg-1ubuntu2), dirmngr:amd64 (2.4.4-2ubuntu17.4), systemd-sysv:amd64 (255.4-1ubuntu8.12), gnupg-utils:amd64 (2.4.4-2ubuntu17.4), python3-pygments:amd64 (2.17.2+dfsg-1), libpam-cap:amd64 (1:2.66-5ubuntu2.2), python3-chardet:amd64 (5.2.0+dfsg-1), unattended-upgrades:amd64 (2.9.1+nmu4ubuntu1), needrestart:amd64 (3.6-7ubuntu4.5), curl:amd64 (8.5.0-2ubuntu10.6), sysvinit-utils:amd64 (3.08-6ubuntu3), logsave:amd64 (1.47.0-2.4~exp1ubuntu4.1), xml-core:amd64 (0.19), ubuntu-release-upgrader-core:amd64 (1:24.04.28), gpg-wks-client:amd64 (2.4.4-2ubuntu17.4), python3.12-minimal:amd64 (3.12.3-1ubuntu0.11), ncurses-bin:amd64 (6.4+20240113-1ubuntu2), libintl-xs-perl:amd64 (1.33-1build3), ethtool:amd64 (1:6.7-1build1), pollinate:amd64 (4.33-3.1ubuntu1.1), bcache-tools:amd64 (1.0.8-5build1), libperl5.38t64:amd64 (5.38.2-3.2ubuntu0.2), groff-base:amd64 (1.23.0-3build2), dash:amd64 (0.5.12-6ubuntu5), libedit2:amd64 (3.1-20230828-1build1), kpartx:amd64 (0.9.4-5ubuntu8.1), bsdutils:amd64 (1:2.39.3-9ubuntu6.4), iproute2:amd64 (6.1.0-1ubuntu6.2), gpgconf:amd64 (2.4.4-2ubuntu17.4), apport:amd64 (2.28.1-0ubuntu3.8), openssl:amd64 (3.0.13-0ubuntu3.7), e2fsprogs:amd64 (1.47.0-2.4~exp1ubuntu4.1), passwd:amd64 (1:4.13+dfsg1-4ubuntu3.2), libproc-processtable-perl:amd64 (0.636-1build3), libmodule-scandeps-perl:amd64 (1.35-1ubuntu0.24.04.1)
+End-Date: 2026-02-10  00:28:06
+
+Start-Date: 2026-02-10  00:28:10
+Commandline: apt-get install --reinstall -y cryptsetup-initramfs dbus dbus-session-bus-common dbus-system-bus-common distro-info-data dracut-install gcc-14-base:amd64 gnupg-l10n iso-codes libapt-pkg6.0t64:amd64 libc6:amd64 libcbor0.10:amd64 libcryptsetup12:amd64 libdb5.3t64:amd64 libdbus-1-3:amd64 libexpat1:amd64 libfuse3-3:amd64 libgcrypt20:amd64 libglib2.0-0t64:amd64 libgmp10:amd64 libgnutls30t64:amd64 libgpg-error0:amd64 libidn2-0:amd64 libjson-c5:amd64 libklibc:amd64 libkrb5-3:amd64 libksba8:amd64 libldap2:amd64 liblzma5:amd64 liblzo2-2:amd64 libmpfr6:amd64 libnettle8t64:amd64 libnghttp2-14:amd64 libopeniscsiusr libp11-kit0:amd64 libpam0g:amd64 libpcre2-8-0:amd64 libpng16-16t64:amd64 libpolkit-gobject-1-0:amd64 libpopt0:amd64 libproc2-0:amd64 libpython3-stdlib:amd64 libpython3.12-minimal:amd64 libreadline8t64:amd64 libsigsegv2:amd64 libsqlite3-0:amd64 libssh-4:amd64 libstemmer0d:amd64 libsystemd-shared:amd64 libsystemd0:amd64 libtasn1-6:amd64 libudev1:amd64 libusb-1.0-0:amd64 libxml2:amd64 libxtables12:amd64 lsb-base ncurses-base packagekit perl-modules-5.38 publicsuffix python3-babel python3-certifi python3-colorama python3-dbus python3-gi python3-httplib2 python3-json-pointer python3-jsonpatch python3-jwt python3-launchpadlib python3-lazr.restfulclient python3-lazr.uri python3-markdown-it python3-oauthlib python3-pkg-resources python3-requests python3-rich python3-serial python3-software-properties python3-tz python3-wadllib python3-yaml systemd-dev tzdata ubuntu-drivers-common
+Reinstall: libxtables12:amd64 (1.8.10-3ubuntu2), python3-colorama:amd64 (0.4.6-4), python3-gi:amd64 (3.48.2-1), python3-tz:amd64 (2024.1-2), libnghttp2-14:amd64 (1.59.0-1ubuntu0.2), libssh-4:amd64 (0.10.6-2ubuntu0.2), libldap2:amd64 (2.6.10+dfsg-0ubuntu0.24.04.1), tzdata:amd64 (2025b-0ubuntu0.24.04.1), libidn2-0:amd64 (2.3.7-2build1.1), libtasn1-6:amd64 (4.19.0-3ubuntu0.24.04.2), liblzo2-2:amd64 (2.10-2build4), liblzma5:amd64 (5.6.1+really5.4.5-1ubuntu0.2), lsb-base:amd64 (11.6), python3-lazr.restfulclient:amd64 (0.14.6-1), libexpat1:amd64 (2.6.1-2ubuntu0.3), libp11-kit0:amd64 (0.25.3-4ubuntu2.1), ubuntu-drivers-common:amd64 (1:0.9.7.6ubuntu3.5), libcbor0.10:amd64 (0.10.2-1.2ubuntu2), libpython3.12-minimal:amd64 (3.12.3-1ubuntu0.11), libproc2-0:amd64 (2:4.0.4-4ubuntu3.2), libsigsegv2:amd64 (2.14-1ubuntu2), libsystemd0:amd64 (255.4-1ubuntu8.12), python3-requests:amd64 (2.31.0+dfsg-1ubuntu1.1), libpopt0:amd64 (1.19+dfsg-1build1), libreadline8t64:amd64 (8.2-4build1), libdb5.3t64:amd64 (5.3.28+dfsg2-7), python3-httplib2:amd64 (0.20.4-3), libdbus-1-3:amd64 (1.14.10-4ubuntu4.1), libmpfr6:amd64 (4.2.1-1build1.1), dracut-install:amd64 (060+5-1ubuntu3.3), python3-software-properties:amd64 (0.99.49.3), python3-lazr.uri:amd64 (1.0.6-3), libxml2:amd64 (2.9.14+dfsg-1.3ubuntu3.7), python3-jsonpatch:amd64 (1.32-3), libudev1:amd64 (255.4-1ubuntu8.12), libstemmer0d:amd64 (2.2.0-4build1), libgpg-error0:amd64 (1.47-3build2.1), libnettle8t64:amd64 (3.9.1-2.2build1.1), publicsuffix:amd64 (20231001.0357-0.1), python3-pkg-resources:amd64 (68.1.2-2ubuntu1.2), python3-wadllib:amd64 (1.3.6-5), systemd-dev:amd64 (255.4-1ubuntu8.12), python3-babel:amd64 (2.10.3-3build1), packagekit:amd64 (1.2.8-2ubuntu1.4), libfuse3-3:amd64 (3.14.0-5build1), libc6:amd64 (2.39-0ubuntu8.7), python3-oauthlib:amd64 (3.2.2-1), python3-rich:amd64 (13.7.1-1), libkrb5-3:amd64 (1.20.1-6ubuntu2.6), libusb-1.0-0:amd64 (2:1.0.27-1), libgcrypt20:amd64 (1.10.3-2build1), libklibc:amd64 (2.0.13-4ubuntu0.2), python3-json-pointer:amd64 (2.0-0ubuntu1), libpolkit-gobject-1-0:amd64 (124-2ubuntu1.24.04.2), ncurses-base:amd64 (6.4+20240113-1ubuntu2), cryptsetup-initramfs:amd64 (2:2.7.0-1ubuntu4.2), python3-serial:amd64 (3.5-2), python3-certifi:amd64 (2023.11.17-1), libsqlite3-0:amd64 (3.45.1-1ubuntu2.5), libjson-c5:amd64 (0.17-1build1), libopeniscsiusr:amd64 (2.1.9-3ubuntu5.4), python3-markdown-it:amd64 (3.0.0-2), dbus-session-bus-common:amd64 (1.14.10-4ubuntu4.1), libcryptsetup12:amd64 (2:2.7.0-1ubuntu4.2), python3-jwt:amd64 (2.7.0-1), libgmp10:amd64 (2:6.3.0+dfsg-2ubuntu6.1), distro-info-data:amd64 (0.60ubuntu0.5), libpcre2-8-0:amd64 (10.42-4ubuntu2.1), libapt-pkg6.0t64:amd64 (2.8.3), libpython3-stdlib:amd64 (3.12.3-0ubuntu2.1), python3-yaml:amd64 (6.0.1-2build2), libpam0g:amd64 (1.5.3-5ubuntu5.5), libsystemd-shared:amd64 (255.4-1ubuntu8.12), libgnutls30t64:amd64 (3.8.3-1.1ubuntu3.4), libksba8:amd64 (1.6.6-1build1), gnupg-l10n:amd64 (2.4.4-2ubuntu17.4), perl-modules-5.38:amd64 (5.38.2-3.2ubuntu0.2), python3-launchpadlib:amd64 (1.11.0-6), python3-dbus:amd64 (1.3.2-5build3), libpng16-16t64:amd64 (1.6.43-5ubuntu0.4), dbus-system-bus-common:amd64 (1.14.10-4ubuntu4.1), dbus:amd64 (1.14.10-4ubuntu4.1), iso-codes:amd64 (4.16.0-1), libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.8), gcc-14-base:amd64 (14.2.0-4ubuntu2~24.04)
+End-Date: 2026-02-10  00:28:31
+
+Start-Date: 2026-02-10  00:28:40
+Commandline: apt-get install -y ubuntu-minimal ubuntu-standard
+Install: libparted2t64:amd64 (3.6-4build1, automatic), telnet:amd64 (0.17+2.5-3ubuntu4.1, automatic), libnetfilter-conntrack3:amd64 (1.0.9-6build1, automatic), tcpdump:amd64 (4.99.4-3ubuntu4.24.04.1, automatic), dmidecode:amd64 (3.5-3ubuntu0.1, automatic), debconf-i18n:amd64 (1.5.86ubuntu1, automatic), hdparm:amd64 (9.65+ds-1build1, automatic), bind9-host:amd64 (1:9.18.39-0ubuntu0.24.04.2, automatic), libnftnl11:amd64 (1.2.6-2build1, automatic), iptables:amd64 (1.8.10-3ubuntu2, automatic), dosfstools:amd64 (4.2-1.1build1, automatic), iputils-ping:amd64 (3:20240117-1ubuntu0.1, automatic), libnl-3-200:amd64 (3.7.0-0.3build1.1, automatic), libpcap0.8t64:amd64 (1.10.4-4.1ubuntu3, automatic), libnftables1:amd64 (1.0.9-1build1, automatic), libsensors-config:amd64 (1:3.6.0-9build1, automatic), ftp:amd64 (20230507-2build3, automatic), libtirpc3t64:amd64 (1.3.4+ds-1.1build1, automatic), libtirpc-common:amd64 (1.3.4+ds-1.1build1, automatic), ntfs-3g:amd64 (1:2022.10.3-1.2ubuntu3, automatic), libmagic-mgc:amd64 (1:5.45-3build1, automatic), libnl-route-3-200:amd64 (3.7.0-0.3build1.1, automatic), usb.ids:amd64 (2024.03.18-1, automatic), ufw:amd64 (0.36.2-6, automatic), whiptail:amd64 (0.52.24-2ubuntu2, automatic), libibverbs1:amd64 (50.0-2ubuntu0.2, automatic), busybox-static:amd64 (1:1.36.1-6ubuntu3.1, automatic), libjansson4:amd64 (2.14-2build2, automatic), libfribidi0:amd64 (1.0.13-3build1, automatic), libgpm2:amd64 (1.20.7-11, automatic), vim-common:amd64 (2:9.1.0016-1ubuntu7.9, automatic), libip4tc2:amd64 (1.8.10-3ubuntu2, automatic), sysstat:amd64 (12.6.1-2, automatic), file:amd64 (1:5.45-3build1, automatic), libpipeline1:amd64 (1.5.7-2, automatic), logrotate:amd64 (3.21.0-2build1, automatic), install-info:amd64 (7.1-3build2, automatic), libnuma1:amd64 (2.0.18-1ubuntu0.24.04.1, automatic), libtraceevent1-plugin:amd64 (1:1.8.2-1ubuntu2.1, automatic), libfastjson4:amd64 (1.2304.0-1build1, automatic), less:amd64 (590-2ubuntu2.1, automatic), psmisc:amd64 (23.7-1build1, automatic), mtr-tiny:amd64 (0.95-1.1ubuntu0.1, automatic), trace-cmd:amd64 (3.2-1ubuntu2, automatic), wget:amd64 (1.21.4-1ubuntu4.1, automatic), numactl:amd64 (2.0.18-1ubuntu0.24.04.1, automatic), libmaxminddb0:amd64 (1.9.1-1build1, automatic), strace:amd64 (6.8-0ubuntu2, automatic), python3-gdbm:amd64 (3.12.3-0ubuntu1, automatic), eject:amd64 (2.39.3-9ubuntu6.4, automatic), libtracefs1:amd64 (1.8.0-1ubuntu1, automatic), lshw:amd64 (02.19.git.2021.06.19.996aaad9c7-2build3, automatic), lsof:amd64 (4.95.0-1build3, automatic), locales:amd64 (2.39-0ubuntu8.7, automatic), ubuntu-pro-client-l10n:amd64 (37.1ubuntu0~24.04, automatic), powermgmt-base:amd64 (1.37ubuntu0.1, automatic), libuv1t64:amd64 (1.48.0-1.1build1, automatic), manpages:amd64 (6.7-2, automatic), man-db:amd64 (2.12.0-4build2, automatic), libtext-charwidth-perl:amd64 (0.04-11build3, automatic), uuid-runtime:amd64 (2.39.3-9ubuntu6.4, automatic), inetutils-telnet:amd64 (2:2.5-3ubuntu4.1, automatic), libtraceevent1:amd64 (1:1.8.2-1ubuntu2.1, automatic), vim-tiny:amd64 (2:9.1.0016-1ubuntu7.9, automatic), update-manager-core:amd64 (1:24.04.12, automatic), bind9-dnsutils:amd64 (1:9.18.39-0ubuntu0.24.04.2, automatic), libnfnetlink0:amd64 (1.0.2-2build1, automatic), rsyslog:amd64 (8.2312.0-3ubuntu9.1, automatic), friendly-recovery:amd64 (0.2.42, automatic), libtext-wrapi18n-perl:amd64 (0.06-10, automatic), rsync:amd64 (3.2.7-1ubuntu1.2, automatic), libip6tc2:amd64 (1.8.10-3ubuntu2, automatic), tnftp:amd64 (20230507-2build3, automatic), ibverbs-providers:amd64 (50.0-2ubuntu0.2, automatic), distro-info:amd64 (1.7build1, automatic), bash-completion:amd64 (1:2.11-8, automatic), libestr0:amd64 (0.1.11-1build1, automatic), nano:amd64 (7.2-2ubuntu0.1, automatic), bind9-libs:amd64 (1:9.18.39-0ubuntu0.24.04.2, automatic), cron-daemon-common:amd64 (3.0pl1-184ubuntu2, automatic), libsensors5:amd64 (1:3.6.0-9build1, automatic), liblmdb0:amd64 (0.9.31-1build1, automatic), ubuntu-standard:amd64 (1.539.2), python3-commandnotfound:amd64 (23.04.0, automatic), libntfs-3g89t64:amd64 (1:2022.10.3-1.2ubuntu3, automatic), parted:amd64 (3.6-4build1, automatic), ed:amd64 (1.20.1-1, automatic), libtext-iconv-perl:amd64 (1.7-8build3, automatic), cron:amd64 (3.0pl1-184ubuntu2, automatic), apt-utils:amd64 (2.8.3, automatic), libslang2:amd64 (2.3.3-3build2, automatic), command-not-found:amd64 (23.04.0, automatic), time:amd64 (1.9-0.2build1, automatic), info:amd64 (7.1-3build2, automatic), init:amd64 (1.66ubuntu1, automatic), libmagic1t64:amd64 (1:5.45-3build1, automatic), libnewt0.52:amd64 (0.52.24-2ubuntu2, automatic), netcat-openbsd:amd64 (1.226-1ubuntu2, automatic), bsdextrautils:amd64 (2.39.3-9ubuntu6.4, automatic), libncurses6:amd64 (6.4+20240113-1ubuntu2, automatic), ubuntu-minimal:amd64 (1.539.2), iputils-tracepath:amd64 (3:20240117-1ubuntu0.1, automatic), nftables:amd64 (1.0.9-1build1, automatic), ubuntu-pro-client:amd64 (37.1ubuntu0~24.04, automatic)
+End-Date: 2026-02-10  00:28:53
+
+Start-Date: 2026-02-10  00:28:57
+Commandline: apt-get -y --fix-policy install
+Install: libgpg-error-l10n:amd64 (1.47-3build2.1, automatic), e2fsprogs-l10n:amd64 (1.47.0-2.4~exp1ubuntu4.1, automatic)
+End-Date: 2026-02-10  00:28:57
+
+Start-Date: 2026-02-10  00:29:00
+Commandline: apt-get --yes -oDebug::pkgDepCache::AutoInstall=yes install adduser apparmor apport apport-core-dump-handler apport-symptoms appstream apt apt-utils base-files base-passwd bash bash-completion bc bcache-tools bind9-dnsutils bind9-host bind9-libs bolt bsdextrautils bsdutils btrfs-progs busybox-initramfs busybox-static byobu ca-certificates cloud-guest-utils cloud-initramfs-copymods cloud-initramfs-dyn-netconf command-not-found console-setup console-setup-linux coreutils cpio cron cron-daemon-common cryptsetup cryptsetup-bin cryptsetup-initramfs curl dash dbus dbus-bin dbus-daemon dbus-session-bus-common dbus-system-bus-common dbus-user-session debconf debconf-i18n debianutils dhcpcd-base diffutils dirmngr distro-info distro-info-data dmeventd dmidecode dmsetup dosfstools dpkg dracut-install e2fsprogs ed eject ethtool fdisk file finalrd findutils fonts-ubuntu-console friendly-recovery ftp fuse3 fwupd fwupd-signed gawk gcc-14-base gdisk gettext-base gir1.2-girepository-2.0 gir1.2-glib-2.0 gir1.2-packagekitglib-1.0 git git-man gnupg gnupg-l10n gnupg-utils gpg gpg-agent gpg-wks-client gpgconf gpgsm gpgv grep groff-base gzip hdparm hostname htop ibverbs-providers inetutils-telnet info init init-system-helpers initramfs-tools initramfs-tools-bin initramfs-tools-core install-info iproute2 iptables iputils-ping iputils-tracepath iso-codes jq kbd keyboard-configuration keyboxd klibc-utils kmod kpartx krb5-locales landscape-common less libacl1 libaio1t64 libapparmor1 libappstream5 libapt-pkg6.0t64 libarchive13t64 libargon2-1 libassuan0 libatasmart4 libatm1t64 libattr1 libaudit-common libaudit1 libblkid1 libblockdev-crypto3 libblockdev-fs3 libblockdev-loop3 libblockdev-mdraid3 libblockdev-nvme3 libblockdev-part3 libblockdev-swap3 libblockdev-utils3 libblockdev3 libbpf1 libbrotli1 libbsd0 libbytesize-common libbytesize1 libbz2-1.0 libc-bin libc6 libcap-ng0 libcap2 libcap2-bin libcbor0.10 libcom-err2 libcrypt1 libcryptsetup12 libcurl3t64-gnutls libcurl4t64 libdb5.3t64 libdbus-1-3 libdebconfclient0 libdevmapper-event1.02.1 libdevmapper1.02.1 libdrm-common libdrm2 libduktape207 libdw1t64 libedit2 libelf1t64 liberror-perl libestr0 libevdev2 libevent-core-2.1-7t64 libexpat1 libext2fs2t64 libfastjson4 libfdisk1 libffi8 libfido2-1 libflashrom1 libfribidi0 libftdi1-2 libfuse3-3 libfwupd2 libgcc-s1 libgcrypt20 libgdbm-compat4t64 libgdbm6t64 libgirepository-1.0-1 libglib2.0-0t64 libglib2.0-bin libglib2.0-data libgmp10 libgnutls30t64 libgpg-error0 libgpgme11t64 libgpm2 libgssapi-krb5-2 libgstreamer1.0-0 libgudev-1.0-0 libgusb2 libhogweed6t64 libibverbs1 libicu74 libidn2-0 libinih1 libintl-perl libintl-xs-perl libip4tc2 libip6tc2 libisns0t64 libjansson4 libjcat1 libjq1 libjson-c5 libjson-glib-1.0-0 libjson-glib-1.0-common libk5crypto3 libkeyutils1 libklibc libkmod2 libkrb5-3 libkrb5support0 libksba8 libldap-common libldap2 liblmdb0 liblocale-gettext-perl liblvm2cmd2.03 liblz4-1 liblzma5 liblzo2-2 libmagic-mgc libmagic1t64 libmaxminddb0 libmbim-glib4 libmbim-proxy libmbim-utils libmd0 libmm-glib0 libmnl0 libmodule-find-perl libmodule-scandeps-perl libmount1 libmpfr6 libmspack0t64 libncurses6 libncursesw6 libnetfilter-conntrack3 libnetplan1 libnettle8t64 libnewt0.52 libnfnetlink0 libnftables1 libnftnl11 libnghttp2-14 libnl-3-200 libnl-genl-3-200 libnl-route-3-200 libnpth0t64 libnspr4 libnss-systemd libnss3 libntfs-3g89t64 libnuma1 libnvme1t64 libonig5 libopeniscsiusr libp11-kit0 libpackagekit-glib2-18 libpam-cap libpam-modules libpam-modules-bin libpam-runtime libpam-systemd libpam0g libparted2t64 libpcap0.8t64 libpci3 libpcre2-8-0 libperl5.38t64 libpipeline1 libplymouth5 libpng16-16t64 libpolkit-agent-1-0 libpolkit-gobject-1-0 libpopt0 libproc-processtable-perl libproc2-0 libprotobuf-c1 libpsl5t64 libpython3-stdlib libpython3.12-minimal libpython3.12-stdlib libpython3.12t64 libqmi-glib5 libqmi-proxy libqmi-utils libqrtr-glib0 libreadline8t64 libreiserfscore0t64 librtmp1 libsasl2-2 libsasl2-modules libsasl2-modules-db libseccomp2 libselinux1 libsemanage-common libsemanage2 libsensors-config libsensors5 libsepol2 libsgutils2-1.46-2 libsigsegv2 libslang2 libsmartcols1 libsodium23 libsort-naturally-perl libsqlite3-0 libss2 libssh-4 libssl3t64 libstdc++6 libstemmer0d libsystemd-shared libsystemd0 libtasn1-6 libtcl8.6 libterm-readkey-perl libtext-charwidth-perl libtext-iconv-perl libtext-wrapi18n-perl libtinfo6 libtirpc-common libtirpc3t64 libtraceevent1 libtraceevent1-plugin libtracefs1 libtss2-esys-3.0.2-0t64 libtss2-mu-4.0.1-0t64 libtss2-sys1t64 libtss2-tcti-cmd0t64 libtss2-tcti-device0t64 libtss2-tcti-mssim0t64 libtss2-tcti-swtpm0t64 libuchardet0 libudev1 libudisks2-0 libunistring5 libunwind8 liburcu8t64 libusb-1.0-0 libutempter0 libuuid1 libuv1t64 libvolume-key1 libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxkbcommon0 libxml2 libxmlb2 libxmlsec1t64 libxmlsec1t64-openssl libxmuu1 libxslt1.1 libxtables12 libxxhash0 libyaml-0-2 libzstd1 linux-base locales login logrotate logsave lsb-release lshw lsof lvm2 lxd-agent-loader lxd-installer man-db manpages mawk mdadm media-types modemmanager motd-news-config mount mtr-tiny multipath-tools nano ncurses-base ncurses-bin needrestart netbase netcat-openbsd netplan-generator netplan.io networkd-dispatcher nftables ntfs-3g numactl open-iscsi open-vm-tools openssh-client openssl overlayroot packagekit packagekit-tools parted passwd pastebinit patch pci.ids pciutils perl perl-base perl-modules-5.38 pinentry-curses plymouth plymouth-theme-ubuntu-text polkitd pollinate powermgmt-base procps psmisc publicsuffix python-apt-common python3 python3-apport python3-apt python3-attr python3-automat python3-bcrypt python3-blinker python3-boto3 python3-botocore python3-certifi python3-cffi-backend python3-chardet python3-click python3-colorama python3-commandnotfound python3-configobj python3-constantly python3-cryptography python3-dateutil python3-dbus python3-debconf python3-debian python3-distro python3-distro-info python3-distupgrade python3-gdbm python3-gi python3-hamcrest python3-httplib2 python3-hyperlink python3-idna python3-incremental python3-jmespath python3-jwt python3-launchpadlib python3-lazr.restfulclient python3-lazr.uri python3-magic python3-markdown-it python3-mdurl python3-minimal python3-netifaces python3-netplan python3-newt python3-oauthlib python3-openssl python3-packaging python3-pexpect python3-pkg-resources python3-problem-report python3-ptyprocess python3-pyasn1 python3-pyasn1-modules python3-pygments python3-pyparsing python3-requests python3-rich python3-s3transfer python3-service-identity python3-setuptools python3-six python3-software-properties python3-systemd python3-twisted python3-update-manager python3-urllib3 python3-wadllib python3-yaml python3-zope.interface python3.12 python3.12-minimal readline-common rsync rsyslog run-one sbsigntool screen secureboot-db sed sensible-utils sg3-utils sg3-utils-udev sgml-base shared-mime-info snapd software-properties-common sosreport squashfs-tools strace sudo sysstat systemd systemd-dev systemd-hwe-hwdb systemd-resolved systemd-sysv systemd-timesyncd sysvinit-utils tar tcl tcl8.6 tcpdump telnet thin-provisioning-tools time tmux tnftp tpm-udev trace-cmd tzdata ubuntu-keyring ubuntu-minimal ubuntu-pro-client ubuntu-pro-client-l10n ubuntu-release-upgrader-core ubuntu-server ubuntu-standard ucf udev udisks2 ufw unattended-upgrades update-manager-core update-notifier-common usb-modeswitch usb-modeswitch-data usb.ids usbutils util-linux uuid-runtime vim vim-common vim-runtime vim-tiny wget whiptail xauth xdg-user-dirs xfsprogs xkb-data xml-core xxd xz-utils zerofree zlib1g zstd cloud-init
+Install: cloud-initramfs-dyn-netconf:amd64 (0.49~24.04.1), python3-incremental:amd64 (22.10.0-1), pastebinit:amd64 (1.6.2-1), libtss2-esys-3.0.2-0t64:amd64 (4.0.1-7.1ubuntu5.1), libmm-glib0:amd64 (1.23.4-0ubuntu2), libqrtr-glib0:amd64 (1.2.2-1ubuntu4), python3-pyasn1:amd64 (0.4.8-4ubuntu0.1), python3-s3transfer:amd64 (0.10.1-1ubuntu2), libtss2-tcti-cmd0t64:amd64 (4.0.1-7.1ubuntu5.1), libmbim-utils:amd64 (1.31.2-0ubuntu3.1), libonig5:amd64 (6.9.9-1build1), libnl-genl-3-200:amd64 (3.7.0-0.3build1.1), python3-dateutil:amd64 (2.8.2-3ubuntu1), libqmi-proxy:amd64 (1.35.2-0ubuntu2), libblockdev-part3:amd64 (3.1.1-1ubuntu0.1), sosreport:amd64 (4.9.2-0ubuntu0~24.04.1), libxmlsec1t64:amd64 (1.2.39-5build2), modemmanager:amd64 (1.23.4-0ubuntu2), git:amd64 (1:2.43.0-1ubuntu7.3), python3-boto3:amd64 (1.34.46+dfsg-1ubuntu1), lxd-agent-loader:amd64 (0.7ubuntu0.1), libtss2-sys1t64:amd64 (4.0.1-7.1ubuntu5.1), libblockdev-swap3:amd64 (3.1.1-1ubuntu0.1), zerofree:amd64 (1.1.1-1build5), libgusb2:amd64 (0.4.8-1build2), libmbim-glib4:amd64 (1.31.2-0ubuntu3.1), usb-modeswitch-data:amd64 (20191128-6), byobu:amd64 (6.11-0ubuntu1), libbytesize1:amd64 (2.10-1ubuntu2), tcl:amd64 (8.6.14build1), vim:amd64 (2:9.1.0016-1ubuntu7.9), libfwupd2:amd64 (1.9.33-0ubuntu1~24.04.1ubuntu1), python3-ptyprocess:amd64 (0.7.0-5), python3-hyperlink:amd64 (21.0.0-5), python3-twisted:amd64 (24.3.0-1ubuntu0.1), patch:amd64 (2.7.6-7build3), libblockdev-fs3:amd64 (3.1.1-1ubuntu0.1), libtcl8.6:amd64 (8.6.14+dfsg-1build1), udisks2:amd64 (2.10.1-6ubuntu1.3), python3-jmespath:amd64 (1.0.1-1), python3-hamcrest:amd64 (2.1.0-1), libmspack0t64:amd64 (0.11-1.1build1), libatasmart4:amd64 (0.19-5build3), landscape-common:amd64 (24.02-0ubuntu5.7), python3-automat:amd64 (22.10.0-2), libevent-core-2.1-7t64:amd64 (2.1.12-stable-9ubuntu2), libbytesize-common:amd64 (2.10-1ubuntu2), libvolume-key1:amd64 (0.3.12-7build2), libarchive13t64:amd64 (3.7.2-2ubuntu0.5), overlayroot:amd64 (0.49~24.04.1), secureboot-db:amd64 (1.9build1), libpython3.12t64:amd64 (3.12.3-1ubuntu0.11), libgudev-1.0-0:amd64 (1:238-5ubuntu1), python3-packaging:amd64 (24.0-1), motd-news-config:amd64 (13ubuntu10.4), libsodium23:amd64 (1.0.18-1ubuntu0.24.04.1), python3-pexpect:amd64 (4.9-2), libjson-glib-1.0-common:amd64 (1.8.0-2build2), libudisks2-0:amd64 (2.10.1-6ubuntu1.3), libnvme1t64:amd64 (1.8-3ubuntu1), libprotobuf-c1:amd64 (1.4.1-1ubuntu4), fwupd-signed:amd64 (1.52+1.4-1), libblockdev-loop3:amd64 (3.1.1-1ubuntu0.1), python3-openssl:amd64 (23.2.0-1), libblockdev3:amd64 (3.1.1-1ubuntu0.1), python3-service-identity:amd64 (24.1.0-1), run-one:amd64 (1.17-0ubuntu2), open-vm-tools:amd64 (2:12.5.0-1~ubuntu0.24.04.2), usb-modeswitch:amd64 (2.6.1-3ubuntu3), libmbim-proxy:amd64 (1.31.2-0ubuntu3.1), libnss3:amd64 (2:3.98-1build1), libqmi-utils:amd64 (1.35.2-0ubuntu2), libblockdev-utils3:amd64 (3.1.1-1ubuntu0.1), libxmlsec1t64-openssl:amd64 (1.2.39-5build2), tcl8.6:amd64 (8.6.14+dfsg-1build1), bolt:amd64 (0.9.7-1), python3-netifaces:amd64 (0.11.0-2build3), libxslt1.1:amd64 (1.1.39-0exp1ubuntu0.24.04.3), python3-zope.interface:amd64 (6.1-1build1), python3-botocore:amd64 (1.34.46+repack-1ubuntu1), libblockdev-mdraid3:amd64 (3.1.1-1ubuntu0.1), vim-runtime:amd64 (2:9.1.0016-1ubuntu7.9), liberror-perl:amd64 (0.17029-2), libftdi1-2:amd64 (1.5-6build5), libtss2-tcti-mssim0t64:amd64 (4.0.1-7.1ubuntu5.1), libqmi-glib5:amd64 (1.35.2-0ubuntu2), python3-constantly:amd64 (23.10.4-1), fonts-ubuntu-console:amd64 (0.869+git20240321-0ubuntu1), libjson-glib-1.0-0:amd64 (1.8.0-2build2), python3-newt:amd64 (0.52.24-2ubuntu2), libgpgme11t64:amd64 (1.18.0-4.1ubuntu4), htop:amd64 (3.3.0-4build1), ubuntu-server:amd64 (1.539.2), tpm-udev:amd64 (0.6ubuntu1), bc:amd64 (1.07.1-3ubuntu4), jq:amd64 (1.7.1-3ubuntu0.24.04.1), libtss2-tcti-device0t64:amd64 (4.0.1-7.1ubuntu5.1), python3-bcrypt:amd64 (3.2.2-1build1), python3-magic:amd64 (2:0.4.27-3), libflashrom1:amd64 (1.3.0-2.1ubuntu2), libblockdev-nvme3:amd64 (3.1.1-1ubuntu0.1), libjcat1:amd64 (0.2.0-2build3), python3-setuptools:amd64 (68.1.2-2ubuntu1.2), libtss2-mu-4.0.1-0t64:amd64 (4.0.1-7.1ubuntu5.1), libjq1:amd64 (1.7.1-3ubuntu0.24.04.1), tmux:amd64 (3.4-1ubuntu0.1), git-man:amd64 (1:2.43.0-1ubuntu7.3), libtss2-tcti-swtpm0t64:amd64 (4.0.1-7.1ubuntu5.1), libblockdev-crypto3:amd64 (3.1.1-1ubuntu0.1), sbsigntool:amd64 (0.9.4-3.1ubuntu7), cloud-initramfs-copymods:amd64 (0.49~24.04.1), python3-pyasn1-modules:amd64 (0.2.8-1), screen:amd64 (4.9.1-1ubuntu1), fwupd:amd64 (1.9.33-0ubuntu1~24.04.1ubuntu1), libutempter0:amd64 (1.2.1-3build1), update-notifier-common:amd64 (3.192.68.2), python3-debian:amd64 (0.1.49ubuntu2), libnspr4:amd64 (2:4.35-1.1build1)
+End-Date: 2026-02-10  00:29:22
+
+Start-Date: 2026-07-17  12:36:43
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install efibootmgr grub-efi-amd64 grub-efi-amd64-signed shim-signed
+Install: mokutil:amd64 (0.6.0-2build3, automatic), os-prober:amd64 (1.81ubuntu4, automatic), libfreetype6:amd64 (2.13.2+dfsg-1ubuntu0.1, automatic), libefivar1t64:amd64 (38-3.1build1, automatic), grub-efi-amd64:amd64 (2.12-1ubuntu7.3), libefiboot1t64:amd64 (38-3.1build1, automatic), grub-efi-amd64-signed:amd64 (1.202.5+2.12-1ubuntu7.3), grub-efi-amd64-bin:amd64 (2.12-1ubuntu7.3, automatic), grub2-common:amd64 (2.12-1ubuntu7.3, automatic), grub-common:amd64 (2.12-1ubuntu7.3, automatic), efibootmgr:amd64 (18-1build2), shim-signed:amd64 (1.58+15.8-0ubuntu1)
+End-Date: 2026-07-17  12:36:45
+
+Start-Date: 2026-07-17  12:37:40
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install linux-generic
+Install: libbpfcc:amd64 (0.29.1+ds-1ubuntu7, automatic), libupower-glib3:amd64 (1.90.3-1, automatic), manpages-dev:amd64 (6.7-2, automatic), linux-tools-common:amd64 (6.8.0-136.136, automatic), libsharpyuv0:amd64 (1.3.2-0.4build3, automatic), linux-headers-generic:amd64 (6.8.0-136.136, automatic), iucode-tool:amd64 (2.3.1-3build1, automatic), linux-headers-6.8.0-136-generic:amd64 (6.8.0-136.136, automatic), libaom3:amd64 (3.8.2-2ubuntu0.1, automatic), libjpeg-turbo8:amd64 (2.1.5-2ubuntu2, automatic), linux-modules-6.8.0-136-generic:amd64 (6.8.0-136.136, automatic), libheif1:amd64 (1.17.6-1ubuntu4.6, automatic), python3-bpfcc:amd64 (0.29.1+ds-1ubuntu7, automatic), libdeflate0:amd64 (1.19-1build1.1, automatic), libjpeg8:amd64 (8c-2ubuntu11, automatic), firmware-sof-signed:amd64 (2023.12.1-1ubuntu1.11, automatic), libtiff6:amd64 (4.5.1+git230720-4ubuntu2.5, automatic), libplist-2.0-4:amd64 (2.3.0-1~exp2build2, automatic), libllvm18:amd64 (1:18.1.3-1ubuntu1, automatic), wireless-regdb:amd64 (2025.10.07-0ubuntu1~24.04.1, automatic), liblerc4:amd64 (4.0.0+ds-4ubuntu2, automatic), linux-tools-6.8.0-136:amd64 (6.8.0-136.136, automatic), libxpm4:amd64 (1:3.5.17-1build2, automatic), libfontconfig1:amd64 (2.15.0-1.1ubuntu2, automatic), linux-generic:amd64 (6.8.0-136.136), libclang1-18:amd64 (1:18.1.3-1ubuntu1, automatic), ieee-data:amd64 (20220827.1, automatic), libheif-plugin-aomdec:amd64 (1.17.6-1ubuntu4.6, automatic), libheif-plugin-aomenc:amd64 (1.17.6-1ubuntu4.6, automatic), python3-netaddr:amd64 (0.8.0-2ubuntu1, automatic), fontconfig-config:amd64 (2.15.0-1.1ubuntu2, automatic), hwdata:amd64 (0.379-1, automatic), linux-modules-extra-6.8.0-136-generic:amd64 (6.8.0-136.136, automatic), rpcsvc-proto:amd64 (1.4.2-0ubuntu7, automatic), libclang-cpp18:amd64 (1:18.1.3-1ubuntu1, automatic), bpftrace:amd64 (0.20.2-1ubuntu4.3, automatic), linux-headers-6.8.0-136:amd64 (6.8.0-136.136, automatic), libwebp7:amd64 (1.3.2-0.4build3, automatic), linux-image-generic:amd64 (6.8.0-136.136, automatic), fonts-dejavu-mono:amd64 (2.37-8, automatic), libcrypt-dev:amd64 (1:4.4.36-4build1, automatic), linux-firmware:amd64 (20240318.git3b128b60-0ubuntu2.27, automatic), linux-tools-6.8.0-136-generic:amd64 (6.8.0-136.136, automatic), libjbig0:amd64 (2.1-6.1ubuntu2, automatic), libc-dev-bin:amd64 (2.39-0ubuntu8.7, automatic), libusbmuxd6:amd64 (2.0.2-4build3, automatic), bpfcc-tools:amd64 (0.29.1+ds-1ubuntu7, automatic), libc-devtools:amd64 (2.39-0ubuntu8.7, automatic), usbmuxd:amd64 (1.1.1-5~exp3ubuntu2.1, automatic), libc6-dev:amd64 (2.39-0ubuntu8.7, automatic), linux-image-6.8.0-136-generic:amd64 (6.8.0-136.136, automatic), ubuntu-kernel-accessories:amd64 (1.539.2, automatic), fonts-dejavu-core:amd64 (2.37-8, automatic), thermald:amd64 (2.5.6-2ubuntu0.24.04.5, automatic), amd64-microcode:amd64 (3.20251202.1ubuntu0.24.04.1, automatic), libgd3:amd64 (2.3.3-9ubuntu5, automatic), libdbus-glib-1-2:amd64 (0.112-3build2, automatic), libimobiledevice6:amd64 (1.3.0-8.1build3, automatic), intel-microcode:amd64 (3.20260210.0ubuntu0.24.04.1, automatic), linux-libc-dev:amd64 (6.8.0-136.136, automatic), upower:amd64 (1.90.3-1, automatic)
+End-Date: 2026-07-17  12:37:57
+
+Start-Date: 2026-07-17  12:38:18
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install build-essential
+Install: libgcc-13-dev:amd64 (13.3.0-6ubuntu2~24.04.1, automatic), libstdc++-13-dev:amd64 (13.3.0-6ubuntu2~24.04.1, automatic), libalgorithm-merge-perl:amd64 (0.08-5, automatic), libgomp1:amd64 (14.2.0-4ubuntu2~24.04.1, automatic), g++-13:amd64 (13.3.0-6ubuntu2~24.04.1, automatic), gcc-13:amd64 (13.3.0-6ubuntu2~24.04.1, automatic), build-essential:amd64 (12.10ubuntu1), libctf-nobfd0:amd64 (2.42-4ubuntu2.10, automatic), gcc-x86-64-linux-gnu:amd64 (4:13.2.0-7ubuntu1, automatic), libtsan2:amd64 (14.2.0-4ubuntu2~24.04.1, automatic), cpp:amd64 (4:13.2.0-7ubuntu1, automatic), g++:amd64 (4:13.2.0-7ubuntu1, automatic), gcc:amd64 (4:13.2.0-7ubuntu1, automatic), libhwasan0:amd64 (14.2.0-4ubuntu2~24.04.1, automatic), libalgorithm-diff-perl:amd64 (1.201-1, automatic), libbinutils:amd64 (2.42-4ubuntu2.10, automatic), libfakeroot:amd64 (1.33-1, automatic), cpp-x86-64-linux-gnu:amd64 (4:13.2.0-7ubuntu1, automatic), binutils-x86-64-linux-gnu:amd64 (2.42-4ubuntu2.10, automatic), bzip2:amd64 (1.0.8-5.1build0.1, automatic), g++-x86-64-linux-gnu:amd64 (4:13.2.0-7ubuntu1, automatic), libcc1-0:amd64 (14.2.0-4ubuntu2~24.04.1, automatic), cpp-13-x86-64-linux-gnu:amd64 (13.3.0-6ubuntu2~24.04.1, automatic), libmpc3:amd64 (1.3.1-1build1.1, automatic), libfile-fcntllock-perl:amd64 (0.22-4ubuntu5, automatic), dpkg-dev:amd64 (1.22.6ubuntu6.6, automatic), libasan8:amd64 (14.2.0-4ubuntu2~24.04.1, automatic), make:amd64 (4.3-4.1build2, automatic), libctf0:amd64 (2.42-4ubuntu2.10, automatic), lto-disabled-list:amd64 (47, automatic), cpp-13:amd64 (13.3.0-6ubuntu2~24.04.1, automatic), binutils-common:amd64 (2.42-4ubuntu2.10, automatic), libitm1:amd64 (14.2.0-4ubuntu2~24.04.1, automatic), libdpkg-perl:amd64 (1.22.6ubuntu6.6, automatic), libsframe1:amd64 (2.42-4ubuntu2.10, automatic), g++-13-x86-64-linux-gnu:amd64 (13.3.0-6ubuntu2~24.04.1, automatic), libgprofng0:amd64 (2.42-4ubuntu2.10, automatic), libisl23:amd64 (0.26-3build1.1, automatic), libquadmath0:amd64 (14.2.0-4ubuntu2~24.04.1, automatic), libubsan1:amd64 (14.2.0-4ubuntu2~24.04.1, automatic), liblsan0:amd64 (14.2.0-4ubuntu2~24.04.1, automatic), libalgorithm-diff-xs-perl:amd64 (0.04-8build3, automatic), gcc-13-x86-64-linux-gnu:amd64 (13.3.0-6ubuntu2~24.04.1, automatic), gcc-13-base:amd64 (13.3.0-6ubuntu2~24.04.1, automatic), binutils:amd64 (2.42-4ubuntu2.10, automatic), fakeroot:amd64 (1.33-1, automatic), libatomic1:amd64 (14.2.0-4ubuntu2~24.04.1, automatic)
+Upgrade: dpkg:amd64 (1.22.6ubuntu6.5, 1.22.6ubuntu6.6), libstdc++6:amd64 (14.2.0-4ubuntu2~24.04, 14.2.0-4ubuntu2~24.04.1), gcc-14-base:amd64 (14.2.0-4ubuntu2~24.04, 14.2.0-4ubuntu2~24.04.1), libgcc-s1:amd64 (14.2.0-4ubuntu2~24.04, 14.2.0-4ubuntu2~24.04.1)
+End-Date: 2026-07-17  12:38:23
+
+Start-Date: 2026-07-17  12:38:32
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install cmake
+Install: libjsoncpp25:amd64 (1.9.5-6build1, automatic), librhash0:amd64 (1.4.3-3build1, automatic), cmake-data:amd64 (3.28.3-1build7, automatic), cmake:amd64 (3.28.3-1build7)
+End-Date: 2026-07-17  12:38:33
+
+Start-Date: 2026-07-17  12:38:38
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install curl
+Upgrade: libcurl3t64-gnutls:amd64 (8.5.0-2ubuntu10.6, 8.5.0-2ubuntu10.11), libcurl4t64:amd64 (8.5.0-2ubuntu10.6, 8.5.0-2ubuntu10.11), curl:amd64 (8.5.0-2ubuntu10.6, 8.5.0-2ubuntu10.11)
+End-Date: 2026-07-17  12:38:39
+
+Start-Date: 2026-07-17  12:38:43
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install wget
+Upgrade: wget:amd64 (1.21.4-1ubuntu4.1, 1.21.4-1ubuntu4.3)
+End-Date: 2026-07-17  12:38:44
+
+Start-Date: 2026-07-17  12:38:51
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install nvtop
+Install: nvtop:amd64 (3.0.2-1)
+End-Date: 2026-07-17  12:38:52
+
+Start-Date: 2026-07-17  12:39:03
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install lm-sensors
+Install: lm-sensors:amd64 (1:3.6.0-9build1)
+End-Date: 2026-07-17  12:39:04
+
+Start-Date: 2026-07-17  12:39:09
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install smartmontools
+Install: smartmontools:amd64 (7.4-2build1)
+End-Date: 2026-07-17  12:39:10
+
+Start-Date: 2026-07-17  12:39:14
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install dkms
+Install: dkms:amd64 (3.0.11-1ubuntu13)
+End-Date: 2026-07-17  12:39:15
+
+Start-Date: 2026-07-17  12:39:22
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install libvulkan1
+Install: libvulkan1:amd64 (1.3.275.0-1build1), libxcb-present0:amd64 (1.15-1ubuntu2, automatic), libx11-xcb1:amd64 (2:1.8.7-1build1, automatic), libxshmfence1:amd64 (1.3-1build5, automatic), libxcb-dri3-0:amd64 (1.15-1ubuntu2, automatic), libllvm20:amd64 (1:20.1.2-0ubuntu1~24.04.3, automatic), mesa-vulkan-drivers:amd64 (25.2.8-0ubuntu0.24.04.2, automatic), libdrm-amdgpu1:amd64 (2.4.125-1ubuntu0.1~24.04.2, automatic), libxcb-randr0:amd64 (1.15-1ubuntu2, automatic), libxcb-shm0:amd64 (1.15-1ubuntu2, automatic), libwayland-client0:amd64 (1.22.0-2.1build1, automatic), libxcb-sync1:amd64 (1.15-1ubuntu2, automatic), libxcb-xfixes0:amd64 (1.15-1ubuntu2, automatic)
+Upgrade: libdrm-common:amd64 (2.4.125-1ubuntu0.1~24.04.1, 2.4.125-1ubuntu0.1~24.04.2), libdrm2:amd64 (2.4.125-1ubuntu0.1~24.04.1, 2.4.125-1ubuntu0.1~24.04.2)
+End-Date: 2026-07-17  12:39:24
+
+Start-Date: 2026-07-17  12:39:29
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install software-properties-common
+Upgrade: software-properties-common:amd64 (0.99.49.3, 0.99.49.4), python3-software-properties:amd64 (0.99.49.3, 0.99.49.4)
+End-Date: 2026-07-17  12:39:29
+
+Start-Date: 2026-07-17  12:39:37
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install wakeonlan
+Install: wakeonlan:amd64 (0.41-12.1)
+End-Date: 2026-07-17  12:39:38
+
+Start-Date: 2026-07-17  12:39:52
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install openssh-server
+Install: libwrap0:amd64 (7.6.q-33, automatic), ssh-import-id:amd64 (5.11-0ubuntu2.24.04.1, automatic), openssh-server:amd64 (1:9.6p1-3ubuntu13.18), openssh-sftp-server:amd64 (1:9.6p1-3ubuntu13.18, automatic), ncurses-term:amd64 (6.4+20240113-1ubuntu2.1, automatic)
+Upgrade: openssh-client:amd64 (1:9.6p1-3ubuntu13.14, 1:9.6p1-3ubuntu13.18), libtinfo6:amd64 (6.4+20240113-1ubuntu2, 6.4+20240113-1ubuntu2.1), ncurses-base:amd64 (6.4+20240113-1ubuntu2, 6.4+20240113-1ubuntu2.1), libncursesw6:amd64 (6.4+20240113-1ubuntu2, 6.4+20240113-1ubuntu2.1), ncurses-bin:amd64 (6.4+20240113-1ubuntu2, 6.4+20240113-1ubuntu2.1), libncurses6:amd64 (6.4+20240113-1ubuntu2, 6.4+20240113-1ubuntu2.1)
+End-Date: 2026-07-17  12:39:54
+
+Start-Date: 2026-07-17  12:40:00
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install python3-venv
+Install: python3-setuptools-whl:amd64 (68.1.2-2ubuntu1.2, automatic), python3-venv:amd64 (3.12.3-0ubuntu2.1), python3-pip-whl:amd64 (24.0+dfsg-1ubuntu1.3, automatic), python3.12-venv:amd64 (3.12.3-1ubuntu0.15, automatic)
+Upgrade: python3.12:amd64 (3.12.3-1ubuntu0.11, 3.12.3-1ubuntu0.15), libpython3.12-minimal:amd64 (3.12.3-1ubuntu0.11, 3.12.3-1ubuntu0.15), libpython3.12t64:amd64 (3.12.3-1ubuntu0.11, 3.12.3-1ubuntu0.15), python3.12-minimal:amd64 (3.12.3-1ubuntu0.11, 3.12.3-1ubuntu0.15), libpython3.12-stdlib:amd64 (3.12.3-1ubuntu0.11, 3.12.3-1ubuntu0.15)
+End-Date: 2026-07-17  12:40:03
+
+Start-Date: 2026-07-17  12:40:08
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install python3-pip
+Install: libpython3-dev:amd64 (3.12.3-0ubuntu2.1, automatic), zlib1g-dev:amd64 (1:1.3.dfsg-3.1ubuntu2.1, automatic), python3-wheel:amd64 (0.42.0-2, automatic), python3-dev:amd64 (3.12.3-0ubuntu2.1, automatic), python3-pip:amd64 (24.0+dfsg-1ubuntu1.3), libpython3.12-dev:amd64 (3.12.3-1ubuntu0.15, automatic), python3.12-dev:amd64 (3.12.3-1ubuntu0.15, automatic), libjs-jquery:amd64 (3.6.1+dfsg+~3.5.14-1, automatic), libexpat1-dev:amd64 (2.6.1-2ubuntu0.4, automatic), libjs-sphinxdoc:amd64 (7.2.6-6, automatic), javascript-common:amd64 (11+nmu1, automatic), libjs-underscore:amd64 (1.13.4~dfsg+~1.11.4-3, automatic)
+Upgrade: libexpat1:amd64 (2.6.1-2ubuntu0.3, 2.6.1-2ubuntu0.4)
+End-Date: 2026-07-17  12:40:10
+
+Start-Date: 2026-07-17  12:40:20
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install docker.io
+Install: bridge-utils:amd64 (1.7.1-1ubuntu2, automatic), pigz:amd64 (2.8-1, automatic), containerd:amd64 (2.2.1-0ubuntu1~24.04.3, automatic), ubuntu-fan:amd64 (0.12.16+24.04.1, automatic), docker.io:amd64 (29.1.3-0ubuntu3~24.04.2), dnsmasq-base:amd64 (2.90-2ubuntu0.4, automatic), runc:amd64 (1.3.4-0ubuntu1~24.04.1, automatic), dns-root-data:amd64 (2024071801~ubuntu0.24.04.1, automatic)
+End-Date: 2026-07-17  12:40:23
+
+Start-Date: 2026-07-17  12:40:29
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install docker-compose-v2
+Install: docker-compose-v2:amd64 (2.40.3+ds1-0ubuntu1~24.04.1)
+End-Date: 2026-07-17  12:40:29
+
+Start-Date: 2026-07-17  12:40:37
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install net-tools
+Install: net-tools:amd64 (2.10-0.1ubuntu4.4)
+End-Date: 2026-07-17  12:40:37
+
+Start-Date: 2026-07-17  12:40:42
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install iproute2
+Upgrade: iproute2:amd64 (6.1.0-1ubuntu6.2, 6.1.0-1ubuntu6.4)
+End-Date: 2026-07-17  12:40:43
+
+Start-Date: 2026-07-17  12:40:51
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install dnsutils
+Install: dnsutils:amd64 (1:9.18.39-0ubuntu0.24.04.5)
+Upgrade: bind9-host:amd64 (1:9.18.39-0ubuntu0.24.04.2, 1:9.18.39-0ubuntu0.24.04.5), bind9-dnsutils:amd64 (1:9.18.39-0ubuntu0.24.04.2, 1:9.18.39-0ubuntu0.24.04.5), bind9-libs:amd64 (1:9.18.39-0ubuntu0.24.04.2, 1:9.18.39-0ubuntu0.24.04.5)
+End-Date: 2026-07-17  12:40:52
+
+Start-Date: 2026-07-17  12:40:56
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install rsync
+Upgrade: rsync:amd64 (3.2.7-1ubuntu1.2, 3.2.7-1ubuntu1.5)
+End-Date: 2026-07-17  12:40:57
+
+Start-Date: 2026-07-17  12:41:02
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install zip
+Install: zip:amd64 (3.0-13ubuntu0.2), unzip:amd64 (6.0-28ubuntu4.1, automatic)
+End-Date: 2026-07-17  12:41:03
+
+Start-Date: 2026-07-17  12:41:10
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install jq
+Upgrade: jq:amd64 (1.7.1-3ubuntu0.24.04.1, 1.7.1-3ubuntu0.24.04.2), libjq1:amd64 (1.7.1-3ubuntu0.24.04.1, 1.7.1-3ubuntu0.24.04.2)
+End-Date: 2026-07-17  12:41:11
+
+Start-Date: 2026-07-17  12:41:19
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install ca-certificates
+Upgrade: ca-certificates:amd64 (20240203, 20260601~24.04.1)
+End-Date: 2026-07-17  12:41:21
+
+Start-Date: 2026-07-17  12:41:42
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install sqlite3
+Install: sqlite3:amd64 (3.45.1-1ubuntu2.6)
+Upgrade: libsqlite3-0:amd64 (3.45.1-1ubuntu2.5, 3.45.1-1ubuntu2.6)
+End-Date: 2026-07-17  12:41:43
+
+Start-Date: 2026-07-17  12:41:49
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install nodejs
+Install: libnode109:amd64 (18.19.1+dfsg-6ubuntu5, automatic), node-acorn:amd64 (8.8.1+ds+~cs25.17.7-2, automatic), node-cjs-module-lexer:amd64 (1.2.3+dfsg-1, automatic), nodejs:amd64 (18.19.1+dfsg-6ubuntu5), libcares2:amd64 (1.27.0-1.0ubuntu1, automatic), nodejs-doc:amd64 (18.19.1+dfsg-6ubuntu5, automatic), node-xtend:amd64 (4.0.2-3, automatic), node-undici:amd64 (5.26.3+dfsg1+~cs23.10.12-2, automatic), node-busboy:amd64 (1.6.0+~cs2.6.0-2, automatic)
+End-Date: 2026-07-17  12:41:50
+
+Start-Date: 2026-07-17  12:42:09
+Commandline: apt-get --quiet --assume-yes --option=Dpkg::options::=--force-unsafe-io --option=Dpkg::Options::=--force-confold install npm
+Install: node-picocolors:amd64 (1.0.0-4, automatic), node-source-map:amd64 (0.7.0++dfsg2+really.0.6.1-15, automatic), libjs-prettify:amd64 (2015.12.04+dfsg-1.1, automatic), node-util-deprecate:amd64 (1.0.2-3, automatic), node-tap-mocha-reporter:amd64 (5.0.3+~2.0.2-2, automatic), node-postcss:amd64 (8.4.31+~cs8.0.26-1, automatic), libtimedate-perl:amd64 (2.3300-2, automatic), libhtml-tagset-perl:amd64 (3.20-6, automatic), node-commondir:amd64 (1.0.1+~1.0.0-1, automatic), node-esrecurse:amd64 (4.3.0-2, automatic), node-is-stream:amd64 (3.0.0-4, automatic), libxxf86vm1:amd64 (1:1.1.4-1build4, automatic), node-path-exists:amd64 (5.0.0-8, automatic), node-pump:amd64 (3.0.0-5, automatic), node-resolve:amd64 (1.22.8+~cs5.34.15-2, automatic), libtie-ixhash-perl:amd64 (1.23-4, automatic), libjs-is-typedarray:amd64 (1.0.0-4, automatic), node-spdx-expression-parse:amd64 (3.0.1+~3.0.1-1, automatic), node-regjsparser:amd64 (0.9.1+ds-2, automatic), libnet-ssleay-perl:amd64 (1.94-1build4, automatic), libjs-sprintf-js:amd64 (1.1.2+ds1+~1.1.2-1, automatic), node-is-buffer:amd64 (2.0.5-2, automatic), libgdk-pixbuf2.0-bin:amd64 (2.42.10+dfsg-3ubuntu3.3, automatic), libglx-mesa0:amd64 (25.2.8-0ubuntu0.24.04.2, automatic), node-serialize-javascript:amd64 (6.0.1-1, automatic), node-deep-equal:amd64 (2.2.3+~cs43.15.94-1, automatic), node-json-buffer:amd64 (3.0.1+~3.0.0-1, automatic), node-has-unicode:amd64 (2.0.1-5, automatic), node-require-from-string:amd64 (2.0.2+~1.2.1-1, automatic), libauthen-sasl-perl:amd64 (2.1700-1, automatic), node-core-js-compat:amd64 (3.33.2-1build2, automatic), node-minimist:amd64 (1.2.8+~cs5.3.5-1, automatic), node-copy-concurrently:amd64 (1.0.5-9, automatic), node-process-nextick-args:amd64 (2.0.1-3, automatic), node-enhanced-resolve:amd64 (5.15.0-1, automatic), node-is-binary-path:amd64 (2.1.0-5, automatic), node-globby:amd64 (13.1.3+~cs16.25.40-2, automatic), libio-socket-ssl-perl:amd64 (2.085-1, automatic), node-anymatch:amd64 (3.1.3+~cs4.6.1-2, automatic), node-path-type:amd64 (4.0.0-3, automatic), node-regenerator-runtime:amd64 (0.15.2+~0.10.8-1, automatic), libwww-robotrules-perl:amd64 (6.02-1, automatic), libxrender1:amd64 (1:0.9.10-1.1build1, automatic), node-stack-utils:amd64 (2.0.6+~2.0.1-1, automatic), node-lodash-packages:amd64 (4.17.21+dfsg+~cs8.31.198.20210220-9, automatic), node-unset-value:amd64 (2.0.1-1, automatic), libhtml-form-perl:amd64 (6.11-1, automatic), liblwp-protocol-https-perl:amd64 (6.13-1, automatic), node-pascalcase:amd64 (1.0.0-1, automatic), libglvnd0:amd64 (1.7.0-1build1, automatic), libwww-perl:amd64 (6.76-1ubuntu0.1, automatic), libtry-tiny-perl:amd64 (0.31-2, automatic), node-function-bind:amd64 (1.1.2+~cs2.1.14-1, automatic), terser:amd64 (5.19.2-1, automatic), node-write-file-atomic:amd64 (4.0.2+~4.0.0-2, automatic), gyp:amd64 (0.1+20220404git9ecf45e-2, automatic), node-spdx-correct:amd64 (3.1.1-2, automatic), node-isexe:amd64 (2.0.0+~2.0.1-5, automatic), node-es6-error:amd64 (4.1.1-5, automatic), node-color-convert:amd64 (2.0.1+~cs2.0.0-2, automatic), node-terser:amd64 (5.19.2-1, automatic), node-resumer:amd64 (0.0.0-6, automatic), node-file-entry-cache:amd64 (6.0.1+~3.0.4+~2.0.0+~1.0.0+~2.0.1-1, automatic), node-lcov-parse:amd64 (1.0.0+20170612git80d039574ed9-6, automatic), node-slash:amd64 (4.0.0-3, automatic), node-babel7:amd64 (7.20.15+ds1+~cs214.269.168-6build1, automatic), node-is-glob:amd64 (4.0.3-2, automatic), node-tap-parser:amd64 (11.0.2+~cs2.1.4-1, automatic), node-ansi-regex:amd64 (5.0.1-1, automatic), libxkbfile1:amd64 (1:1.1.0-1build4, automatic), npm:amd64 (9.2.0~ds1-2), node-eslint-scope:amd64 (7.1.1+~3.7.4-1, automatic), node-cli-truncate:amd64 (2.1.0-5, automatic), node-jsesc:amd64 (3.0.2+~3.0.1-1, automatic), libx11-protocol-perl:amd64 (0.56-9, automatic), node-lru-cache:amd64 (7.14.1-1, automatic), node-get-value:amd64 (1:3.0.1-4, automatic), libjs-async:amd64 (0.8.0-6, automatic), libfile-mimeinfo-perl:amd64 (0.34-1, automatic), node-js-yaml:amd64 (4.1.0+dfsg+~4.0.5-7, automatic), node-source-list-map:amd64 (2.0.1+dfsg+~0.1.2-1, automatic), node-minimatch:amd64 (9.0.3-4build5, automatic), libhttp-negotiate-perl:amd64 (6.01-2, automatic), node-semver:amd64 (7.5.4+~7.5.0-2, automatic), node-https-proxy-agent:amd64 (7.0.1~0~2023071921-5, automatic), node-schema-utils:amd64 (4.2.0~ds-3build3, automatic), node-negotiator:amd64 (0.6.3+~0.6.1-1, automatic), libfont-afm-perl:amd64 (1.20-4, automatic), node-promzard:amd64 (0.3.0-2, automatic), node-abbrev:amd64 (1.1.1+~1.1.2-1, automatic), node-fast-levenshtein:amd64 (2.0.6+ds-3, automatic), node-webpack-sources:amd64 (3.2.3+~3.2.0-2, automatic), node-path-is-absolute:amd64 (2.0.0-2, automatic), libgbm1:amd64 (25.2.8-0ubuntu0.24.04.2, automatic), libpciaccess0:amd64 (0.17-3ubuntu0.24.04.2, automatic), node-escape-string-regexp:amd64 (4.0.0-2, automatic), libjs-util:amd64 (0.12.5+~1.0.10-1, automatic), node-es-abstract:amd64 (1.20.4+~cs26.27.47-1, automatic), node-kind-of:amd64 (6.0.3+dfsg-2, automatic), libxcursor1:amd64 (1:1.2.1-1build1, automatic), node-json5:amd64 (2.2.3+dfsg-1build1, automatic), node-levn:amd64 (0.4.1+dfsg-2, automatic), node-typedarray-to-buffer:amd64 (4.0.0-2, automatic), node-unicode-match-property-value-ecmascript:amd64 (2.1.0+ds-1, automatic), zutty:amd64 (0.14.8.20231210+dfsg1-1, automatic), node-object-assign:amd64 (4.1.1-7, automatic), node-cli-table:amd64 (0.3.11+~cs0.13.4-3, automatic), node-set-value:amd64 (4.1.0+~4.0.1-2, automatic), node-loader-runner:amd64 (4.3.0-1, automatic), node-rimraf:amd64 (3.0.2-2, automatic), node-npmlog:amd64 (7.0.1+~4.1.4-1, automatic), x11-common:amd64 (1:7.7+23ubuntu3, automatic), node-normalize-package-data:amd64 (4.0.1+~2.4.1-1, automatic), node-esutils:amd64 (2.0.3+~2.0.0-1, automatic), node-camelcase:amd64 (7.0.0-3, automatic), node-auto-bind:amd64 (4.0.0-2, automatic), libxml-xpathengine-perl:amd64 (0.14-2, automatic), node-wcwidth.js:amd64 (1.0.2-2, automatic), node-rechoir:amd64 (0.8.0+~0.6.1-2, automatic), libglx0:amd64 (1.7.0-1build1, automatic), libuv1-dev:amd64 (1.48.0-1.1build1, automatic), node-jest-debbundle:amd64 (29.6.2~ds1+~cs73.45.28-5, automatic), node-coveralls:amd64 (3.1.1-2build1, automatic), mesa-libgallium:amd64 (25.2.8-0ubuntu0.24.04.2, automatic), libencode-locale-perl:amd64 (1.05-3, automatic), node-mute-stream:amd64 (0.0.8+~0.0.1-3, automatic), node-shebang-command:amd64 (2.0.0-1, automatic), node-ip:amd64 (2.0.0+~1.1.0-1ubuntu1, automatic), node-n3:amd64 (1.16.3+~1.2.3+~1.10.4-1, automatic), node-ms:amd64 (2.1.3+~cs0.7.31-3, automatic), node-is-plain-object:amd64 (5.0.0-7, automatic), node-ws:amd64 (8.11.0+~cs13.7.3-2, automatic), node-debbundle-es-to-primitive:amd64 (1.2.1+~cs9.7.25-2, automatic), node-browserslist:amd64 (4.22.1+~cs6.1.28-1, automatic), node-spdx-license-ids:amd64 (3.0.12-1, automatic), node-shell-quote:amd64 (1.7.4+~1.7.1-1ubuntu0.24.04.1, automatic), node-lowercase-keys:amd64 (2.0.0-2, automatic), node-repeat-string:amd64 (1.6.1+repack-1, automatic), node-end-of-stream:amd64 (1.4.4+~1.4.1-1, automatic), node-esquery:amd64 (1.4.2~ds-1, automatic), node-caniuse-lite:amd64 (1.0.30001571+dfsg+~1.0.5-1, automatic), node-eslint-utils:amd64 (3.0.0-3, automatic), node-y18n:amd64 (5.0.8+~5.0.0-3, automatic), node-postcss-modules-extract-imports:amd64 (3.0.0-2, automatic), node-are-we-there-yet:amd64 (3.0.1+~1.1.0-1, automatic), node-object-inspect:amd64 (1.12.2+~cs1.8.1-1, automatic), node-jsonify:amd64 (0.0.1-1, automatic), node-brace-expansion:amd64 (2.0.1+~1.1.0-1, automatic), node-ampproject-remapping:amd64 (2.2.0+~cs5.15.37-1, automatic), node-randombytes:amd64 (2.1.0+~2.0.0-2, automatic), node-css-selector-tokenizer:amd64 (0.8.0+~cs4.8.3-1, automatic), libxaw7:amd64 (2:1.0.14-1build2, automatic), node-read:amd64 (1.0.7-5, automatic), node-p-locate:amd64 (6.0.0-12, automatic), libdata-dump-perl:amd64 (1.25-1, automatic), node-osenv:amd64 (0.1.5+~0.1.1-1, automatic), node-babel-plugin-lodash:amd64 (3.3.4+~cs2.0.1-7, automatic), node-path-dirname:amd64 (1.0.2-2, automatic), liblwp-mediatypes-perl:amd64 (6.04-2, automatic), libxcomposite1:amd64 (1:0.4.5-1build3, automatic), node-union-value:amd64 (2.0.1-4, automatic), libfile-desktopentry-perl:amd64 (0.22-3, automatic), node-concat-stream:amd64 (2.0.0+~2.0.0-2, automatic), node-cli-boxes:amd64 (3.0.0-1build2, automatic), libxft2:amd64 (2.3.6-1build1, automatic), x11-utils:amd64 (7.7+6build2, automatic), libhtml-tree-perl:amd64 (5.07-3, automatic), node-glob:amd64 (8.1.0+~cs8.5.15-1, automatic), node-sprintf-js:amd64 (1.1.2+ds1+~1.1.2-1, automatic), libgdk-pixbuf-2.0-0:amd64 (2.42.10+dfsg-3ubuntu3.3, automatic), node-core-js-pure:amd64 (3.33.2-1build2, automatic), node-ci-info:amd64 (4.0.0+~cs1.1.0-1build2, automatic), handlebars:amd64 (3:4.7.7+~4.1.0-1, automatic), node-error-ex:amd64 (1.3.2-4, automatic), libmailtools-perl:amd64 (2.21-2, automatic), node-punycode:amd64 (2.2.3-2, automatic), node-balanced-match:amd64 (2.0.0-1, automatic), node-foreground-child:amd64 (3.1.1-2, automatic), node-base:amd64 (3.0.0-3, automatic), node-define-properties:amd64 (1.2.1+~cs2.2.3-1, automatic), libxmu6:amd64 (2:1.1.3-3build2, automatic), node-mkdirp:amd64 (1.0.4+~1.0.2-4, automatic), node-fs-write-stream-atomic:amd64 (1.0.10-6, automatic), node-interpret:amd64 (2.2.0-3, automatic), node-fs-readdir-recursive:amd64 (1.1.0+~1.1.0-1, automatic), node-webassemblyjs:amd64 (1.11.4+dfsg+~cs10.11.17-2, automatic), node-jsonparse:amd64 (1.3.1-10, automatic), node-babel-plugin-polyfill-corejs2:amd64 (0.3.3~0~20220913+ds1-1, automatic), node-babel-plugin-polyfill-corejs3:amd64 (0.6.0~0~20220913+ds1-1, automatic), node-unique-filename:amd64 (1.1.1+ds-2, automatic), node-debug:amd64 (4.3.4+~cs4.1.7-1, automatic), node-for-in:amd64 (1.0.2-4, automatic), node-strip-json-comments:amd64 (4.0.0-4, automatic), node-v8flags:amd64 (3.2.0+~3.1.1-1, automatic), node-clone-deep:amd64 (4.0.1+~cs7.0.2-1, automatic), node-lodash:amd64 (4.17.21+dfsg+~cs8.31.198.20210220-9, automatic), node-write:amd64 (2.0.0~6.0.1+~3.0.4+~2.0.0+~1.0.0+~2.0.1-1, automatic), node-inherits:amd64 (2.0.4-6, automatic), node-merge-stream:amd64 (2.0.0+~1.1.2-2, automatic), node-yargs:amd64 (16.2.0+~16.0.4-7, automatic), libgles2:amd64 (1.7.0-1build1, automatic), libgl1-mesa-dri:amd64 (25.2.8-0ubuntu0.24.04.2, automatic), node-mime:amd64 (3.0.0+dfsg+~cs6.97.2-1, automatic), node-has-value:amd64 (2.0.2-4, automatic), node-core-util-is:amd64 (1.0.3-1, automatic), node-istanbul:amd64 (0.4.5+repack10+~cs98.25.59-2, automatic), node-delegates:amd64 (1.0.0-3, automatic), node-css-loader:amd64 (6.8.1+~cs14.0.17-1, automatic), node-locate-path:amd64 (7.1.1-2, automatic), node-deep-is:amd64 (0.1.4-1, automatic), libjs-regenerate:amd64 (1.4.2-3, automatic), libxrandr2:amd64 (2:1.5.2-2build1, automatic), libxxf86dga1:amd64 (2:1.1.5-1build1, automatic), node-typedarray:amd64 (0.0.7-1, automatic), node-pkg-dir:amd64 (5.0.0-2, automatic), node-string-decoder:amd64 (1.3.0-6, automatic), liburi-perl:amd64 (5.27-1, automatic), node-postcss-modules-values:amd64 (4.0.0+~4.0.0-1, automatic), node-base64-js:amd64 (1.5.1+dfsg+~1.3.0-2, automatic), node-unicode-property-aliases-ecmascript:amd64 (2.1.0+ds-1, automatic), node-text-table:amd64 (0.2.0-4, automatic), node-glob-parent:amd64 (6.0.2+~5.1.1-2, automatic), libnotify-bin:amd64 (0.8.3-1build2, automatic), node-postcss-value-parser:amd64 (4.2.0-1, automatic), libhttp-cookies-perl:amd64 (6.11-1, automatic), eslint:amd64 (6.4.0~dfsg+~6.1.9-11build3, automatic), node-fancy-log:amd64 (1.3.3+~cs1.3.1-2, automatic), node-has-flag:amd64 (4.0.0-3, automatic), node-ajv:amd64 (8.12.0~ds+~2.1.1-4, automatic), libio-html-perl:amd64 (1.004-3, automatic), node-read-pkg:amd64 (5.2.0-2, automatic), node-cli-cursor:amd64 (4.0.0-3, automatic), node-prelude-ls:amd64 (1.2.1+dfsg-3, automatic), node-del:amd64 (7.0.0-5, automatic), node-espree:amd64 (9.4.1~dfsg-2, automatic), node-braces:amd64 (3.0.2+~3.0.1-1, automatic), node-is-arrayish:amd64 (0.3.2-3, automatic), node-readdirp:amd64 (3.6.0-1, automatic), libxt6t64:amd64 (1:1.2.1-1.2build1, automatic), node-collection-visit:amd64 (1.0.0-4, automatic), node-optimist:amd64 (0.6.1+~0.0.30-2, automatic), node-wide-align:amd64 (1.1.3-4, automatic), node-widest-line:amd64 (3.1.0-2, automatic), libxtst6:amd64 (2:1.2.3-1.1build1, automatic), node-icss-utils:amd64 (5.1.0+~5.1.0-1, automatic), node-defaults:amd64 (1.0.4+~1.0.3-1, automatic), node-isobject:amd64 (4.0.0-2, automatic), node-is-extglob:amd64 (2.1.1-5, automatic), node-v8-compile-cache:amd64 (2.4.0-2, automatic), node-got:amd64 (11.8.5+~cs58.13.36-3, automatic), node-gyp:amd64 (9.3.0-3, automatic), node-slice-ansi:amd64 (5.0.0+~cs9.0.0-5, automatic), node-set-blocking:amd64 (2.0.0-2, automatic), node-is-path-cwd:amd64 (2.2.0-2, automatic), node-tapable:amd64 (2.2.1-3, automatic), node-source-map-support:amd64 (0.5.21+ds+~0.5.4-1, automatic), node-tslib:amd64 (2.4.1-1, automatic), node-ini:amd64 (3.0.1-2, automatic), libnet-http-perl:amd64 (6.23-1, automatic), node-colors:amd64 (1.4.0-4, automatic), libjs-inherits:amd64 (2.0.4-6, automatic), node-builtins:amd64 (5.0.1-1, automatic), node-functional-red-black-tree:amd64 (1.0.1+20181105-7, automatic), node-cache-base:amd64 (4.0.2-1, automatic), libnotify4:amd64 (0.8.3-1build2, automatic), node-defined:amd64 (1.0.1+~1.0.0-1, automatic), libio-stringy-perl:amd64 (2.111-3, automatic), node-imurmurhash:amd64 (0.1.4+dfsg+~0.1.1-2, automatic), node-console-control-strings:amd64 (1.1.0-3, automatic), node-estraverse:amd64 (5.3.0+ds+~5.1.1-1, automatic), node-aproba:amd64 (2.0.0-3, automatic), libipc-system-simple-perl:amd64 (1.30-2, automatic), node-run-queue:amd64 (2.0.0-3, automatic), libhtml-format-perl:amd64 (2.16-2, automatic), node-yallist:amd64 (4.0.0+~4.0.1-1, automatic), node-fetch:amd64 (3.3.2+~cs11.4.11-1, automatic), node-events:amd64 (3.3.0+~3.0.0-3, automatic), node-prr:amd64 (1.0.1-3, automatic), node-uri-js:amd64 (4.4.0+dfsg-8, automatic), node-unicode-canonical-property-names-ecmascript:amd64 (2.0.0-2, automatic), node-re2:amd64 (1.20.10+~cs2.13.13-1, automatic), node-json-schema-traverse:amd64 (1.0.0-3, automatic), node-progress:amd64 (2.0.3-2, automatic), node-wrappy:amd64 (1.0.2-3, automatic), node-yaml:amd64 (2.3.4-1build1, automatic), node-commander:amd64 (9.4.1-1, automatic), node-ssri:amd64 (9.0.1-2, automatic), node-tap:amd64 (16.3.7+ds1+~cs50.9.19-4, automatic), node-tar:amd64 (6.1.13+~cs7.0.5-3, automatic), node-through:amd64 (2.3.8+~cs0.0.30-1, automatic), libice6:amd64 (2:1.0.10-1build3, automatic), node-minipass:amd64 (3.3.6+~cs9.4.19-1, automatic), node-which:amd64 (2.0.2+~cs1.3.2-3, automatic), node-color-name:amd64 (1.1.4+~1.1.1-2, automatic), node-arrify:amd64 (2.0.1-3, automatic), libjs-typedarray-to-buffer:amd64 (4.0.0-2, automatic), node-set-immediate-shim:amd64 (2.0.0-2, automatic), node-ieee754:amd64 (1.2.1-3, automatic), node-is-windows:amd64 (1.0.2+~cs1.0.0-1, automatic), node-p-map:amd64 (4.0.0+~3.1.0+~3.0.1-1, automatic), node-for-own:amd64 (1.0.0-3, automatic), libre2-10:amd64 (20230301-3build1, automatic), libhttp-date-perl:amd64 (6.06-1, automatic), libssl-dev:amd64 (3.0.13-0ubuntu3.11, automatic), node-regexpu-core:amd64 (5.2.2-3, automatic), node-yargs-parser:amd64 (21.1.1+~21.0.0-4, automatic), node-babel-helper-define-polyfill-provider:amd64 (0.3.3~0~20220913+ds1-1, automatic), node-electron-to-chromium:amd64 (1.4.616-1, automatic), libfile-basedir-perl:amd64 (0.09-2, automatic), node-http-proxy-agent:amd64 (7.0.0~0~2023071921-5, automatic), libhtml-parser-perl:amd64 (3.81-1build3, automatic), node-nopt:amd64 (5.0.0-4, automatic), node-safe-buffer:amd64 (5.2.1+~cs2.1.2-3, automatic), node-npm-bundled:amd64 (2.0.1-2, automatic), node-chokidar:amd64 (3.6.0-2, automatic), node-strip-ansi:amd64 (6.0.1-2, automatic), node-tape:amd64 (5.6.1+~cs8.20.19-1, automatic), node-promise-inflight:amd64 (1.0.1+~1.0.0-1, automatic), node-p-limit:amd64 (4.0.0+~cs4.0.0-5, automatic), node-neo-async:amd64 (2.6.2+~cs3.0.0-3, automatic), node-json-schema:amd64 (0.4.0+~7.0.11-1, automatic), perl-openssl-defaults:amd64 (7build3, automatic), node-archy:amd64 (1.0.0-6, automatic), node-cliui:amd64 (7.0.4+repack+~cs3.1.0-4, automatic), node-indent-string:amd64 (4.0.0-2, automatic), libxcb-glx0:amd64 (1.15-1ubuntu2, automatic), node-async-each:amd64 (1.0.3-3, automatic), node-is-path-inside:amd64 (3.0.3-2, automatic), node-log-driver:amd64 (1.2.7+git+20180219+bba1761737-7, automatic), node-npm-run-path:amd64 (5.1.0+~4.0.0-8, automatic), webpack:amd64 (5.76.1+dfsg1+~cs17.16.16-1, automatic), node-binary-extensions:amd64 (2.2.0-2, automatic), node-is-descriptor:amd64 (3.0.0-2, automatic), node-regjsgen:amd64 (0.7.1+ds-1, automatic), libxinerama1:amd64 (2:1.1.4-3build1, automatic), libjs-source-map:amd64 (0.7.0++dfsg2+really.0.6.1-15, automatic), node-clone:amd64 (2.1.2+~2.1.2-1, automatic), libxcb-shape0:amd64 (1.15-1ubuntu2, automatic), node-ajv-keywords:amd64 (5.1.0-4, automatic), node-resolve-from:amd64 (5.0.0+~3.1.0+~3.3.0+~2.0.0-1, automatic), node-require-directory:amd64 (2.1.1+~2.1.2-1, automatic), node-resolve-cwd:amd64 (3.0.0-2, automatic), node-fill-range:amd64 (7.0.1+~7.0.0-1, automatic), node-regenerate:amd64 (1.4.2-3, automatic), node-regenerate-unicode-properties:amd64 (10.1.0+ds-1, automatic), node-parse-json:amd64 (5.2.0+~cs5.1.7-1, automatic), node-fast-deep-equal:amd64 (3.1.3-3, automatic), x11-xserver-utils:amd64 (7.7+10build2, automatic), node-signal-exit:amd64 (4.1.0-6, automatic), node-shebang-regex:amd64 (3.0.0-2, automatic), node-esprima:amd64 (4.0.1+ds+~4.0.3-2, automatic), node-core-js:amd64 (3.33.2-1build2, automatic), node-hosted-git-info:amd64 (6.1.1-2, automatic), node-memfs:amd64 (3.4.12+~cs1.0.3-1, automatic), node-move-concurrently:amd64 (1.0.1-5, automatic), node-chrome-trace-event:amd64 (1.0.3-2, automatic), node-data-uri-to-buffer:amd64 (5.0.1~0~2023071921-5, automatic), node-iferr:amd64 (1.0.2+~1.0.2-1, automatic), node-depd:amd64 (2.0.0-2, automatic), node-validate-npm-package-license:amd64 (3.0.4-2, automatic), node-js-tokens:amd64 (8.0.0-2, automatic), node-wrap-ansi:amd64 (8.0.1+~8.0.1-3, automatic), node-spdx-exceptions:amd64 (2.3.0-2, automatic), libnode-dev:amd64 (18.19.1+dfsg-6ubuntu5, automatic), node-memory-fs:amd64 (0.5.0+~0.3.3-2, automatic), node-json-stable-stringify:amd64 (1.0.2+repack1+~cs1.0.34-2, automatic), node-strip-bom:amd64 (4.0.0-2, automatic), node-ip-regex:amd64 (4.3.0+~4.1.1-1, automatic), node-read-package-json:amd64 (5.0.2+~2.0.0-1, automatic), node-globals:amd64 (13.23.0-1, automatic), node-define-property:amd64 (2.0.2+really+2.0.2-3, automatic), node-npm-package-arg:amd64 (10.0.0+~3.0.0-2, automatic), node-diff:amd64 (5.0.0~dfsg+~5.0.1-4, automatic), node-assert:amd64 (2.0.0+~cs3.9.8-2, automatic), node-make-dir:amd64 (3.1.0-3, automatic), node-columnify:amd64 (1.6.0+~1.5.1-1, automatic), libclone-perl:amd64 (0.46-1build3, automatic), node-watchpack:amd64 (2.4.0+~cs2.8.1-1, automatic), node-babel7-runtime:amd64 (7.20.15+ds1+~cs214.269.168-6build1, automatic), xdg-utils:amd64 (1.1.3-4.1ubuntu3, automatic), node-json-parse-better-errors:amd64 (1.0.2+~cs3.3.1-2, automatic), node-unicode-match-property-ecmascript:amd64 (2.0.0-2, automatic), libxml-twig-perl:amd64 (1:3.52-2, automatic), node-promise-retry:amd64 (2.0.1-4, automatic), node-once:amd64 (1.4.1-1, automatic), node-quick-lru:amd64 (6.1.1-4, automatic), node-babel-plugin-add-module-exports:amd64 (1.0.4+dfsg1~cs5.8.0-4, automatic), node-string-width:amd64 (4.2.3+~cs13.2.3-1, automatic), node-validate-npm-package-name:amd64 (5.0.0+~4.0.0-1, automatic), node-is-extendable:amd64 (1.0.1-3, automatic), node-normalize-path:amd64 (3.0.0+~3.0.0-1, automatic), node-to-regex-range:amd64 (5.0.1-4, automatic), node-time-stamp:amd64 (2.2.0-2, automatic), libegl-mesa0:amd64 (25.2.8-0ubuntu0.24.04.2, automatic), node-isarray:amd64 (2.0.5-4, automatic), node-opener:amd64 (1.5.2+~1.4.0-1, automatic), node-convert-source-map:amd64 (1.9.0+~1.5.2-1, automatic), node-ansi-escapes:amd64 (5.0.0+really.4.3.1-1, automatic), libhttp-message-perl:amd64 (6.45-1ubuntu1, automatic), node-mimic-response:amd64 (3.1.0-8, automatic), node-doctrine:amd64 (3.0.0-4, automatic), node-iconv-lite:amd64 (0.6.3-3, automatic), libfile-listing-perl:amd64 (6.16-1, automatic), libjs-events:amd64 (3.3.0+~3.0.0-3, automatic), node-eslint-visitor-keys:amd64 (3.3.0+~1.0.0-1, automatic), node-argparse:amd64 (2.0.1-2, automatic), node-is-primitive:amd64 (3.0.1-3, automatic), node-flat-cache:amd64 (3.0.4~6.0.1+~3.0.4+~2.0.0+~1.0.0+~2.0.1-1, automatic), node-gauge:amd64 (4.0.4-2, automatic), node-object-visit:amd64 (1.0.1-5, automatic), libxml-parser-perl:amd64 (2.47-1ubuntu0.24.04.1, automatic), libgl1:amd64 (1.7.0-1build1, automatic), libegl1:amd64 (1.7.0-1build1, automatic), node-encoding:amd64 (0.1.13-2, automatic), node-decompress-response:amd64 (6.0.0-2, automatic), node-find-up:amd64 (6.3.0-7, automatic), node-wordwrap:amd64 (1.0.0-4, automatic), node-map-visit:amd64 (1.0.0-4, automatic), node-err-code:amd64 (2.0.3+dfsg-3, automatic), node-inflight:amd64 (1.0.6-2, automatic), node-is-plain-obj:amd64 (3.0.0-2, automatic), node-restore-cursor:amd64 (4.0.0-4, automatic), node-get-stream:amd64 (6.0.1-1, automatic), node-errno:amd64 (1.0.0-3, automatic), node-is-number:amd64 (7.0.0-4, automatic), node-chownr:amd64 (2.0.0-2, automatic), node-regexpp:amd64 (3.2.0-5, automatic), node-supports-color:amd64 (8.1.1+~8.1.1-1, automatic), node-chalk:amd64 (5.3.0-1build1, automatic), libnet-dbus-perl:amd64 (1.2.0-2build3, automatic), node-path-is-inside:amd64 (1.0.2+~1.0.0-1, automatic), node-regenerator-transform:amd64 (0.15.2+~0.10.8-1, automatic), node-p-cancelable:amd64 (2.1.1-1, automatic), node-ansi-styles:amd64 (6.2.1-2, automatic), node-ignore:amd64 (5.2.1-1, automatic), node-find-cache-dir:amd64 (3.3.2+~3.2.1-1, automatic), node-flatted:amd64 (3.2.7~ds-1, automatic), node-has-values:amd64 (2.0.1-4, automatic), node-agent-base:amd64 (7.1.0~0~2023071921-5, automatic), node-mime-types:amd64 (2.1.35-2, automatic), node-optionator:amd64 (0.9.1+dfsg+~cs1.2.3-1, automatic), libsm6:amd64 (2:1.2.3-1build3, automatic), node-micromatch:amd64 (4.0.5+~4.0.2-1, automatic), node-cacache:amd64 (17.0.3+~cs10.3.7-1, automatic), node-growl:amd64 (1.10.5-4, automatic), node-retry:amd64 (0.13.1+~0.12.1-1, automatic), node-mixin-deep:amd64 (2.0.1-3, automatic), node-util:amd64 (0.12.5+~1.0.10-1, automatic), node-decamelize:amd64 (4.0.0-2, automatic), node-graceful-fs:amd64 (4.2.10-1, automatic), libdrm-intel1:amd64 (2.4.125-1ubuntu0.1~24.04.2, automatic), node-uuid:amd64 (8.3.2+~8.3.3-4, automatic), libxfixes3:amd64 (1:6.0.0-2build1, automatic), libnet-smtp-ssl-perl:amd64 (1.04-2, automatic), libxi6:amd64 (2:1.8.1-1build1, automatic), libxv1:amd64 (2:1.0.11-1.1build1, automatic), node-to-fast-properties:amd64 (3.0.1-3, automatic), node-sellside-emitter:amd64 (1.2.1-3, automatic), node-pify:amd64 (5.0.0+~cs5.0.1-1, automatic), node-jest-worker:amd64 (29.6.2~ds1+~cs73.45.28-5, automatic), node-escodegen:amd64 (2.1.0+dfsg+~0.0.8-1, automatic), node-type-check:amd64 (0.4.0+dfsg-3, automatic), node-fs.realpath:amd64 (1.0.0-3, automatic), node-babel-plugin-polyfill-regenerator:amd64 (0.4.1~0~20220913+ds1-1, automatic), libhttp-daemon-perl:amd64 (6.16-1ubuntu0.24.04.1, automatic), node-es-module-lexer:amd64 (1.1.0+dfsg-3, automatic), node-readable-stream:amd64 (3.6.0+~cs3.0.0-4build1, automatic), node-get-caller-file:amd64 (2.0.5+~cs1.1.1-4, automatic), node-is-typedarray:amd64 (1.0.0-4, automatic), node-async:amd64 (0.8.0-6, automatic), libgdk-pixbuf2.0-common:amd64 (2.42.10+dfsg-3ubuntu3.3, automatic)
+Upgrade: libssl3t64:amd64 (3.0.13-0ubuntu3.7, 3.0.13-0ubuntu3.11), openssl:amd64 (3.0.13-0ubuntu3.7, 3.0.13-0ubuntu3.11)
+End-Date: 2026-07-17  12:42:30
+
+Start-Date: 2026-07-17  12:43:16
+Commandline: /usr/bin/unattended-upgrades -v
+Upgrade: telnet:amd64 (0.17+2.5-3ubuntu4.1, 0.17+2.5-3ubuntu4.2), libpolkit-agent-1-0:amd64 (124-2ubuntu1.24.04.2, 124-2ubuntu1.24.04.3), libsmartcols1:amd64 (2.39.3-9ubuntu6.4, 2.39.3-9ubuntu6.5), udev:amd64 (255.4-1ubuntu8.12, 255.4-1ubuntu8.16), libnghttp2-14:amd64 (1.59.0-1ubuntu0.2, 1.59.0-1ubuntu0.4), python3-pyasn1:amd64 (0.4.8-4ubuntu0.1, 0.4.8-4ubuntu0.2), libssh-4:amd64 (0.10.6-2ubuntu0.2, 0.10.6-2ubuntu0.4), packagekit-tools:amd64 (1.2.8-2ubuntu1.4, 1.2.8-2ubuntu1.5), systemd-timesyncd:amd64 (255.4-1ubuntu8.12, 255.4-1ubuntu8.16), perl:amd64 (5.38.2-3.2ubuntu0.2, 5.38.2-3.2ubuntu0.3), polkitd:amd64 (124-2ubuntu1.24.04.2, 124-2ubuntu1.24.04.3), tzdata:amd64 (2025b-0ubuntu0.24.04.1, 2026b-0ubuntu0.24.04.1), ntfs-3g:amd64 (1:2022.10.3-1.2ubuntu3, 1:2022.10.3-1.2ubuntu3.2), libpam-systemd:amd64 (255.4-1ubuntu8.12, 255.4-1ubuntu8.16), liblzma5:amd64 (5.6.1+really5.4.5-1ubuntu0.2, 5.6.1+really5.4.5-1ubuntu0.3), sed:amd64 (4.9-2build1, 4.9-2ubuntu0.24.04.1), tar:amd64 (1.35+dfsg-3build1, 1.35+dfsg-3ubuntu0.3), libcap2-bin:amd64 (1:2.66-5ubuntu2.2, 1:2.66-5ubuntu2.4), vim:amd64 (2:9.1.0016-1ubuntu7.9, 2:9.1.0016-1ubuntu7.18), xxd:amd64 (2:9.1.0016-1ubuntu7.9, 2:9.1.0016-1ubuntu7.18), python3-twisted:amd64 (24.3.0-1ubuntu0.1, 24.3.0-1ubuntu0.2), kmod:amd64 (31+20240202-2ubuntu7.1, 31+20240202-2ubuntu7.2), vim-common:amd64 (2:9.1.0016-1ubuntu7.9, 2:9.1.0016-1ubuntu7.18), libsystemd0:amd64 (255.4-1ubuntu8.12, 255.4-1ubuntu8.16), libmount1:amd64 (2.39.3-9ubuntu6.4, 2.39.3-9ubuntu6.5), libnss-systemd:amd64 (255.4-1ubuntu8.12, 255.4-1ubuntu8.16), python3-httplib2:amd64 (0.20.4-3, 0.20.4-3ubuntu0.1), python3-urllib3:amd64 (2.0.7-1ubuntu0.6, 2.0.7-1ubuntu0.7), libxml2:amd64 (2.9.14+dfsg-1.3ubuntu3.7, 2.9.14+dfsg-1.3ubuntu3.8), gir1.2-packagekitglib-1.0:amd64 (1.2.8-2ubuntu1.4, 1.2.8-2ubuntu1.5), xz-utils:amd64 (5.6.1+really5.4.5-1ubuntu0.2, 5.6.1+really5.4.5-1ubuntu0.3), util-linux:amd64 (2.39.3-9ubuntu6.4, 2.39.3-9ubuntu6.5), systemd:amd64 (255.4-1ubuntu8.12, 255.4-1ubuntu8.16), libudev1:amd64 (255.4-1ubuntu8.12, 255.4-1ubuntu8.16), fdisk:amd64 (2.39.3-9ubuntu6.4, 2.39.3-9ubuntu6.5), libarchive13t64:amd64 (3.7.2-2ubuntu0.5, 3.7.2-2ubuntu0.7), libfdisk1:amd64 (2.39.3-9ubuntu6.4, 2.39.3-9ubuntu6.5), systemd-dev:amd64 (255.4-1ubuntu8.12, 255.4-1ubuntu8.16), eject:amd64 (2.39.3-9ubuntu6.4, 2.39.3-9ubuntu6.5), packagekit:amd64 (1.2.8-2ubuntu1.4, 1.2.8-2ubuntu1.5), libcap2:amd64 (1:2.66-5ubuntu2.2, 1:2.66-5ubuntu2.4), ubuntu-pro-client-l10n:amd64 (37.1ubuntu0~24.04, 37.2ubuntu~24.04.1), python3-openssl:amd64 (23.2.0-1, 23.2.0-1ubuntu0.1), libuuid1:amd64 (2.39.3-9ubuntu6.4, 2.39.3-9ubuntu6.5), libgcrypt20:amd64 (1.10.3-2build1, 1.10.3-2ubuntu0.1), uuid-runtime:amd64 (2.39.3-9ubuntu6.4, 2.39.3-9ubuntu6.5), systemd-resolved:amd64 (255.4-1ubuntu8.12, 255.4-1ubuntu8.16), inetutils-telnet:amd64 (2:2.5-3ubuntu4.1, 2:2.5-3ubuntu4.2), vim-tiny:amd64 (2:9.1.0016-1ubuntu7.9, 2:9.1.0016-1ubuntu7.18), libnss3:amd64 (2:3.98-1build1, 2:3.98-1ubuntu0.2), libpolkit-gobject-1-0:amd64 (124-2ubuntu1.24.04.2, 124-2ubuntu1.24.04.3), gzip:amd64 (1.12-1ubuntu3.1, 1.12-1ubuntu3.2), snapd:amd64 (2.73+ubuntu24.04, 2.73+ubuntu24.04.2), libpackagekit-glib2-18:amd64 (1.2.8-2ubuntu1.4, 1.2.8-2ubuntu1.5), python3-jwt:amd64 (2.7.0-1, 2.7.0-1ubuntu0.1), distro-info-data:amd64 (0.60ubuntu0.5, 0.60ubuntu0.6), vim-runtime:amd64 (2:9.1.0016-1ubuntu7.9, 2:9.1.0016-1ubuntu7.18), mount:amd64 (2.39.3-9ubuntu6.4, 2.39.3-9ubuntu6.5), perl-base:amd64 (5.38.2-3.2ubuntu0.2, 5.38.2-3.2ubuntu0.3), nano:amd64 (7.2-2ubuntu0.1, 7.2-2ubuntu0.2), sudo:amd64 (1.9.15p5-3ubuntu5.24.04.1, 1.9.15p5-3ubuntu5.24.04.2), libsystemd-shared:amd64 (255.4-1ubuntu8.12, 255.4-1ubuntu8.16), libkmod2:amd64 (31+20240202-2ubuntu7.1, 31+20240202-2ubuntu7.2), libntfs-3g89t64:amd64 (1:2022.10.3-1.2ubuntu3, 1:2022.10.3-1.2ubuntu3.2), libgnutls30t64:amd64 (3.8.3-1.1ubuntu3.4, 3.8.3-1.1ubuntu3.6), systemd-sysv:amd64 (255.4-1ubuntu8.12, 255.4-1ubuntu8.16), python3-idna:amd64 (3.6-2ubuntu0.1, 3.6-2ubuntu0.2), libpam-cap:amd64 (1:2.66-5ubuntu2.2, 1:2.66-5ubuntu2.4), libblkid1:amd64 (2.39.3-9ubuntu6.4, 2.39.3-9ubuntu6.5), perl-modules-5.38:amd64 (5.38.2-3.2ubuntu0.2, 5.38.2-3.2ubuntu0.3), python3-cryptography:amd64 (41.0.7-4ubuntu0.1, 41.0.7-4ubuntu0.4), pollinate:amd64 (4.33-3.1ubuntu1.1, 4.33-3.1ubuntu1.3), libperl5.38t64:amd64 (5.38.2-3.2ubuntu0.2, 5.38.2-3.2ubuntu0.3), libpng16-16t64:amd64 (1.6.43-5ubuntu0.4, 1.6.43-5ubuntu0.6), bsdutils:amd64 (1:2.39.3-9ubuntu6.4, 1:2.39.3-9ubuntu6.5), bsdextrautils:amd64 (2.39.3-9ubuntu6.4, 2.39.3-9ubuntu6.5), ubuntu-pro-client:amd64 (37.1ubuntu0~24.04, 37.2ubuntu~24.04.1)
+End-Date: 2026-07-17  12:43:40

@@ -1,0 +1,24 @@
+[Unit]
+Description=AI Rig Librarian - federated memory quality gateway
+After=ai-rig-stage-understory.service ai-rig-stage-shareddisk.service network-online.target
+Requires=ai-rig-stage-understory.service
+# Il 4° disco condiviso e' opzionale (fail-soft): se /mnt/ai-rig-shared NON e'
+# montato, SALTA pulito invece di andare in crash-loop 226/NAMESPACE (il
+# ReadWritePaths sotto fallisce il namespace su un path inesistente). Automem e
+# understory saltano gia' con grazia; questo allinea il librarian.
+ConditionPathIsMountPoint=/mnt/ai-rig-shared
+
+[Service]
+Type=simple
+EnvironmentFile=-/opt/cache/config/shared-disk.env
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/bin/python3 /usr/local/bin/ai-rig-librarian.py
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/mnt/ai-rig-shared
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,5 @@
+250f735b3fd54bf8d404757fa67abfdd304bd12a15c48d080d626405dafe8e45  requirements/devin.txt
+a57ea4ba0c5b9d77f3d5756f984fae7032e708fc6522f68535b7c16089ba1006  rig-roles/devin/scripts/start-llama-devin.sh
+797a46b62c16da4fc4a38ea44cb5557cd67238f26b628f56956db770639d0d15  rig-roles/devin/scripts/role-provision.sh
+327553f8410fe06f756cd20939ddf182743a8c28357f0a5f13b439dd26684001  rig-roles/devin/systemd/devin-webapp.service
+306d19be0c0f7ecb00cdd52820fab5517207d31d8e603fdc8c0668fdf89048e8  scripts/deploy-devin-webapp.sh

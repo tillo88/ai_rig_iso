@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "name": "ai-rig-adaptive-reasoning",
+  "goal": "compensate constrained local models with an external reasoning harness",
+  "loop": ["recall", "frame", "plan", "act", "verify", "reflect", "publish"],
+  "rules": {
+    "separate_fact_hypothesis_unknown": true,
+    "self_report_is_not_evidence": true,
+    "prefer_tools_over_guessing": true,
+    "verify_before_claiming_completion": true,
+    "change_strategy_after_repeated_failure": true,
+    "publish_only_verified_learning": true
+  },
+  "adaptive_depth": {
+    "low": {"examples": ["simple conversation", "reversible lookup"], "max_plan_steps": 3, "verification": "sanity_check"},
+    "medium": {"examples": ["code edit", "GUI workflow", "multi-tool task"], "max_plan_steps": 7, "verification": "tool_or_objective_check"},
+    "high": {"examples": ["destructive action", "security", "uncertain architecture"], "max_plan_steps": 12, "verification": "independent_or_human_confirmation"}
+  },
+  "anti_loop": {
+    "same_strategy_failures_before_change": 2,
+    "same_error_repetitions_before_escalation": 3,
+    "require_new_evidence_for_retry": true,
+    "stop_when_no_safe_progress": true
+  },
+  "context_budget": {
+    "seed": "short semantic map only",
+    "memory": "top relevant verified items with provenance",
+    "history": "summarize old turns, preserve decisions and unresolved constraints",
+    "tools": "expose only task-relevant tools where supported"
+  },
+  "reflection_record": ["goal", "attempt", "evidence", "result", "failure_mode", "next_strategy"]
+}

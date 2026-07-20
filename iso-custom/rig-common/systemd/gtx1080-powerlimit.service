@@ -1,0 +1,11 @@
+[Unit]
+Description=Imposta la GTX 1080 instabile a 180 W (stabilita' sotto stress)
+# Dopo lo stage driver: cosi' nvidia-smi c'e' gia' (lo script comunque attende).
+After=ai-rig-stage-driver.service local-fs.target
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/set-gtx1080-180w.sh
+RemainAfterExit=yes
+TimeoutStartSec=150
+[Install]
+WantedBy=multi-user.target

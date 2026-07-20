@@ -1,0 +1,14 @@
+[Unit]
+Description=AI Rig - AutoMem (shared memory across roles)
+After=ai-rig-stage-shareddisk.service docker.service network-online.target
+Requires=ai-rig-stage-shareddisk.service docker.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/60-automem.sh
+RemainAfterExit=yes
+TimeoutStartSec=3600
+
+[Install]
+WantedBy=multi-user.target

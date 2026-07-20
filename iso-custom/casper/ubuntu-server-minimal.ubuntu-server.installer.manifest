@@ -1,0 +1,19 @@
+--- /build/livecd.ubuntu-server.ubuntu-server-minimal.ubuntu-server.manifest.full	2026-02-10 00:34:44.415755919 +0000
++++ /build/livecd.ubuntu-server.ubuntu-server-minimal.ubuntu-server.installer.manifest.full	2026-02-10 00:35:28.770048553 +0000
++casper	1.498
++cifs-utils	2:7.0-2ubuntu0.2
++firmware-sof-signed	2023.12.1-1ubuntu1.10
++keyutils	1.6.3-3build1
++libtalloc2:amd64	2.4.2-1build2
++libwbclient0:amd64	2:4.19.5+dfsg-4ubuntu9.4
++libwrap0:amd64	7.6.q-33
++linux-firmware	20240318.git3b128b60-0ubuntu2.23
++localechooser-data	2.89ubuntu6
++ncurses-term	6.4+20240113-1ubuntu2
++openssh-server	1:9.6p1-3ubuntu13.14
++openssh-sftp-server	1:9.6p1-3ubuntu13.14
++ssh-import-id	5.11-0ubuntu2.24.04.1
++user-setup	1.95ubuntu1
++snap:core22	stable	2292
++snap:snapd	stable	25935
++snap:subiquity	24.04/stable/ubuntu-24.04.4	7020

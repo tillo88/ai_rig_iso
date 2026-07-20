@@ -1,0 +1,1093 @@
+2026-07-17 12:34:48,401 curtin:120 Running command ['dpkg', '--print-architecture'] with allowed return codes [0] (capture=True)
+2026-07-17 12:34:49,435 curtin.reporting.start.subiquity/Meta/status_GET:45 start: subiquity/Meta/status_GET: 
+2026-07-17 12:34:49,435 curtin.reporting.finish.subiquity/Meta/status_GET:45 finish: subiquity/Meta/status_GET: SUCCESS: 200 {"state": "CLOUD_INIT_WAIT", "confirming_tty": "", "error": null, "nonreporta...
+2026-07-17 12:34:49,444 curtin.reporting.start.subiquity/Meta/status_GET:45 start: subiquity/Meta/status_GET: 
+2026-07-17 12:34:59,330 curtin.reporting.start.subiquity/load_cloud_config:45 start: subiquity/load_cloud_config: 
+2026-07-17 12:34:59,330 curtin.reporting.start.subiquity/load_cloud_config/extract_autoinstall:45 start: subiquity/load_cloud_config/extract_autoinstall: 
+2026-07-17 12:34:59,330 curtin.reporting.start.subiquity/load_cloud_config/extract_autoinstall:45 start: subiquity/load_cloud_config/extract_autoinstall: 
+2026-07-17 12:35:00,145 curtin.reporting.finish.subiquity/load_cloud_config/extract_autoinstall:45 finish: subiquity/load_cloud_config/extract_autoinstall: SUCCESS: 
+2026-07-17 12:35:00,151 curtin.reporting.finish.subiquity/load_cloud_config:45 finish: subiquity/load_cloud_config: SUCCESS: 
+2026-07-17 12:35:00,191 curtin.reporting.start.subiquity/load_autoinstall_config:45 start: subiquity/load_autoinstall_config: 
+2026-07-17 12:35:00,191 curtin.reporting.start.subiquity/load_autoinstall_config/read_config:45 start: subiquity/load_autoinstall_config/read_config: 
+2026-07-17 12:35:00,199 curtin.reporting.finish.subiquity/load_autoinstall_config/read_config:45 finish: subiquity/load_autoinstall_config/read_config: SUCCESS: 
+2026-07-17 12:35:00,199 curtin.reporting.start.subiquity/Reporting/load_autoinstall_data:45 start: subiquity/Reporting/load_autoinstall_data: 
+2026-07-17 12:35:00,199 curtin.reporting.finish.subiquity/Reporting/load_autoinstall_data:45 finish: subiquity/Reporting/load_autoinstall_data: SUCCESS: 
+2026-07-17 12:35:01,027 probert.dasd:134 Probing DASD devies
+2026-07-17 12:35:01,027 probert.dasd:137 DASD devices only present on s390x, arch=x86_64
+2026-07-17 12:35:01,465 probert.multipath:48 Extracted multipath maps fields: ['ok']
+2026-07-17 12:35:01,465 probert.multipath:52 Failed to parse multipath maps entry: ok: MMap.__new__() missing 2 required positional arguments: 'sysfs' and 'paths'
+2026-07-17 12:35:01,469 probert.multipath:48 Extracted multipath paths fields: ['sda', 'PNY213821092201013D8', '[orphan]', '[undef]', 'ata-3.00', '[undef]', '[undef]', '[undef]']
+2026-07-17 12:35:01,469 probert.multipath:48 Extracted multipath paths fields: ['sdb', 'WD-WXW0E69SSR66', '[orphan]', '[undef]', 'ata-5.00', '[undef]', '[undef]', '[undef]']
+2026-07-17 12:35:01,469 probert.multipath:48 Extracted multipath paths fields: ['sdc', 'OCZ-DM2287ZA59Z7J3UJ', '[orphan]', '[undef]', 'ata-6.00', '[undef]', '[undef]', '[undef]']
+2026-07-17 12:35:01,616 probert.utils:85 Command `/usr/sbin/dumpe2fs -h /dev/sdf4` exited with result: 1
+2026-07-17 12:35:01,616 probert.utils:48 stdout: ------------------------------------------
+2026-07-17 12:35:01,616 probert.utils:50 Filesystem volume name:   writable
+2026-07-17 12:35:01,616 probert.utils:50 Last mounted on:          <not available>
+2026-07-17 12:35:01,616 probert.utils:50 Filesystem UUID:          641257da-e865-4d66-8312-9df105166ed0
+2026-07-17 12:35:01,616 probert.utils:50 Filesystem magic number:  0xEF53
+2026-07-17 12:35:01,616 probert.utils:50 Filesystem revision #:    1 (dynamic)
+2026-07-17 12:35:01,616 probert.utils:50 Filesystem features:      has_journal ext_attr resize_inode dir_index filetype extent 64bit flex_bg sparse_super large_file huge_file dir_nlink extra_isize metadata_csum
+2026-07-17 12:35:01,616 probert.utils:50 Filesystem flags:         signed_directory_hash 
+2026-07-17 12:35:01,616 probert.utils:50 Default mount options:    user_xattr acl
+2026-07-17 12:35:01,616 probert.utils:50 Filesystem state:         clean
+2026-07-17 12:35:01,616 probert.utils:50 Errors behavior:          Continue
+2026-07-17 12:35:01,616 probert.utils:50 Filesystem OS type:       Linux
+2026-07-17 12:35:01,616 probert.utils:50 Inode count:              3637248
+2026-07-17 12:35:01,616 probert.utils:50 Block count:              14527744
+2026-07-17 12:35:01,616 probert.utils:50 Reserved block count:     726387
+2026-07-17 12:35:01,616 probert.utils:50 Overhead clusters:        307168
+2026-07-17 12:35:01,616 probert.utils:50 Free blocks:              14220570
+2026-07-17 12:35:01,616 probert.utils:50 Free inodes:              3637237
+2026-07-17 12:35:01,616 probert.utils:50 First block:              0
+2026-07-17 12:35:01,616 probert.utils:50 Block size:               4096
+2026-07-17 12:35:01,616 probert.utils:50 Fragment size:            4096
+2026-07-17 12:35:01,616 probert.utils:50 Group descriptor size:    64
+2026-07-17 12:35:01,616 probert.utils:50 Reserved GDT blocks:      1024
+2026-07-17 12:35:01,616 probert.utils:50 Blocks per group:         32768
+2026-07-17 12:35:01,616 probert.utils:50 Fragments per group:      32768
+2026-07-17 12:35:01,616 probert.utils:50 Inodes per group:         8192
+2026-07-17 12:35:01,616 probert.utils:50 Inode blocks per group:   512
+2026-07-17 12:35:01,616 probert.utils:50 Flex block group size:    16
+2026-07-17 12:35:01,616 probert.utils:50 Filesystem created:       Fri Jul 17 06:28:29 2026
+2026-07-17 12:35:01,616 probert.utils:50 Last mount time:          n/a
+2026-07-17 12:35:01,616 probert.utils:50 Last write time:          Fri Jul 17 06:28:53 2026
+2026-07-17 12:35:01,616 probert.utils:50 Mount count:              0
+2026-07-17 12:35:01,616 probert.utils:50 Maximum mount count:      -1
+2026-07-17 12:35:01,616 probert.utils:50 Last checked:             Fri Jul 17 06:28:29 2026
+2026-07-17 12:35:01,616 probert.utils:50 Check interval:           0 (<none>)
+2026-07-17 12:35:01,616 probert.utils:50 Lifetime writes:          4235 kB
+2026-07-17 12:35:01,616 probert.utils:50 Reserved blocks uid:      0 (user root)
+2026-07-17 12:35:01,616 probert.utils:50 Reserved blocks gid:      0 (group root)
+2026-07-17 12:35:01,616 probert.utils:50 First inode:              11
+2026-07-17 12:35:01,617 probert.utils:50 Inode size:	          256
+2026-07-17 12:35:01,617 probert.utils:50 Required extra isize:     32
+2026-07-17 12:35:01,617 probert.utils:50 Desired extra isize:      32
+2026-07-17 12:35:01,617 probert.utils:50 Journal inode:            8
+2026-07-17 12:35:01,617 probert.utils:50 Default directory hash:   half_md4
+2026-07-17 12:35:01,617 probert.utils:50 Directory Hash Seed:      59d5d4a7-ebaf-4710-8335-fcff27e092cd
+2026-07-17 12:35:01,617 probert.utils:50 Journal backup:           inode blocks
+2026-07-17 12:35:01,617 probert.utils:50 Checksum type:            crc32c
+2026-07-17 12:35:01,617 probert.utils:50 Checksum:                 0xd532f466
+2026-07-17 12:35:01,617 probert.utils:48 stderr: ------------------------------------------
+2026-07-17 12:35:01,617 probert.utils:50 dumpe2fs 1.47.0 (5-Feb-2023)
+2026-07-17 12:35:01,617 probert.utils:50 Journal superblock magic number invalid!
+2026-07-17 12:35:01,617 probert.utils:88 --------------------------------------------------
+2026-07-17 12:35:01,617 probert.filesystems:39 ext volume size not found: dumpe2fs failure
+2026-07-17 12:35:01,617 probert.utils:85 Command `/usr/sbin/dumpe2fs -h /dev/sda3` exited with result: 0
+2026-07-17 12:35:01,617 probert.utils:48 stdout: ------------------------------------------
+2026-07-17 12:35:01,617 probert.utils:50 Filesystem volume name:   <none>
+2026-07-17 12:35:01,617 probert.utils:50 Last mounted on:          /boot
+2026-07-17 12:35:01,617 probert.utils:50 Filesystem UUID:          e86f16de-f711-4ff0-bebd-001efaf56dc8
+2026-07-17 12:35:01,617 probert.utils:50 Filesystem magic number:  0xEF53
+2026-07-17 12:35:01,617 probert.utils:50 Filesystem revision #:    1 (dynamic)
+2026-07-17 12:35:01,617 probert.utils:50 Filesystem features:      has_journal ext_attr resize_inode dir_index filetype extent 64bit flex_bg sparse_super large_file huge_file dir_nlink extra_isize metadata_csum
+2026-07-17 12:35:01,617 probert.utils:50 Filesystem flags:         signed_directory_hash 
+2026-07-17 12:35:01,617 probert.utils:50 Default mount options:    user_xattr acl
+2026-07-17 12:35:01,617 probert.utils:50 Filesystem state:         clean
+2026-07-17 12:35:01,617 probert.utils:50 Errors behavior:          Continue
+2026-07-17 12:35:01,617 probert.utils:50 Filesystem OS type:       Linux
+2026-07-17 12:35:01,617 probert.utils:50 Inode count:              65536
+2026-07-17 12:35:01,617 probert.utils:50 Block count:              262144
+2026-07-17 12:35:01,617 probert.utils:50 Reserved block count:     13107
+2026-07-17 12:35:01,617 probert.utils:50 Overhead clusters:        12949
+2026-07-17 12:35:01,617 probert.utils:50 Free blocks:              222439
+2026-07-17 12:35:01,617 probert.utils:50 Free inodes:              65227
+2026-07-17 12:35:01,617 probert.utils:50 First block:              0
+2026-07-17 12:35:01,617 probert.utils:50 Block size:               4096
+2026-07-17 12:35:01,618 probert.utils:50 Fragment size:            4096
+2026-07-17 12:35:01,618 probert.utils:50 Group descriptor size:    64
+2026-07-17 12:35:01,618 probert.utils:50 Reserved GDT blocks:      127
+2026-07-17 12:35:01,618 probert.utils:50 Blocks per group:         32768
+2026-07-17 12:35:01,618 probert.utils:50 Fragments per group:      32768
+2026-07-17 12:35:01,618 probert.utils:50 Inodes per group:         8192
+2026-07-17 12:35:01,618 probert.utils:50 Inode blocks per group:   512
+2026-07-17 12:35:01,618 probert.utils:50 Flex block group size:    16
+2026-07-17 12:35:01,618 probert.utils:50 Filesystem created:       Fri Jul 17 06:30:04 2026
+2026-07-17 12:35:01,618 probert.utils:50 Last mount time:          Fri Jul 17 07:10:09 2026
+2026-07-17 12:35:01,618 probert.utils:50 Last write time:          Fri Jul 17 07:10:09 2026
+2026-07-17 12:35:01,618 probert.utils:50 Mount count:              5
+2026-07-17 12:35:01,618 probert.utils:50 Maximum mount count:      -1
+2026-07-17 12:35:01,618 probert.utils:50 Last checked:             Fri Jul 17 06:30:04 2026
+2026-07-17 12:35:01,618 probert.utils:50 Check interval:           0 (<none>)
+2026-07-17 12:35:01,618 probert.utils:50 Lifetime writes:          280 MB
+2026-07-17 12:35:01,618 probert.utils:50 Reserved blocks uid:      0 (user root)
+2026-07-17 12:35:01,618 probert.utils:50 Reserved blocks gid:      0 (group root)
+2026-07-17 12:35:01,618 probert.utils:50 First inode:              11
+2026-07-17 12:35:01,618 probert.utils:50 Inode size:	          256
+2026-07-17 12:35:01,618 probert.utils:50 Required extra isize:     32
+2026-07-17 12:35:01,618 probert.utils:50 Desired extra isize:      32
+2026-07-17 12:35:01,618 probert.utils:50 Journal inode:            8
+2026-07-17 12:35:01,618 probert.utils:50 Default directory hash:   half_md4
+2026-07-17 12:35:01,618 probert.utils:50 Directory Hash Seed:      6aaa5c22-0c3f-4a5d-9c4f-aa26503dce12
+2026-07-17 12:35:01,618 probert.utils:50 Journal backup:           inode blocks
+2026-07-17 12:35:01,618 probert.utils:50 Checksum type:            crc32c
+2026-07-17 12:35:01,618 probert.utils:50 Checksum:                 0x711d9e95
+2026-07-17 12:35:01,618 probert.utils:50 Journal features:         journal_64bit journal_checksum_v3
+2026-07-17 12:35:01,618 probert.utils:50 Total journal size:       32M
+2026-07-17 12:35:01,618 probert.utils:50 Total journal blocks:     8192
+2026-07-17 12:35:01,618 probert.utils:50 Max transaction length:   8192
+2026-07-17 12:35:01,618 probert.utils:50 Fast commit length:       0
+2026-07-17 12:35:01,618 probert.utils:50 Journal sequence:         0x0000014e
+2026-07-17 12:35:01,618 probert.utils:50 Journal start:            0
+2026-07-17 12:35:01,618 probert.utils:50 Journal checksum type:    crc32c
+2026-07-17 12:35:01,618 probert.utils:50 Journal checksum:         0xe7c7587e
+2026-07-17 12:35:01,618 probert.utils:50 
+2026-07-17 12:35:01,618 probert.utils:48 stderr: ------------------------------------------
+2026-07-17 12:35:01,618 probert.utils:50 dumpe2fs 1.47.0 (5-Feb-2023)
+2026-07-17 12:35:01,618 probert.utils:88 --------------------------------------------------
+2026-07-17 12:35:01,626 probert.utils:85 Command `/usr/sbin/dumpe2fs -h /dev/sda4` exited with result: 0
+2026-07-17 12:35:01,626 probert.utils:48 stdout: ------------------------------------------
+2026-07-17 12:35:01,626 probert.utils:50 Filesystem volume name:   <none>
+2026-07-17 12:35:01,626 probert.utils:50 Last mounted on:          /
+2026-07-17 12:35:01,626 probert.utils:50 Filesystem UUID:          da35bad5-353c-4c24-97de-7869659c864d
+2026-07-17 12:35:01,626 probert.utils:50 Filesystem magic number:  0xEF53
+2026-07-17 12:35:01,626 probert.utils:50 Filesystem revision #:    1 (dynamic)
+2026-07-17 12:35:01,626 probert.utils:50 Filesystem features:      has_journal ext_attr resize_inode dir_index filetype extent 64bit flex_bg sparse_super large_file huge_file dir_nlink extra_isize metadata_csum
+2026-07-17 12:35:01,626 probert.utils:50 Filesystem flags:         signed_directory_hash 
+2026-07-17 12:35:01,626 probert.utils:50 Default mount options:    user_xattr acl
+2026-07-17 12:35:01,626 probert.utils:50 Filesystem state:         clean
+2026-07-17 12:35:01,626 probert.utils:50 Errors behavior:          Continue
+2026-07-17 12:35:01,626 probert.utils:50 Filesystem OS type:       Linux
+2026-07-17 12:35:01,626 probert.utils:50 Inode count:              7233536
+2026-07-17 12:35:01,626 probert.utils:50 Block count:              28911104
+2026-07-17 12:35:01,626 probert.utils:50 Reserved block count:     1445555
+2026-07-17 12:35:01,626 probert.utils:50 Overhead clusters:        600519
+2026-07-17 12:35:01,626 probert.utils:50 Free blocks:              11121805
+2026-07-17 12:35:01,626 probert.utils:50 Free inodes:              7091936
+2026-07-17 12:35:01,626 probert.utils:50 First block:              0
+2026-07-17 12:35:01,626 probert.utils:50 Block size:               4096
+2026-07-17 12:35:01,626 probert.utils:50 Fragment size:            4096
+2026-07-17 12:35:01,626 probert.utils:50 Group descriptor size:    64
+2026-07-17 12:35:01,626 probert.utils:50 Reserved GDT blocks:      1024
+2026-07-17 12:35:01,626 probert.utils:50 Blocks per group:         32768
+2026-07-17 12:35:01,626 probert.utils:50 Fragments per group:      32768
+2026-07-17 12:35:01,626 probert.utils:50 Inodes per group:         8192
+2026-07-17 12:35:01,626 probert.utils:50 Inode blocks per group:   512
+2026-07-17 12:35:01,626 probert.utils:50 Flex block group size:    16
+2026-07-17 12:35:01,627 probert.utils:50 Filesystem created:       Fri Jul 17 06:30:05 2026
+2026-07-17 12:35:01,627 probert.utils:50 Last mount time:          Fri Jul 17 07:10:08 2026
+2026-07-17 12:35:01,627 probert.utils:50 Last write time:          Fri Jul 17 12:10:38 2026
+2026-07-17 12:35:01,627 probert.utils:50 Mount count:              5
+2026-07-17 12:35:01,627 probert.utils:50 Maximum mount count:      -1
+2026-07-17 12:35:01,627 probert.utils:50 Last checked:             Fri Jul 17 06:30:05 2026
+2026-07-17 12:35:01,627 probert.utils:50 Check interval:           0 (<none>)
+2026-07-17 12:35:01,627 probert.utils:50 Lifetime writes:          65 GB
+2026-07-17 12:35:01,627 probert.utils:50 Reserved blocks uid:      0 (user root)
+2026-07-17 12:35:01,627 probert.utils:50 Reserved blocks gid:      0 (group root)
+2026-07-17 12:35:01,627 probert.utils:50 First inode:              11
+2026-07-17 12:35:01,627 probert.utils:50 Inode size:	          256
+2026-07-17 12:35:01,627 probert.utils:50 Required extra isize:     32
+2026-07-17 12:35:01,627 probert.utils:50 Desired extra isize:      32
+2026-07-17 12:35:01,627 probert.utils:50 Journal inode:            8
+2026-07-17 12:35:01,627 probert.utils:50 Default directory hash:   half_md4
+2026-07-17 12:35:01,627 probert.utils:50 Directory Hash Seed:      1c858519-83aa-4fff-98e2-c4ff2f7bc20d
+2026-07-17 12:35:01,627 probert.utils:50 Journal backup:           inode blocks
+2026-07-17 12:35:01,627 probert.utils:50 Checksum type:            crc32c
+2026-07-17 12:35:01,627 probert.utils:50 Checksum:                 0x84f73b6c
+2026-07-17 12:35:01,627 probert.utils:50 Journal features:         journal_incompat_revoke journal_64bit journal_checksum_v3
+2026-07-17 12:35:01,627 probert.utils:50 Total journal size:       512M
+2026-07-17 12:35:01,627 probert.utils:50 Total journal blocks:     131072
+2026-07-17 12:35:01,627 probert.utils:50 Max transaction length:   131072
+2026-07-17 12:35:01,627 probert.utils:50 Fast commit length:       0
+2026-07-17 12:35:01,627 probert.utils:50 Journal sequence:         0x00004c3c
+2026-07-17 12:35:01,627 probert.utils:50 Journal start:            0
+2026-07-17 12:35:01,627 probert.utils:50 Journal checksum type:    crc32c
+2026-07-17 12:35:01,627 probert.utils:50 Journal checksum:         0x0b90b5a4
+2026-07-17 12:35:01,627 probert.utils:50 
+2026-07-17 12:35:01,627 probert.utils:48 stderr: ------------------------------------------
+2026-07-17 12:35:01,627 probert.utils:50 dumpe2fs 1.47.0 (5-Feb-2023)
+2026-07-17 12:35:01,627 probert.utils:88 --------------------------------------------------
+2026-07-17 12:35:01,628 probert.utils:85 Command `/usr/sbin/dumpe2fs -h /dev/sdc4` exited with result: 0
+2026-07-17 12:35:01,628 probert.utils:48 stdout: ------------------------------------------
+2026-07-17 12:35:01,628 probert.utils:50 Filesystem volume name:   <none>
+2026-07-17 12:35:01,628 probert.utils:50 Last mounted on:          /target
+2026-07-17 12:35:01,628 probert.utils:50 Filesystem UUID:          3e1febb6-a4bc-458b-8bf7-23ed1e6c8d2c
+2026-07-17 12:35:01,628 probert.utils:50 Filesystem magic number:  0xEF53
+2026-07-17 12:35:01,628 probert.utils:50 Filesystem revision #:    1 (dynamic)
+2026-07-17 12:35:01,628 probert.utils:50 Filesystem features:      has_journal ext_attr resize_inode dir_index filetype extent 64bit flex_bg sparse_super large_file huge_file dir_nlink extra_isize metadata_csum
+2026-07-17 12:35:01,628 probert.utils:50 Filesystem flags:         signed_directory_hash 
+2026-07-17 12:35:01,628 probert.utils:50 Default mount options:    user_xattr acl
+2026-07-17 12:35:01,628 probert.utils:50 Filesystem state:         clean
+2026-07-17 12:35:01,628 probert.utils:50 Errors behavior:          Continue
+2026-07-17 12:35:01,628 probert.utils:50 Filesystem OS type:       Linux
+2026-07-17 12:35:01,628 probert.utils:50 Inode count:              7233536
+2026-07-17 12:35:01,628 probert.utils:50 Block count:              28911104
+2026-07-17 12:35:01,628 probert.utils:50 Reserved block count:     1445555
+2026-07-17 12:35:01,628 probert.utils:50 Overhead clusters:        600519
+2026-07-17 12:35:01,629 probert.utils:50 Free blocks:              25232628
+2026-07-17 12:35:01,629 probert.utils:50 Free inodes:              7093181
+2026-07-17 12:35:01,629 probert.utils:50 First block:              0
+2026-07-17 12:35:01,629 probert.utils:50 Block size:               4096
+2026-07-17 12:35:01,629 probert.utils:50 Fragment size:            4096
+2026-07-17 12:35:01,629 probert.utils:50 Group descriptor size:    64
+2026-07-17 12:35:01,629 probert.utils:50 Reserved GDT blocks:      1024
+2026-07-17 12:35:01,629 probert.utils:50 Blocks per group:         32768
+2026-07-17 12:35:01,629 probert.utils:50 Fragments per group:      32768
+2026-07-17 12:35:01,629 probert.utils:50 Inodes per group:         8192
+2026-07-17 12:35:01,629 probert.utils:50 Inode blocks per group:   512
+2026-07-17 12:35:01,629 probert.utils:50 Flex block group size:    16
+2026-07-17 12:35:01,629 probert.utils:50 Filesystem created:       Fri Jul 17 05:07:21 2026
+2026-07-17 12:35:01,629 probert.utils:50 Last mount time:          Fri Jul 17 05:08:06 2026
+2026-07-17 12:35:01,629 probert.utils:50 Last write time:          Fri Jul 17 05:15:51 2026
+2026-07-17 12:35:01,629 probert.utils:50 Mount count:              1
+2026-07-17 12:35:01,629 probert.utils:50 Maximum mount count:      -1
+2026-07-17 12:35:01,629 probert.utils:50 Last checked:             Fri Jul 17 05:07:21 2026
+2026-07-17 12:35:01,629 probert.utils:50 Check interval:           0 (<none>)
+2026-07-17 12:35:01,629 probert.utils:50 Lifetime writes:          9 GB
+2026-07-17 12:35:01,629 probert.utils:50 Reserved blocks uid:      0 (user root)
+2026-07-17 12:35:01,629 probert.utils:50 Reserved blocks gid:      0 (group root)
+2026-07-17 12:35:01,629 probert.utils:50 First inode:              11
+2026-07-17 12:35:01,629 probert.utils:50 Inode size:	          256
+2026-07-17 12:35:01,629 probert.utils:50 Required extra isize:     32
+2026-07-17 12:35:01,629 probert.utils:50 Desired extra isize:      32
+2026-07-17 12:35:01,629 probert.utils:50 Journal inode:            8
+2026-07-17 12:35:01,629 probert.utils:50 Default directory hash:   half_md4
+2026-07-17 12:35:01,629 probert.utils:50 Directory Hash Seed:      caa8df59-8eb6-4371-a072-fb3a227e2c1b
+2026-07-17 12:35:01,629 probert.utils:50 Journal backup:           inode blocks
+2026-07-17 12:35:01,629 probert.utils:50 Checksum type:            crc32c
+2026-07-17 12:35:01,629 probert.utils:50 Checksum:                 0xc37052dd
+2026-07-17 12:35:01,629 probert.utils:50 Journal features:         journal_incompat_revoke journal_64bit journal_checksum_v3
+2026-07-17 12:35:01,629 probert.utils:50 Total journal size:       512M
+2026-07-17 12:35:01,629 probert.utils:50 Total journal blocks:     131072
+2026-07-17 12:35:01,629 probert.utils:50 Max transaction length:   131072
+2026-07-17 12:35:01,629 probert.utils:50 Fast commit length:       0
+2026-07-17 12:35:01,629 probert.utils:50 Journal sequence:         0x00004358
+2026-07-17 12:35:01,629 probert.utils:50 Journal start:            0
+2026-07-17 12:35:01,629 probert.utils:50 Journal checksum type:    crc32c
+2026-07-17 12:35:01,629 probert.utils:50 Journal checksum:         0xf5d782e1
+2026-07-17 12:35:01,629 probert.utils:50 
+2026-07-17 12:35:01,629 probert.utils:48 stderr: ------------------------------------------
+2026-07-17 12:35:01,629 probert.utils:50 dumpe2fs 1.47.0 (5-Feb-2023)
+2026-07-17 12:35:01,629 probert.utils:88 --------------------------------------------------
+2026-07-17 12:35:01,630 probert.utils:85 Command `/usr/sbin/dumpe2fs -h /dev/sdc3` exited with result: 0
+2026-07-17 12:35:01,630 probert.utils:48 stdout: ------------------------------------------
+2026-07-17 12:35:01,630 probert.utils:50 Filesystem volume name:   <none>
+2026-07-17 12:35:01,630 probert.utils:50 Last mounted on:          /boot
+2026-07-17 12:35:01,630 probert.utils:50 Filesystem UUID:          32efbb46-a8a6-42ef-99cc-0e628c1e8bbc
+2026-07-17 12:35:01,630 probert.utils:50 Filesystem magic number:  0xEF53
+2026-07-17 12:35:01,630 probert.utils:50 Filesystem revision #:    1 (dynamic)
+2026-07-17 12:35:01,630 probert.utils:50 Filesystem features:      has_journal ext_attr resize_inode dir_index filetype extent 64bit flex_bg sparse_super large_file huge_file dir_nlink extra_isize metadata_csum
+2026-07-17 12:35:01,630 probert.utils:50 Filesystem flags:         signed_directory_hash 
+2026-07-17 12:35:01,630 probert.utils:50 Default mount options:    user_xattr acl
+2026-07-17 12:35:01,630 probert.utils:50 Filesystem state:         clean
+2026-07-17 12:35:01,630 probert.utils:50 Errors behavior:          Continue
+2026-07-17 12:35:01,630 probert.utils:50 Filesystem OS type:       Linux
+2026-07-17 12:35:01,630 probert.utils:50 Inode count:              65536
+2026-07-17 12:35:01,630 probert.utils:50 Block count:              262144
+2026-07-17 12:35:01,630 probert.utils:50 Reserved block count:     13107
+2026-07-17 12:35:01,631 probert.utils:50 Overhead clusters:        12949
+2026-07-17 12:35:01,631 probert.utils:50 Free blocks:              222440
+2026-07-17 12:35:01,631 probert.utils:50 Free inodes:              65227
+2026-07-17 12:35:01,631 probert.utils:50 First block:              0
+2026-07-17 12:35:01,631 probert.utils:50 Block size:               4096
+2026-07-17 12:35:01,631 probert.utils:50 Fragment size:            4096
+2026-07-17 12:35:01,631 probert.utils:50 Group descriptor size:    64
+2026-07-17 12:35:01,631 probert.utils:50 Reserved GDT blocks:      127
+2026-07-17 12:35:01,631 probert.utils:50 Blocks per group:         32768
+2026-07-17 12:35:01,631 probert.utils:50 Fragments per group:      32768
+2026-07-17 12:35:01,631 probert.utils:50 Inodes per group:         8192
+2026-07-17 12:35:01,631 probert.utils:50 Inode blocks per group:   512
+2026-07-17 12:35:01,631 probert.utils:50 Flex block group size:    16
+2026-07-17 12:35:01,631 probert.utils:50 Filesystem created:       Fri Jul 17 05:07:20 2026
+2026-07-17 12:35:01,631 probert.utils:50 Last mount time:          Fri Jul 17 05:08:06 2026
+2026-07-17 12:35:01,631 probert.utils:50 Last write time:          Fri Jul 17 05:15:50 2026
+2026-07-17 12:35:01,631 probert.utils:50 Mount count:              1
+2026-07-17 12:35:01,631 probert.utils:50 Maximum mount count:      -1
+2026-07-17 12:35:01,631 probert.utils:50 Last checked:             Fri Jul 17 05:07:20 2026
+2026-07-17 12:35:01,631 probert.utils:50 Check interval:           0 (<none>)
+2026-07-17 12:35:01,631 probert.utils:50 Lifetime writes:          206 MB
+2026-07-17 12:35:01,631 probert.utils:50 Reserved blocks uid:      0 (user root)
+2026-07-17 12:35:01,631 probert.utils:50 Reserved blocks gid:      0 (group root)
+2026-07-17 12:35:01,631 probert.utils:50 First inode:              11
+2026-07-17 12:35:01,631 probert.utils:50 Inode size:	          256
+2026-07-17 12:35:01,631 probert.utils:50 Required extra isize:     32
+2026-07-17 12:35:01,631 probert.utils:50 Desired extra isize:      32
+2026-07-17 12:35:01,631 probert.utils:50 Journal inode:            8
+2026-07-17 12:35:01,631 probert.utils:50 Default directory hash:   half_md4
+2026-07-17 12:35:01,631 probert.utils:50 Directory Hash Seed:      5f53456a-f981-455f-8a21-b9ad59d74672
+2026-07-17 12:35:01,631 probert.utils:50 Journal backup:           inode blocks
+2026-07-17 12:35:01,631 probert.utils:50 Checksum type:            crc32c
+2026-07-17 12:35:01,631 probert.utils:50 Checksum:                 0xa34a8396
+2026-07-17 12:35:01,631 probert.utils:50 Journal features:         journal_64bit journal_checksum_v3
+2026-07-17 12:35:01,631 probert.utils:50 Total journal size:       32M
+2026-07-17 12:35:01,631 probert.utils:50 Total journal blocks:     8192
+2026-07-17 12:35:01,631 probert.utils:50 Max transaction length:   8192
+2026-07-17 12:35:01,631 probert.utils:50 Fast commit length:       0
+2026-07-17 12:35:01,631 probert.utils:50 Journal sequence:         0x00000137
+2026-07-17 12:35:01,631 probert.utils:50 Journal start:            0
+2026-07-17 12:35:01,631 probert.utils:50 Journal checksum type:    crc32c
+2026-07-17 12:35:01,631 probert.utils:50 Journal checksum:         0x2c6468d3
+2026-07-17 12:35:01,631 probert.utils:50 
+2026-07-17 12:35:01,631 probert.utils:48 stderr: ------------------------------------------
+2026-07-17 12:35:01,631 probert.utils:50 dumpe2fs 1.47.0 (5-Feb-2023)
+2026-07-17 12:35:01,631 probert.utils:88 --------------------------------------------------
+2026-07-17 12:35:01,632 probert.utils:85 Command `/usr/sbin/resize2fs -P /dev/sda3` exited with result: 0
+2026-07-17 12:35:01,632 probert.utils:48 stdout: ------------------------------------------
+2026-07-17 12:35:01,632 probert.utils:50 Estimated minimum size of the filesystem: 40657
+2026-07-17 12:35:01,632 probert.utils:48 stderr: ------------------------------------------
+2026-07-17 12:35:01,632 probert.utils:50 resize2fs 1.47.0 (5-Feb-2023)
+2026-07-17 12:35:01,632 probert.utils:88 --------------------------------------------------
+2026-07-17 12:35:01,633 probert.utils:85 Command `/usr/sbin/resize2fs -P /dev/sda4` exited with result: 0
+2026-07-17 12:35:01,633 probert.utils:48 stdout: ------------------------------------------
+2026-07-17 12:35:01,633 probert.utils:50 Estimated minimum size of the filesystem: 18309476
+2026-07-17 12:35:01,633 probert.utils:48 stderr: ------------------------------------------
+2026-07-17 12:35:01,633 probert.utils:50 resize2fs 1.47.0 (5-Feb-2023)
+2026-07-17 12:35:01,633 probert.utils:88 --------------------------------------------------
+2026-07-17 12:35:01,633 probert.utils:85 Command `/usr/sbin/resize2fs -P /dev/sdc4` exited with result: 0
+2026-07-17 12:35:01,633 probert.utils:48 stdout: ------------------------------------------
+2026-07-17 12:35:01,633 probert.utils:50 Estimated minimum size of the filesystem: 3809023
+2026-07-17 12:35:01,633 probert.utils:48 stderr: ------------------------------------------
+2026-07-17 12:35:01,633 probert.utils:50 resize2fs 1.47.0 (5-Feb-2023)
+2026-07-17 12:35:01,633 probert.utils:88 --------------------------------------------------
+2026-07-17 12:35:01,634 probert.utils:85 Command `/usr/sbin/resize2fs -P /dev/sdc3` exited with result: 0
+2026-07-17 12:35:01,634 probert.utils:48 stdout: ------------------------------------------
+2026-07-17 12:35:01,634 probert.utils:50 Estimated minimum size of the filesystem: 40656
+2026-07-17 12:35:01,634 probert.utils:48 stderr: ------------------------------------------
+2026-07-17 12:35:01,634 probert.utils:50 resize2fs 1.47.0 (5-Feb-2023)
+2026-07-17 12:35:01,634 probert.utils:88 --------------------------------------------------
+2026-07-17 12:35:02,123 probert.utils:85 Command `/usr/sbin/dumpe2fs -h /dev/sde1` exited with result: 0
+2026-07-17 12:35:02,123 probert.utils:48 stdout: ------------------------------------------
+2026-07-17 12:35:02,123 probert.utils:50 Filesystem volume name:   ai-rig-cache
+2026-07-17 12:35:02,123 probert.utils:50 Last mounted on:          /mnt/disco4tb
+2026-07-17 12:35:02,123 probert.utils:50 Filesystem UUID:          e7031587-f6dd-41db-918a-0527f1414e82
+2026-07-17 12:35:02,123 probert.utils:50 Filesystem magic number:  0xEF53
+2026-07-17 12:35:02,123 probert.utils:50 Filesystem revision #:    1 (dynamic)
+2026-07-17 12:35:02,123 probert.utils:50 Filesystem features:      has_journal ext_attr resize_inode dir_index orphan_file filetype extent 64bit flex_bg metadata_csum_seed sparse_super large_file huge_file dir_nlink extra_isize metadata_csum
+2026-07-17 12:35:02,123 probert.utils:50 Filesystem flags:         signed_directory_hash 
+2026-07-17 12:35:02,123 probert.utils:50 Default mount options:    user_xattr acl
+2026-07-17 12:35:02,123 probert.utils:50 Filesystem state:         clean
+2026-07-17 12:35:02,123 probert.utils:50 Errors behavior:          Continue
+2026-07-17 12:35:02,123 probert.utils:50 Filesystem OS type:       Linux
+2026-07-17 12:35:02,123 probert.utils:50 Inode count:              244195328
+2026-07-17 12:35:02,123 probert.utils:50 Block count:              976754385
+2026-07-17 12:35:02,123 probert.utils:50 Reserved block count:     48837719
+2026-07-17 12:35:02,123 probert.utils:50 Overhead clusters:        15616772
+2026-07-17 12:35:02,123 probert.utils:50 Free blocks:              923792075
+2026-07-17 12:35:02,123 probert.utils:50 Free inodes:              244195182
+2026-07-17 12:35:02,123 probert.utils:50 First block:              0
+2026-07-17 12:35:02,123 probert.utils:50 Block size:               4096
+2026-07-17 12:35:02,123 probert.utils:50 Fragment size:            4096
+2026-07-17 12:35:02,123 probert.utils:50 Group descriptor size:    64
+2026-07-17 12:35:02,123 probert.utils:50 Reserved GDT blocks:      1024
+2026-07-17 12:35:02,123 probert.utils:50 Blocks per group:         32768
+2026-07-17 12:35:02,123 probert.utils:50 Fragments per group:      32768
+2026-07-17 12:35:02,123 probert.utils:50 Inodes per group:         8192
+2026-07-17 12:35:02,123 probert.utils:50 Inode blocks per group:   512
+2026-07-17 12:35:02,123 probert.utils:50 Flex block group size:    16
+2026-07-17 12:35:02,123 probert.utils:50 Filesystem created:       Fri Jul 17 01:17:39 2026
+2026-07-17 12:35:02,123 probert.utils:50 Last mount time:          Fri Jul 17 01:18:01 2026
+2026-07-17 12:35:02,124 probert.utils:50 Last write time:          Fri Jul 17 02:18:05 2026
+2026-07-17 12:35:02,124 probert.utils:50 Mount count:              1
+2026-07-17 12:35:02,124 probert.utils:50 Maximum mount count:      -1
+2026-07-17 12:35:02,124 probert.utils:50 Last checked:             Fri Jul 17 01:17:39 2026
+2026-07-17 12:35:02,124 probert.utils:50 Check interval:           0 (<none>)
+2026-07-17 12:35:02,124 probert.utils:50 Lifetime writes:          153 GB
+2026-07-17 12:35:02,124 probert.utils:50 Reserved blocks uid:      0 (user root)
+2026-07-17 12:35:02,124 probert.utils:50 Reserved blocks gid:      0 (group root)
+2026-07-17 12:35:02,124 probert.utils:50 First inode:              11
+2026-07-17 12:35:02,124 probert.utils:50 Inode size:	          256
+2026-07-17 12:35:02,124 probert.utils:50 Required extra isize:     32
+2026-07-17 12:35:02,124 probert.utils:50 Desired extra isize:      32
+2026-07-17 12:35:02,124 probert.utils:50 Journal inode:            8
+2026-07-17 12:35:02,124 probert.utils:50 Default directory hash:   half_md4
+2026-07-17 12:35:02,124 probert.utils:50 Directory Hash Seed:      d9104219-78c7-4584-8ad5-5574d55d6a84
+2026-07-17 12:35:02,124 probert.utils:50 Journal backup:           inode blocks
+2026-07-17 12:35:02,124 probert.utils:50 Checksum type:            crc32c
+2026-07-17 12:35:02,124 probert.utils:50 Checksum:                 0xe80197d8
+2026-07-17 12:35:02,124 probert.utils:50 Checksum seed:            0x60cfd86c
+2026-07-17 12:35:02,124 probert.utils:50 Orphan file inode:        12
+2026-07-17 12:35:02,124 probert.utils:50 Journal features:         journal_64bit journal_checksum_v3
+2026-07-17 12:35:02,124 probert.utils:50 Total journal size:       1024M
+2026-07-17 12:35:02,124 probert.utils:50 Total journal blocks:     262144
+2026-07-17 12:35:02,124 probert.utils:50 Max transaction length:   262144
+2026-07-17 12:35:02,124 probert.utils:50 Fast commit length:       0
+2026-07-17 12:35:02,124 probert.utils:50 Journal sequence:         0x0000026b
+2026-07-17 12:35:02,124 probert.utils:50 Journal start:            0
+2026-07-17 12:35:02,124 probert.utils:50 Journal checksum type:    crc32c
+2026-07-17 12:35:02,124 probert.utils:50 Journal checksum:         0xc0aef92a
+2026-07-17 12:35:02,124 probert.utils:50 
+2026-07-17 12:35:02,124 probert.utils:48 stderr: ------------------------------------------
+2026-07-17 12:35:02,124 probert.utils:50 dumpe2fs 1.47.0 (5-Feb-2023)
+2026-07-17 12:35:02,124 probert.utils:88 --------------------------------------------------
+2026-07-17 12:35:02,246 probert.utils:85 Command `/usr/sbin/resize2fs -P /dev/sde1` exited with result: 0
+2026-07-17 12:35:02,246 probert.utils:48 stdout: ------------------------------------------
+2026-07-17 12:35:02,246 probert.utils:50 Estimated minimum size of the filesystem: 38914127
+2026-07-17 12:35:02,246 probert.utils:48 stderr: ------------------------------------------
+2026-07-17 12:35:02,246 probert.utils:50 resize2fs 1.47.0 (5-Feb-2023)
+2026-07-17 12:35:02,246 probert.utils:88 --------------------------------------------------
+2026-07-17 12:35:03,355 curtin:117 Setting up Layered Source for stack ['///cdrom/casper/ubuntu-server-minimal.squashfs', '///cdrom/casper/ubuntu-server-minimal.ubuntu-server.squashfs']
+2026-07-17 12:35:03,355 curtin:120 Running command ['mount', '-o', 'loop,ro', '///cdrom/casper/ubuntu-server-minimal.squashfs', '/tmp/tmpe6khnnm0/ubuntu-server-minimal.squashfs.dir'] with allowed return codes [0] (capture=True)
+2026-07-17 12:35:03,357 curtin:120 Running command ['mount', '-o', 'loop,ro', '///cdrom/casper/ubuntu-server-minimal.ubuntu-server.squashfs', '/tmp/tmpe6khnnm0/ubuntu-server-minimal.ubuntu-server.squashfs.dir'] with allowed return codes [0] (capture=True)
+2026-07-17 12:35:03,359 curtin:120 Running command ['mount', '-o', 'lowerdir=/tmp/tmpe6khnnm0/ubuntu-server-minimal.ubuntu-server.squashfs.dir:/tmp/tmpe6khnnm0/ubuntu-server-minimal.squashfs.dir', '-t', 'overlay', 'overlay', '/tmp/tmpe6khnnm0/root.dir'] with allowed return codes [0] (capture=True)
+2026-07-17 12:35:03,386 probert.utils:85 Command `/usr/sbin/ntfsresize --no-action --force --no-progress-bar --info /dev/sdb1` exited with result: 0
+2026-07-17 12:35:03,386 probert.utils:48 stdout: ------------------------------------------
+2026-07-17 12:35:03,387 probert.utils:50 ntfsresize v2022.10.3 (libntfs-3g)
+2026-07-17 12:35:03,387 probert.utils:50 Device name        : /dev/sdb1
+2026-07-17 12:35:03,387 probert.utils:50 NTFS volume version: 3.1
+2026-07-17 12:35:03,387 probert.utils:50 Cluster size       : 4096 bytes
+2026-07-17 12:35:03,387 probert.utils:50 Current volume size: 160038908416 bytes (160039 MB)
+2026-07-17 12:35:03,387 probert.utils:50 Current device size: 160038912000 bytes (160039 MB)
+2026-07-17 12:35:03,387 probert.utils:50 Checking filesystem consistency ...
+2026-07-17 12:35:03,387 probert.utils:50 Accounting clusters ...
+2026-07-17 12:35:03,387 probert.utils:50 Space in use       : 352 MB (0.2%)
+2026-07-17 12:35:03,387 probert.utils:50 Collecting resizing constraints ...
+2026-07-17 12:35:03,387 probert.utils:50 You might resize at 351072256 bytes or 352 MB (freeing 159687 MB).
+2026-07-17 12:35:03,387 probert.utils:50 Please make a test run using both the -n and -s options before real resizing!
+2026-07-17 12:35:03,387 probert.utils:52 <empty stderr>
+2026-07-17 12:35:03,387 probert.utils:88 --------------------------------------------------
+2026-07-17 12:35:03,392 curtin:1445 Extracting storage config from probe data
+2026-07-17 12:35:03,392 curtin:73 /dev/sdf is multipath device member? False
+2026-07-17 12:35:03,392 curtin:86 /dev/sdf is multipath device partition? False
+2026-07-17 12:35:03,392 curtin:61 /dev/sdf is multipath device? False
+2026-07-17 12:35:03,392 curtin:86 /dev/sdf is multipath device partition? False
+2026-07-17 12:35:03,392 curtin:61 /dev/sdf is multipath device? False
+2026-07-17 12:35:03,401 curtin:73 /dev/sdf1 is multipath device member? False
+2026-07-17 12:35:03,401 curtin:86 /dev/sdf1 is multipath device partition? False
+2026-07-17 12:35:03,401 curtin:61 /dev/sdf1 is multipath device? False
+2026-07-17 12:35:03,401 curtin:86 /dev/sdf1 is multipath device partition? False
+2026-07-17 12:35:03,401 curtin:86 /dev/sdf1 is multipath device partition? False
+2026-07-17 12:35:03,410 curtin:73 /dev/sdf2 is multipath device member? False
+2026-07-17 12:35:03,410 curtin:86 /dev/sdf2 is multipath device partition? False
+2026-07-17 12:35:03,410 curtin:61 /dev/sdf2 is multipath device? False
+2026-07-17 12:35:03,410 curtin:86 /dev/sdf2 is multipath device partition? False
+2026-07-17 12:35:03,410 curtin:86 /dev/sdf2 is multipath device partition? False
+2026-07-17 12:35:03,418 curtin:73 /dev/sdf3 is multipath device member? False
+2026-07-17 12:35:03,418 curtin:86 /dev/sdf3 is multipath device partition? False
+2026-07-17 12:35:03,418 curtin:61 /dev/sdf3 is multipath device? False
+2026-07-17 12:35:03,418 curtin:86 /dev/sdf3 is multipath device partition? False
+2026-07-17 12:35:03,418 curtin:86 /dev/sdf3 is multipath device partition? False
+2026-07-17 12:35:03,427 curtin:73 /dev/sdf4 is multipath device member? False
+2026-07-17 12:35:03,427 curtin:86 /dev/sdf4 is multipath device partition? False
+2026-07-17 12:35:03,427 curtin:61 /dev/sdf4 is multipath device? False
+2026-07-17 12:35:03,427 curtin:86 /dev/sdf4 is multipath device partition? False
+2026-07-17 12:35:03,427 curtin:86 /dev/sdf4 is multipath device partition? False
+2026-07-17 12:35:03,435 curtin:73 /dev/sde is multipath device member? False
+2026-07-17 12:35:03,435 curtin:86 /dev/sde is multipath device partition? False
+2026-07-17 12:35:03,435 curtin:61 /dev/sde is multipath device? False
+2026-07-17 12:35:03,435 curtin:86 /dev/sde is multipath device partition? False
+2026-07-17 12:35:03,435 curtin:61 /dev/sde is multipath device? False
+2026-07-17 12:35:03,443 curtin:73 /dev/sde1 is multipath device member? False
+2026-07-17 12:35:03,443 curtin:86 /dev/sde1 is multipath device partition? False
+2026-07-17 12:35:03,443 curtin:61 /dev/sde1 is multipath device? False
+2026-07-17 12:35:03,443 curtin:86 /dev/sde1 is multipath device partition? False
+2026-07-17 12:35:03,443 curtin:86 /dev/sde1 is multipath device partition? False
+2026-07-17 12:35:03,452 curtin:73 /dev/sda is multipath device member? False
+2026-07-17 12:35:03,452 curtin:86 /dev/sda is multipath device partition? False
+2026-07-17 12:35:03,452 curtin:61 /dev/sda is multipath device? False
+2026-07-17 12:35:03,452 curtin:86 /dev/sda is multipath device partition? False
+2026-07-17 12:35:03,452 curtin:61 /dev/sda is multipath device? False
+2026-07-17 12:35:03,460 curtin:73 /dev/sda1 is multipath device member? False
+2026-07-17 12:35:03,460 curtin:86 /dev/sda1 is multipath device partition? False
+2026-07-17 12:35:03,460 curtin:61 /dev/sda1 is multipath device? False
+2026-07-17 12:35:03,460 curtin:86 /dev/sda1 is multipath device partition? False
+2026-07-17 12:35:03,460 curtin:86 /dev/sda1 is multipath device partition? False
+2026-07-17 12:35:03,468 curtin:73 /dev/sda2 is multipath device member? False
+2026-07-17 12:35:03,468 curtin:86 /dev/sda2 is multipath device partition? False
+2026-07-17 12:35:03,468 curtin:61 /dev/sda2 is multipath device? False
+2026-07-17 12:35:03,469 curtin:86 /dev/sda2 is multipath device partition? False
+2026-07-17 12:35:03,469 curtin:86 /dev/sda2 is multipath device partition? False
+2026-07-17 12:35:03,477 curtin:73 /dev/sda3 is multipath device member? False
+2026-07-17 12:35:03,477 curtin:86 /dev/sda3 is multipath device partition? False
+2026-07-17 12:35:03,477 curtin:61 /dev/sda3 is multipath device? False
+2026-07-17 12:35:03,477 curtin:86 /dev/sda3 is multipath device partition? False
+2026-07-17 12:35:03,477 curtin:86 /dev/sda3 is multipath device partition? False
+2026-07-17 12:35:03,486 curtin:73 /dev/sda4 is multipath device member? False
+2026-07-17 12:35:03,486 curtin:86 /dev/sda4 is multipath device partition? False
+2026-07-17 12:35:03,486 curtin:61 /dev/sda4 is multipath device? False
+2026-07-17 12:35:03,486 curtin:86 /dev/sda4 is multipath device partition? False
+2026-07-17 12:35:03,486 curtin:86 /dev/sda4 is multipath device partition? False
+2026-07-17 12:35:03,494 curtin:73 /dev/sdb is multipath device member? False
+2026-07-17 12:35:03,494 curtin:86 /dev/sdb is multipath device partition? False
+2026-07-17 12:35:03,494 curtin:61 /dev/sdb is multipath device? False
+2026-07-17 12:35:03,494 curtin:86 /dev/sdb is multipath device partition? False
+2026-07-17 12:35:03,494 curtin:61 /dev/sdb is multipath device? False
+2026-07-17 12:35:03,502 curtin:73 /dev/sdb1 is multipath device member? False
+2026-07-17 12:35:03,502 curtin:86 /dev/sdb1 is multipath device partition? False
+2026-07-17 12:35:03,502 curtin:61 /dev/sdb1 is multipath device? False
+2026-07-17 12:35:03,502 curtin:86 /dev/sdb1 is multipath device partition? False
+2026-07-17 12:35:03,502 curtin:86 /dev/sdb1 is multipath device partition? False
+2026-07-17 12:35:03,510 curtin:73 /dev/sdc is multipath device member? False
+2026-07-17 12:35:03,510 curtin:86 /dev/sdc is multipath device partition? False
+2026-07-17 12:35:03,511 curtin:61 /dev/sdc is multipath device? False
+2026-07-17 12:35:03,511 curtin:86 /dev/sdc is multipath device partition? False
+2026-07-17 12:35:03,511 curtin:61 /dev/sdc is multipath device? False
+2026-07-17 12:35:03,519 curtin:73 /dev/sdc1 is multipath device member? False
+2026-07-17 12:35:03,519 curtin:86 /dev/sdc1 is multipath device partition? False
+2026-07-17 12:35:03,519 curtin:61 /dev/sdc1 is multipath device? False
+2026-07-17 12:35:03,519 curtin:86 /dev/sdc1 is multipath device partition? False
+2026-07-17 12:35:03,519 curtin:86 /dev/sdc1 is multipath device partition? False
+2026-07-17 12:35:03,527 curtin:73 /dev/sdc2 is multipath device member? False
+2026-07-17 12:35:03,527 curtin:86 /dev/sdc2 is multipath device partition? False
+2026-07-17 12:35:03,527 curtin:61 /dev/sdc2 is multipath device? False
+2026-07-17 12:35:03,527 curtin:86 /dev/sdc2 is multipath device partition? False
+2026-07-17 12:35:03,527 curtin:86 /dev/sdc2 is multipath device partition? False
+2026-07-17 12:35:03,535 curtin:73 /dev/sdc3 is multipath device member? False
+2026-07-17 12:35:03,535 curtin:86 /dev/sdc3 is multipath device partition? False
+2026-07-17 12:35:03,535 curtin:61 /dev/sdc3 is multipath device? False
+2026-07-17 12:35:03,535 curtin:86 /dev/sdc3 is multipath device partition? False
+2026-07-17 12:35:03,535 curtin:86 /dev/sdc3 is multipath device partition? False
+2026-07-17 12:35:03,543 curtin:73 /dev/sdc4 is multipath device member? False
+2026-07-17 12:35:03,544 curtin:86 /dev/sdc4 is multipath device partition? False
+2026-07-17 12:35:03,544 curtin:61 /dev/sdc4 is multipath device? False
+2026-07-17 12:35:03,544 curtin:86 /dev/sdc4 is multipath device partition? False
+2026-07-17 12:35:03,544 curtin:86 /dev/sdc4 is multipath device partition? False
+2026-07-17 12:35:03,552 curtin:73 /dev/sdd is multipath device member? False
+2026-07-17 12:35:03,552 curtin:86 /dev/sdd is multipath device partition? False
+2026-07-17 12:35:03,552 curtin:61 /dev/sdd is multipath device? False
+2026-07-17 12:35:03,552 curtin:86 /dev/sdd is multipath device partition? False
+2026-07-17 12:35:03,552 curtin:61 /dev/sdd is multipath device? False
+2026-07-17 12:35:03,560 curtin:73 /dev/sdd1 is multipath device member? False
+2026-07-17 12:35:03,560 curtin:86 /dev/sdd1 is multipath device partition? False
+2026-07-17 12:35:03,560 curtin:61 /dev/sdd1 is multipath device? False
+2026-07-17 12:35:03,560 curtin:86 /dev/sdd1 is multipath device partition? False
+2026-07-17 12:35:03,560 curtin:86 /dev/sdd1 is multipath device partition? False
+2026-07-17 12:35:03,568 curtin:73 /dev/sdf is multipath device member? False
+2026-07-17 12:35:03,576 curtin:73 /dev/sdf1 is multipath device member? False
+2026-07-17 12:35:03,584 curtin:73 /dev/sdf2 is multipath device member? False
+2026-07-17 12:35:03,592 curtin:73 /dev/sda2 is multipath device member? False
+2026-07-17 12:35:03,600 curtin:73 /dev/sdc2 is multipath device member? False
+2026-07-17 12:35:03,608 curtin:73 /dev/sdf4 is multipath device member? False
+2026-07-17 12:35:03,616 curtin:73 /dev/sda3 is multipath device member? False
+2026-07-17 12:35:03,624 curtin:73 /dev/sda4 is multipath device member? False
+2026-07-17 12:35:03,632 curtin:73 /dev/sdc4 is multipath device member? False
+2026-07-17 12:35:03,640 curtin:73 /dev/sdc3 is multipath device member? False
+2026-07-17 12:35:03,649 curtin:73 /dev/sde1 is multipath device member? False
+2026-07-17 12:35:03,657 curtin:73 /dev/sdb1 is multipath device member? False
+2026-07-17 12:35:03,673 curtin:1452 Sorting extracted configurations
+2026-07-17 12:35:03,673 curtin:1472 Validating extracted storage config components
+2026-07-17 12:35:03,700 curtin:1489 Extracted (unmerged) storage config:
+storage:
+-   id: disk-sdf
+    path: /dev/sdf
+    ptable: gpt
+    serial: General_UDisk_2308201826123733718726-0:0
+    type: disk
+-   id: disk-sde
+    path: /dev/sde
+    ptable: gpt
+    serial: 1WDC_WD40EZRZ-00WN9B0_DD564198838A3
+    type: disk
+    wwn: '0x3074010001021400'
+-   id: disk-sda
+    path: /dev/sda
+    ptable: gpt
+    serial: PNY_CS900_120GB_SSD_PNY213821092201013D8
+    type: disk
+    wwn: '0x5f8db4c2138013d8'
+-   id: disk-sdb
+    path: /dev/sdb
+    ptable: dos
+    serial: WDC_WD1600BEVT-22ZCT0_WD-WXW0E69SSR66
+    type: disk
+    wwn: '0x50014ee001b40214'
+-   id: disk-sdc
+    path: /dev/sdc
+    ptable: gpt
+    serial: OCZ-AGILITY3_OCZ-DM2287ZA59Z7J3UJ
+    type: disk
+    wwn: '0x5e83a97ed0d6b005'
+-   id: disk-sdd
+    path: /dev/sdd
+    ptable: gpt
+    serial: 1Realtek_RTL9220_1.010123456789012
+    type: disk
+    wwn: '0x3001237923792379'
+-   device: disk-sdf
+    id: partition-sdf1
+    number: 1
+    offset: 32768
+    partition_type: ebd0a0a2-b9e5-4433-87c0-68b6b72699c7
+    path: /dev/sdf1
+    size: 3400820736
+    type: partition
+    uuid: 9d3bf42a-c53a-4939-a559-69f0a71d9fb6
+-   device: disk-sdf
+    flag: boot
+    id: partition-sdf2
+    number: 2
+    offset: 3400853504
+    partition_type: c12a7328-f81f-11d2-ba4b-00a0c93ec93b
+    path: /dev/sdf2
+    size: 5201920
+    type: partition
+    uuid: 9d3bf42a-c53a-4939-a55a-69f0a71d9fb6
+-   device: disk-sdf
+    id: partition-sdf3
+    number: 3
+    offset: 3406055424
+    partition_type: ebd0a0a2-b9e5-4433-87c0-68b6b72699c7
+    path: /dev/sdf3
+    size: 307200
+    type: partition
+    uuid: 9d3bf42a-c53a-4939-a55b-69f0a71d9fb6
+-   device: disk-sdf
+    flag: linux
+    id: partition-sdf4
+    number: 4
+    offset: 3407872000
+    partition_type: 0fc63daf-8483-4772-8e79-3d69d8477de4
+    path: /dev/sdf4
+    size: 59505639424
+    type: partition
+    uuid: a495cc16-880e-4533-ab0e-55ed814df949
+-   device: disk-sde
+    flag: linux
+    id: partition-sde1
+    number: 1
+    offset: 1048576
+    partition_type: 0fc63daf-8483-4772-8e79-3d69d8477de4
+    path: /dev/sde1
+    size: 4000785964544
+    type: partition
+    uuid: 34e04474-1142-483f-897b-bdb2316a9ffc
+-   device: disk-sda
+    flag: bios_grub
+    id: partition-sda1
+    number: 1
+    offset: 1048576
+    partition_type: 21686148-6449-6e6f-744e-656564454649
+    path: /dev/sda1
+    size: 1048576
+    type: partition
+    uuid: e8b7e38b-e16a-4f73-9d58-dde135c36d08
+-   device: disk-sda
+    flag: boot
+    id: partition-sda2
+    number: 2
+    offset: 2097152
+    partition_type: c12a7328-f81f-11d2-ba4b-00a0c93ec93b
+    path: /dev/sda2
+    size: 536870912
+    type: partition
+    uuid: 85decbc0-ed17-4f76-9ff3-e4edc2b50be0
+-   device: disk-sda
+    flag: linux
+    id: partition-sda3
+    number: 3
+    offset: 538968064
+    partition_type: 0fc63daf-8483-4772-8e79-3d69d8477de4
+    path: /dev/sda3
+    size: 1073741824
+    type: partition
+    uuid: 885088a3-2f5d-4ca1-b6c2-328be8193cb6
+-   device: disk-sda
+    flag: linux
+    id: partition-sda4
+    number: 4
+    offset: 1612709888
+    partition_type: 0fc63daf-8483-4772-8e79-3d69d8477de4
+    path: /dev/sda4
+    size: 118419881984
+    type: partition
+    uuid: e9530693-75f3-4eff-9334-6c5b125744e5
+-   device: disk-sdb
+    id: partition-sdb1
+    number: 1
+    offset: 1048576
+    partition_type: '0x7'
+    path: /dev/sdb1
+    size: 160038912000
+    type: partition
+-   device: disk-sdc
+    flag: bios_grub
+    id: partition-sdc1
+    number: 1
+    offset: 1048576
+    partition_type: 21686148-6449-6e6f-744e-656564454649
+    path: /dev/sdc1
+    size: 1048576
+    type: partition
+    uuid: 00204646-0e2c-4a9f-8f47-404434638a21
+-   device: disk-sdc
+    flag: boot
+    id: partition-sdc2
+    number: 2
+    offset: 2097152
+    partition_type: c12a7328-f81f-11d2-ba4b-00a0c93ec93b
+    path: /dev/sdc2
+    size: 536870912
+    type: partition
+    uuid: 64ce1041-16a3-41e6-9e8c-2bb78f7324a7
+-   device: disk-sdc
+    flag: linux
+    id: partition-sdc3
+    number: 3
+    offset: 538968064
+    partition_type: 0fc63daf-8483-4772-8e79-3d69d8477de4
+    path: /dev/sdc3
+    size: 1073741824
+    type: partition
+    uuid: bd8b6c35-ada1-4350-ab6b-545dfcec3646
+-   device: disk-sdc
+    flag: linux
+    id: partition-sdc4
+    number: 4
+    offset: 1612709888
+    partition_type: 0fc63daf-8483-4772-8e79-3d69d8477de4
+    path: /dev/sdc4
+    size: 118419881984
+    type: partition
+    uuid: 6f4b71be-b307-44b6-b35d-a901add2e9f9
+-   device: disk-sdd
+    flag: linux
+    id: partition-sdd1
+    number: 1
+    offset: 33553920
+    partition_type: 0fc63daf-8483-4772-8e79-3d69d8477de4
+    path: /dev/sdd1
+    size: 2048366154240
+    type: partition
+    uuid: df32276b-7871-4f84-ad9e-9bce867c45d2
+-   fstype: iso9660
+    id: format-disk-sdf
+    type: format
+    volume: disk-sdf
+-   fstype: iso9660
+    id: format-partition-sdf1
+    type: format
+    volume: partition-sdf1
+-   fstype: vfat
+    id: format-partition-sdf2
+    type: format
+    volume: partition-sdf2
+-   fstype: vfat
+    id: format-partition-sda2
+    type: format
+    volume: partition-sda2
+-   fstype: vfat
+    id: format-partition-sdc2
+    type: format
+    volume: partition-sdc2
+-   fstype: ext4
+    id: format-partition-sdf4
+    type: format
+    uuid: 641257da-e865-4d66-8312-9df105166ed0
+    volume: partition-sdf4
+-   fstype: ext4
+    id: format-partition-sda3
+    type: format
+    uuid: e86f16de-f711-4ff0-bebd-001efaf56dc8
+    volume: partition-sda3
+-   fstype: ext4
+    id: format-partition-sda4
+    type: format
+    uuid: da35bad5-353c-4c24-97de-7869659c864d
+    volume: partition-sda4
+-   fstype: ext4
+    id: format-partition-sdc4
+    type: format
+    uuid: 3e1febb6-a4bc-458b-8bf7-23ed1e6c8d2c
+    volume: partition-sdc4
+-   fstype: ext4
+    id: format-partition-sdc3
+    type: format
+    uuid: 32efbb46-a8a6-42ef-99cc-0e628c1e8bbc
+    volume: partition-sdc3
+-   fstype: ext4
+    id: format-partition-sde1
+    type: format
+    uuid: e7031587-f6dd-41db-918a-0527f1414e82
+    volume: partition-sde1
+-   fstype: ntfs
+    id: format-partition-sdb1
+    type: format
+    volume: partition-sdb1
+-   device: format-partition-sdf1
+    id: mount-partition-sdf1
+    path: /cdrom
+    type: mount
+
+2026-07-17 12:35:03,700 curtin:1493 Generating storage config dependencies
+2026-07-17 12:35:03,700 curtin:244 Validate: partition-sdf1:SourceType:partition -> (DepId:disk-sdf DepType:disk) in SourceDeps:{'disk', 'raid', 'bcache', 'partition'} ? result=True
+2026-07-17 12:35:03,701 curtin:244 Validate: partition-sdf2:SourceType:partition -> (DepId:disk-sdf DepType:disk) in SourceDeps:{'disk', 'raid', 'bcache', 'partition'} ? result=True
+2026-07-17 12:35:03,701 curtin:244 Validate: partition-sdf3:SourceType:partition -> (DepId:disk-sdf DepType:disk) in SourceDeps:{'disk', 'raid', 'bcache', 'partition'} ? result=True
+2026-07-17 12:35:03,701 curtin:244 Validate: partition-sdf4:SourceType:partition -> (DepId:disk-sdf DepType:disk) in SourceDeps:{'disk', 'raid', 'bcache', 'partition'} ? result=True
+2026-07-17 12:35:03,701 curtin:244 Validate: partition-sde1:SourceType:partition -> (DepId:disk-sde DepType:disk) in SourceDeps:{'disk', 'raid', 'bcache', 'partition'} ? result=True
+2026-07-17 12:35:03,701 curtin:244 Validate: partition-sda1:SourceType:partition -> (DepId:disk-sda DepType:disk) in SourceDeps:{'disk', 'raid', 'bcache', 'partition'} ? result=True
+2026-07-17 12:35:03,701 curtin:244 Validate: partition-sda2:SourceType:partition -> (DepId:disk-sda DepType:disk) in SourceDeps:{'disk', 'raid', 'bcache', 'partition'} ? result=True
+2026-07-17 12:35:03,701 curtin:244 Validate: partition-sda3:SourceType:partition -> (DepId:disk-sda DepType:disk) in SourceDeps:{'disk', 'raid', 'bcache', 'partition'} ? result=True
+2026-07-17 12:35:03,701 curtin:244 Validate: partition-sda4:SourceType:partition -> (DepId:disk-sda DepType:disk) in SourceDeps:{'disk', 'raid', 'bcache', 'partition'} ? result=True
+2026-07-17 12:35:03,701 curtin:244 Validate: partition-sdb1:SourceType:partition -> (DepId:disk-sdb DepType:disk) in SourceDeps:{'disk', 'raid', 'bcache', 'partition'} ? result=True
+2026-07-17 12:35:03,701 curtin:244 Validate: partition-sdc1:SourceType:partition -> (DepId:disk-sdc DepType:disk) in SourceDeps:{'disk', 'raid', 'bcache', 'partition'} ? result=True
+2026-07-17 12:35:03,701 curtin:244 Validate: partition-sdc2:SourceType:partition -> (DepId:disk-sdc DepType:disk) in SourceDeps:{'disk', 'raid', 'bcache', 'partition'} ? result=True
+2026-07-17 12:35:03,701 curtin:244 Validate: partition-sdc3:SourceType:partition -> (DepId:disk-sdc DepType:disk) in SourceDeps:{'disk', 'raid', 'bcache', 'partition'} ? result=True
+2026-07-17 12:35:03,701 curtin:244 Validate: partition-sdc4:SourceType:partition -> (DepId:disk-sdc DepType:disk) in SourceDeps:{'disk', 'raid', 'bcache', 'partition'} ? result=True
+2026-07-17 12:35:03,701 curtin:244 Validate: partition-sdd1:SourceType:partition -> (DepId:disk-sdd DepType:disk) in SourceDeps:{'disk', 'raid', 'bcache', 'partition'} ? result=True
+2026-07-17 12:35:03,701 curtin:244 Validate: format-disk-sdf:SourceType:format -> (DepId:disk-sdf DepType:disk) in SourceDeps:{'dm_crypt', 'raid', 'bcache', 'disk', 'lvm_partition', 'partition'} ? result=True
+2026-07-17 12:35:03,701 curtin:244 Validate: format-partition-sdf1:SourceType:format -> (DepId:partition-sdf1 DepType:partition) in SourceDeps:{'dm_crypt', 'raid', 'bcache', 'disk', 'lvm_partition', 'partition'} ? result=True
+2026-07-17 12:35:03,701 curtin:244 Validate: partition-sdf1:SourceType:partition -> (DepId:disk-sdf DepType:disk) in SourceDeps:{'disk', 'raid', 'bcache', 'partition'} ? result=True
+2026-07-17 12:35:03,701 curtin:244 Validate: format-partition-sdf2:SourceType:format -> (DepId:partition-sdf2 DepType:partition) in SourceDeps:{'dm_crypt', 'raid', 'bcache', 'disk', 'lvm_partition', 'partition'} ? result=True
+2026-07-17 12:35:03,701 curtin:244 Validate: partition-sdf2:SourceType:partition -> (DepId:disk-sdf DepType:disk) in SourceDeps:{'disk', 'raid', 'bcache', 'partition'} ? result=True
+2026-07-17 12:35:03,701 curtin:244 Validate: format-partition-sda2:SourceType:format -> (DepId:partition-sda2 DepType:partition) in SourceDeps:{'dm_crypt', 'raid', 'bcache', 'disk', 'lvm_partition', 'partition'} ? result=True
+2026-07-17 12:35:03,702 curtin:244 Validate: partition-sda2:SourceType:partition -> (DepId:disk-sda DepType:disk) in SourceDeps:{'disk', 'raid', 'bcache', 'partition'} ? result=True
+2026-07-17 12:35:03,702 curtin:244 Validate: format-partition-sdc2:SourceType:format -> (DepId:partition-sdc2 DepType:partition) in SourceDeps:{'dm_crypt', 'raid', 'bcache', 'disk', 'lvm_partition', 'partition'} ? result=True
+2026-07-17 12:35:03,702 curtin:244 Validate: partition-sdc2:SourceType:partition -> (DepId:disk-sdc DepType:disk) in SourceDeps:{'disk', 'raid', 'bcache', 'partition'} ? result=True
+2026-07-17 12:35:03,702 curtin:244 Validate: format-partition-sdf4:SourceType:format -> (DepId:partition-sdf4 DepType:partition) in SourceDeps:{'dm_crypt', 'raid', 'bcache', 'disk', 'lvm_partition', 'partition'} ? result=True
+2026-07-17 12:35:03,702 curtin:244 Validate: partition-sdf4:SourceType:partition -> (DepId:disk-sdf DepType:disk) in SourceDeps:{'disk', 'raid', 'bcache', 'partition'} ? result=True
+2026-07-17 12:35:03,702 curtin:244 Validate: format-partition-sda3:SourceType:format -> (DepId:partition-sda3 DepType:partition) in SourceDeps:{'dm_crypt', 'raid', 'bcache', 'disk', 'lvm_partition', 'partition'} ? result=True
+2026-07-17 12:35:03,702 curtin:244 Validate: partition-sda3:SourceType:partition -> (DepId:disk-sda DepType:disk) in SourceDeps:{'disk', 'raid', 'bcache', 'partition'} ? result=True
+2026-07-17 12:35:03,702 curtin:244 Validate: format-partition-sda4:SourceType:format -> (DepId:partition-sda4 DepType:partition) in SourceDeps:{'dm_crypt', 'raid', 'bcache', 'disk', 'lvm_partition', 'partition'} ? result=True
+2026-07-17 12:35:03,702 curtin:244 Validate: partition-sda4:SourceType:partition -> (DepId:disk-sda DepType:disk) in SourceDeps:{'disk', 'raid', 'bcache', 'partition'} ? result=True
+2026-07-17 12:35:03,702 curtin:244 Validate: format-partition-sdc4:SourceType:format -> (DepId:partition-sdc4 DepType:partition) in SourceDeps:{'dm_crypt', 'raid', 'bcache', 'disk', 'lvm_partition', 'partition'} ? result=True
+2026-07-17 12:35:03,702 curtin:244 Validate: partition-sdc4:SourceType:partition -> (DepId:disk-sdc DepType:disk) in SourceDeps:{'disk', 'raid', 'bcache', 'partition'} ? result=True
+2026-07-17 12:35:03,702 curtin:244 Validate: format-partition-sdc3:SourceType:format -> (DepId:partition-sdc3 DepType:partition) in SourceDeps:{'dm_crypt', 'raid', 'bcache', 'disk', 'lvm_partition', 'partition'} ? result=True
+2026-07-17 12:35:03,702 curtin:244 Validate: partition-sdc3:SourceType:partition -> (DepId:disk-sdc DepType:disk) in SourceDeps:{'disk', 'raid', 'bcache', 'partition'} ? result=True
+2026-07-17 12:35:03,702 curtin:244 Validate: format-partition-sde1:SourceType:format -> (DepId:partition-sde1 DepType:partition) in SourceDeps:{'dm_crypt', 'raid', 'bcache', 'disk', 'lvm_partition', 'partition'} ? result=True
+2026-07-17 12:35:03,702 curtin:244 Validate: partition-sde1:SourceType:partition -> (DepId:disk-sde DepType:disk) in SourceDeps:{'disk', 'raid', 'bcache', 'partition'} ? result=True
+2026-07-17 12:35:03,702 curtin:244 Validate: format-partition-sdb1:SourceType:format -> (DepId:partition-sdb1 DepType:partition) in SourceDeps:{'dm_crypt', 'raid', 'bcache', 'disk', 'lvm_partition', 'partition'} ? result=True
+2026-07-17 12:35:03,702 curtin:244 Validate: partition-sdb1:SourceType:partition -> (DepId:disk-sdb DepType:disk) in SourceDeps:{'disk', 'raid', 'bcache', 'partition'} ? result=True
+2026-07-17 12:35:03,702 curtin:244 Validate: mount-partition-sdf1:SourceType:mount -> (DepId:format-partition-sdf1 DepType:format) in SourceDeps:{'format'} ? result=True
+2026-07-17 12:35:03,702 curtin:244 Validate: format-partition-sdf1:SourceType:format -> (DepId:partition-sdf1 DepType:partition) in SourceDeps:{'dm_crypt', 'raid', 'bcache', 'disk', 'lvm_partition', 'partition'} ? result=True
+2026-07-17 12:35:03,702 curtin:244 Validate: partition-sdf1:SourceType:partition -> (DepId:disk-sdf DepType:disk) in SourceDeps:{'disk', 'raid', 'bcache', 'partition'} ? result=True
+2026-07-17 12:35:03,702 curtin:1499 Merging storage config dependencies
+2026-07-17 12:35:03,712 curtin:1504 Merged storage config:
+storage:
+    config:
+    -   id: disk-sda
+        path: /dev/sda
+        ptable: gpt
+        serial: PNY_CS900_120GB_SSD_PNY213821092201013D8
+        type: disk
+        wwn: '0x5f8db4c2138013d8'
+    -   id: disk-sdb
+        path: /dev/sdb
+        ptable: dos
+        serial: WDC_WD1600BEVT-22ZCT0_WD-WXW0E69SSR66
+        type: disk
+        wwn: '0x50014ee001b40214'
+    -   id: disk-sdc
+        path: /dev/sdc
+        ptable: gpt
+        serial: OCZ-AGILITY3_OCZ-DM2287ZA59Z7J3UJ
+        type: disk
+        wwn: '0x5e83a97ed0d6b005'
+    -   id: disk-sdd
+        path: /dev/sdd
+        ptable: gpt
+        serial: 1Realtek_RTL9220_1.010123456789012
+        type: disk
+        wwn: '0x3001237923792379'
+    -   id: disk-sde
+        path: /dev/sde
+        ptable: gpt
+        serial: 1WDC_WD40EZRZ-00WN9B0_DD564198838A3
+        type: disk
+        wwn: '0x3074010001021400'
+    -   id: disk-sdf
+        path: /dev/sdf
+        ptable: gpt
+        serial: General_UDisk_2308201826123733718726-0:0
+        type: disk
+    -   fstype: iso9660
+        id: format-disk-sdf
+        type: format
+        volume: disk-sdf
+    -   device: disk-sde
+        flag: linux
+        id: partition-sde1
+        number: 1
+        offset: 1048576
+        partition_type: 0fc63daf-8483-4772-8e79-3d69d8477de4
+        path: /dev/sde1
+        size: 4000785964544
+        type: partition
+        uuid: 34e04474-1142-483f-897b-bdb2316a9ffc
+    -   device: disk-sdb
+        id: partition-sdb1
+        number: 1
+        offset: 1048576
+        partition_type: '0x7'
+        path: /dev/sdb1
+        size: 160038912000
+        type: partition
+    -   device: disk-sdd
+        flag: linux
+        id: partition-sdd1
+        number: 1
+        offset: 33553920
+        partition_type: 0fc63daf-8483-4772-8e79-3d69d8477de4
+        path: /dev/sdd1
+        size: 2048366154240
+        type: partition
+        uuid: df32276b-7871-4f84-ad9e-9bce867c45d2
+    -   fstype: ntfs
+        id: format-partition-sdb1
+        type: format
+        volume: partition-sdb1
+    -   fstype: ext4
+        id: format-partition-sde1
+        type: format
+        uuid: e7031587-f6dd-41db-918a-0527f1414e82
+        volume: partition-sde1
+    -   device: disk-sdf
+        id: partition-sdf1
+        number: 1
+        offset: 32768
+        partition_type: ebd0a0a2-b9e5-4433-87c0-68b6b72699c7
+        path: /dev/sdf1
+        size: 3400820736
+        type: partition
+        uuid: 9d3bf42a-c53a-4939-a559-69f0a71d9fb6
+    -   device: disk-sda
+        flag: bios_grub
+        id: partition-sda1
+        number: 1
+        offset: 1048576
+        partition_type: 21686148-6449-6e6f-744e-656564454649
+        path: /dev/sda1
+        size: 1048576
+        type: partition
+        uuid: e8b7e38b-e16a-4f73-9d58-dde135c36d08
+    -   device: disk-sdc
+        flag: bios_grub
+        id: partition-sdc1
+        number: 1
+        offset: 1048576
+        partition_type: 21686148-6449-6e6f-744e-656564454649
+        path: /dev/sdc1
+        size: 1048576
+        type: partition
+        uuid: 00204646-0e2c-4a9f-8f47-404434638a21
+    -   device: disk-sdf
+        flag: boot
+        id: partition-sdf2
+        number: 2
+        offset: 3400853504
+        partition_type: c12a7328-f81f-11d2-ba4b-00a0c93ec93b
+        path: /dev/sdf2
+        size: 5201920
+        type: partition
+        uuid: 9d3bf42a-c53a-4939-a55a-69f0a71d9fb6
+    -   device: disk-sda
+        flag: boot
+        id: partition-sda2
+        number: 2
+        offset: 2097152
+        partition_type: c12a7328-f81f-11d2-ba4b-00a0c93ec93b
+        path: /dev/sda2
+        size: 536870912
+        type: partition
+        uuid: 85decbc0-ed17-4f76-9ff3-e4edc2b50be0
+    -   device: disk-sdc
+        flag: boot
+        id: partition-sdc2
+        number: 2
+        offset: 2097152
+        partition_type: c12a7328-f81f-11d2-ba4b-00a0c93ec93b
+        path: /dev/sdc2
+        size: 536870912
+        type: partition
+        uuid: 64ce1041-16a3-41e6-9e8c-2bb78f7324a7
+    -   device: disk-sdf
+        id: partition-sdf3
+        number: 3
+        offset: 3406055424
+        partition_type: ebd0a0a2-b9e5-4433-87c0-68b6b72699c7
+        path: /dev/sdf3
+        size: 307200
+        type: partition
+        uuid: 9d3bf42a-c53a-4939-a55b-69f0a71d9fb6
+    -   device: disk-sda
+        flag: linux
+        id: partition-sda3
+        number: 3
+        offset: 538968064
+        partition_type: 0fc63daf-8483-4772-8e79-3d69d8477de4
+        path: /dev/sda3
+        size: 1073741824
+        type: partition
+        uuid: 885088a3-2f5d-4ca1-b6c2-328be8193cb6
+    -   device: disk-sdc
+        flag: linux
+        id: partition-sdc3
+        number: 3
+        offset: 538968064
+        partition_type: 0fc63daf-8483-4772-8e79-3d69d8477de4
+        path: /dev/sdc3
+        size: 1073741824
+        type: partition
+        uuid: bd8b6c35-ada1-4350-ab6b-545dfcec3646
+    -   device: disk-sdf
+        flag: linux
+        id: partition-sdf4
+        number: 4
+        offset: 3407872000
+        partition_type: 0fc63daf-8483-4772-8e79-3d69d8477de4
+        path: /dev/sdf4
+        size: 59505639424
+        type: partition
+        uuid: a495cc16-880e-4533-ab0e-55ed814df949
+    -   device: disk-sda
+        flag: linux
+        id: partition-sda4
+        number: 4
+        offset: 1612709888
+        partition_type: 0fc63daf-8483-4772-8e79-3d69d8477de4
+        path: /dev/sda4
+        size: 118419881984
+        type: partition
+        uuid: e9530693-75f3-4eff-9334-6c5b125744e5
+    -   device: disk-sdc
+        flag: linux
+        id: partition-sdc4
+        number: 4
+        offset: 1612709888
+        partition_type: 0fc63daf-8483-4772-8e79-3d69d8477de4
+        path: /dev/sdc4
+        size: 118419881984
+        type: partition
+        uuid: 6f4b71be-b307-44b6-b35d-a901add2e9f9
+    -   fstype: vfat
+        id: format-partition-sda2
+        type: format
+        volume: partition-sda2
+    -   fstype: ext4
+        id: format-partition-sda3
+        type: format
+        uuid: e86f16de-f711-4ff0-bebd-001efaf56dc8
+        volume: partition-sda3
+    -   fstype: ext4
+        id: format-partition-sda4
+        type: format
+        uuid: da35bad5-353c-4c24-97de-7869659c864d
+        volume: partition-sda4
+    -   fstype: vfat
+        id: format-partition-sdc2
+        type: format
+        volume: partition-sdc2
+    -   fstype: ext4
+        id: format-partition-sdc3
+        type: format
+        uuid: 32efbb46-a8a6-42ef-99cc-0e628c1e8bbc
+        volume: partition-sdc3
+    -   fstype: ext4
+        id: format-partition-sdc4
+        type: format
+        uuid: 3e1febb6-a4bc-458b-8bf7-23ed1e6c8d2c
+        volume: partition-sdc4
+    -   fstype: iso9660
+        id: format-partition-sdf1
+        type: format
+        volume: partition-sdf1
+    -   fstype: vfat
+        id: format-partition-sdf2
+        type: format
+        volume: partition-sdf2
+    -   fstype: ext4
+        id: format-partition-sdf4
+        type: format
+        uuid: 641257da-e865-4d66-8312-9df105166ed0
+        volume: partition-sdf4
+    -   device: format-partition-sdf1
+        id: mount-partition-sdf1
+        path: /cdrom
+        type: mount
+    version: 2
+
+2026-07-17 12:35:13,261 curtin:117 Setting up Layered Source for stack ['///cdrom/casper/ubuntu-server-minimal.squashfs', '///cdrom/casper/ubuntu-server-minimal.ubuntu-server.squashfs']
+2026-07-17 12:35:13,261 curtin:120 Running command ['mount', '-o', 'loop,ro', '///cdrom/casper/ubuntu-server-minimal.squashfs', '/tmp/tmpxajj3h0g/ubuntu-server-minimal.squashfs.dir'] with allowed return codes [0] (capture=True)
+2026-07-17 12:35:13,263 curtin:120 Running command ['mount', '-o', 'loop,ro', '///cdrom/casper/ubuntu-server-minimal.ubuntu-server.squashfs', '/tmp/tmpxajj3h0g/ubuntu-server-minimal.ubuntu-server.squashfs.dir'] with allowed return codes [0] (capture=True)
+2026-07-17 12:35:13,266 curtin:120 Running command ['mount', '-o', 'lowerdir=/tmp/tmpxajj3h0g/ubuntu-server-minimal.ubuntu-server.squashfs.dir:/tmp/tmpxajj3h0g/ubuntu-server-minimal.squashfs.dir', '-t', 'overlay', 'overlay', '/tmp/tmpxajj3h0g/root.dir'] with allowed return codes [0] (capture=True)
+2026-07-17 12:43:47,624 curtin:120 Running command ['umount', '/tmp/tmpxajj3h0g/root.dir'] with allowed return codes [0] (capture=True)
+2026-07-17 12:43:47,628 curtin:120 Running command ['umount', '/tmp/tmpxajj3h0g/ubuntu-server-minimal.ubuntu-server.squashfs.dir'] with allowed return codes [0] (capture=True)
+2026-07-17 12:43:47,631 curtin:120 Running command ['umount', '/tmp/tmpxajj3h0g/ubuntu-server-minimal.squashfs.dir'] with allowed return codes [0] (capture=True)

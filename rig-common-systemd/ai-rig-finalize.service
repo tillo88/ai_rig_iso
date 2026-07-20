@@ -1,0 +1,13 @@
+[Unit]
+Description=AI Rig - Auto-install chain coordinator
+After=ai-rig-stage-role.service gtx1080-powerlimit.service
+Wants=ai-rig-stage-role.service
+ConditionPathExists=/var/lib/ai-rig/stage-role-done
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/ai-rig-finalize.sh
+TimeoutStartSec=900
+
+[Install]
+WantedBy=multi-user.target

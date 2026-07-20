@@ -1,0 +1,7 @@
+=== WOL setup - Fri Jul 17 12:45:20 UTC 2026 ===
+Created symlink /etc/systemd/system/multi-user.target.wants/wol-persistent.service → /etc/systemd/system/wol-persistent.service.
+=== WOL abilitato su eno1 - Fri Jul 17 12:45:22 UTC 2026 ===
+=== WOL setup - ven 17 lug 2026, 12:46:57, UTC ===
+=== WOL abilitato su ai-rig-lan - ven 17 lug 2026, 12:46:58, UTC ===
+=== WOL setup - ven 17 lug 2026, 13:35:19, UTC ===
+=== WOL abilitato su ai-rig-lan - ven 17 lug 2026, 13:35:19, UTC ===

@@ -1,0 +1,105 @@
+========================================
+ Build AI Rig ISO — Multi-boot v4.0
+ DEVIN + HERMES + TEACHER
+========================================
+[0;36m[STEP][0m Modalità PRODUCTION (fail-closed) attiva: warning critici → errori.
+[0;36m[STEP][0m Controllo prerequisiti...
+[0;32m[INFO][0m Cache: ~143GB → ISO stimata: ~6GB → spazio richiesto: ~20GB (liberi: 779GB)
+[1;33m[WARN][0m La chiavetta USB dovra' essere da almeno 6GB (scritta raw con dd/Etcher, il filesystem FAT non c'entra).
+[0;32m[INFO][0m Prerequisiti OK.
+[0;36m[STEP][0m Controllo placeholder non compilati in config/...
+[0;36m[STEP][0m Genero identificatore univoco della build...
+[0;32m[INFO][0m BUILD_ID: 20260718T015903Z-nogit
+[0;36m[STEP][0m Verifico cache modelli/driver...
+[0;32m[INFO][0m SHA-256 OK: Ornith-1.0-35B-A3B-MXFP4_MOE_Q8_0_F16-Imatrix.gguf
+[0;32m[INFO][0m SHA-256 OK: Qwen3.6-40B-Deck-Opus-NEO-CODE-HERE-2T-OT-Q6_K.gguf
+[0;32m[INFO][0m SHA-256 OK: mmproj-F32.gguf
+[0;32m[INFO][0m SHA-256 OK: Qwen_Qwen3-VL-30B-A3B-Thinking-Q6_K_L.gguf
+[0;32m[INFO][0m SHA-256 OK: mmproj-Qwen_Qwen3-VL-30B-A3B-Thinking-bf16.gguf
+[0;36m[STEP][0m Scarico dipendenze mancanti...
+[0;36m[STEP][0m Verifico integrità (SHA-256) di ISO base, driver e CUDA...
+[0;32m[INFO][0m SHA-256 OK: ubuntu-24.04.4-live-server-amd64.iso
+[0;32m[INFO][0m SHA-256 OK: nvidia-driver.run
+[0;32m[INFO][0m SHA-256 OK: cuda-toolkit.run
+[0;36m[STEP][0m Pre-compilo beellama (una volta sola, poi copiato su tutti e 3 i dischi)...
+[0;32m[INFO][0m Build beellama gia' in cache, salto.
+[0;36m[STEP][0m Genero nocloud/, rig-common/, rig-roles/ da config/ + templates/...
+== Rendering script comuni (rig-common/) ==
+== Rendering ruoli ==
+  -> generato nocloud/devin/user-data (disk match: serial=PNY213821092201013D8)
+  -> generato nocloud/hermes/user-data (disk match: serial=WD-WXW0E69SSR66)
+  -> generato nocloud/teacher/user-data (disk match: serial=OCZ-DM2287ZA59Z7J3UJ)
+== Controlli statici sui file generati ==
+== Fatto. Verifica placeholder di configurazione non compilati: ==
+rig-common/scripts/50-shared-disk.sh
+rig-common/scripts/15-static-network.sh
+rig-common/scripts/select-next-role.sh
+rig-common/scripts/40-wol-setup.sh
+rig-roles/devin/scripts/devin-bot.py
+rig-roles/hermes/scripts/hermes-bot.py
+rig-roles/teacher/scripts/teacher-bot.py
+[0;36m[STEP][0m Valido script e YAML generati...
+YAML NoCloud validi
+[0;32m[INFO][0m Validazione statica completata.
+[0;36m[STEP][0m Estraggo ISO Ubuntu...
+[0;32m[INFO][0m ISO estratta.
+[0;36m[STEP][0m Copio nocloud/, rig-common/, rig-roles/, scripts/ nella ISO...
+[0;32m[INFO][0m ISO LEGGERA: cache pesante ESCLUSA (models/driver/cuda/llama/comfyui). Usa populate-cache.sh dopo l'install.
+432K	/home/tillo/ai-rig-iso-build/iso-custom/cache
+[0;36m[STEP][0m Aggiungo 3 voci di boot (DEVIN / HERMES / TEACHER) a GRUB + isolinux...
+[0;32m[INFO][0m GRUB patched (3 entry).
+[0;36m[STEP][0m Ricostruisco ISO (Level 3, file >4GB, boot BIOS+UEFI con layout ufficiale Ubuntu)...
+[0;36m[STEP][0m Estraggo MBR GRUB2 + partizione ESP dalla ISO ufficiale...
+[0;32m[INFO][0m ESP estratta: 5.0M (settori 6640484..6650643)
+xorriso 1.5.6 : RockRidge filesystem manipulator, libburnia project.
+
+Drive current: -outdev 'stdio:/home/tillo/ai-rig-iso-build/ubuntu-24.04-ai-rig-multiboot.iso'
+Media current: stdio file, overwriteable
+Media status : is blank
+Media summary: 0 sessions, 0 data blocks, 0 data,  779g free
+xorriso : WARNING : -volid text problematic as automatic mount point name
+xorriso : WARNING : -volid text does not comply to ISO 9660 / ECMA 119 rules
+Added to ISO image: directory '/'='/home/tillo/ai-rig-iso-build/iso-custom'
+xorriso : UPDATE :    1209 files added in 1 seconds
+xorriso : UPDATE :    1209 files added in 1 seconds
+xorriso : NOTE : Copying to System Area: 432 bytes from file '/home/tillo/ai-rig-iso-build/boot-mbr-grub2.img'
+libisofs: WARNING : Cannot add /dists/stable to Joliet tree. Symlinks can only be added to a Rock Ridge tree.
+libisofs: WARNING : More symbolic links were omitted from Joliet tree.
+libisofs: WARNING : Number of symbolic links omitted from Joliet tree: 6
+xorriso : UPDATE :  3.22% done
+xorriso : UPDATE :  43.69% done
+xorriso : UPDATE :  52.79% done, estimate finish Sat Jul 18 04:10:07 2026
+xorriso : UPDATE :  58.79% done, estimate finish Sat Jul 18 04:10:08 2026
+xorriso : UPDATE :  61.89% done, estimate finish Sat Jul 18 04:10:09 2026
+xorriso : UPDATE :  61.89% done, estimate finish Sat Jul 18 04:10:11 2026
+xorriso : UPDATE :  68.91% done, estimate finish Sat Jul 18 04:10:11 2026
+xorriso : UPDATE :  74.90% done, estimate finish Sat Jul 18 04:10:12 2026
+xorriso : UPDATE :  76.47% done, estimate finish Sat Jul 18 04:10:13 2026
+xorriso : UPDATE :  86.92% done, estimate finish Sat Jul 18 04:10:13 2026
+xorriso : UPDATE :  90.12% done, estimate finish Sat Jul 18 04:10:14 2026
+xorriso : UPDATE :  90.12% done, estimate finish Sat Jul 18 04:10:15 2026
+xorriso : UPDATE :  90.29% done, estimate finish Sat Jul 18 04:10:16 2026
+xorriso : UPDATE :  95.67% done
+xorriso : UPDATE :  95.92% done
+xorriso : UPDATE :  95.97% done
+xorriso : UPDATE :  95.97% done
+ISO image produced: 1663305 sectors
+Written to medium : 1663305 sectors at LBA 0
+Writing to 'stdio:/home/tillo/ai-rig-iso-build/ubuntu-24.04-ai-rig-multiboot.iso' completed successfully.
+
+[0;32m[INFO][0m ISO creata: /home/tillo/ai-rig-iso-build/ubuntu-24.04-ai-rig-multiboot.iso
+-rw-r--r-- 1 root root 3.2G Jul 18 04:10 /home/tillo/ai-rig-iso-build/ubuntu-24.04-ai-rig-multiboot.iso
+[0;36m[STEP][0m Verifico struttura BIOS/UEFI e integrità della ISO finale...
+[0;32m[INFO][0m ISO verificata; checksum: /home/tillo/ai-rig-iso-build/ubuntu-24.04-ai-rig-multiboot.iso.sha256
+
+========================================
+ BUILD COMPLETATA: /home/tillo/ai-rig-iso-build/ubuntu-24.04-ai-rig-multiboot.iso
+ BUILD_ID: 20260718T015903Z-nogit
+========================================
+ ⚠️  Warning/errori rilevanti filtrati in: /home/tillo/ai-rig-iso-build/build-warnings.log (7 righe)
+    (log completo: /home/tillo/ai-rig-iso-build/build.log)
+ISO LEGGERA (~5GB): scrivila su una CHIAVETTA PICCOLA (dd/Etcher).
+Cache NON copiata: rilancia con --cache-disk /mnt/4tb, oppure usa scripts/sync-cache-to-disk.sh.
+Avvia la voce 'Install AI Rig (AUTO - catena 3 ruoli)' con chiavetta e 4TB collegati.
+La catena installerà DEVIN -> HERMES -> TEACHER e tornerà su DEVIN per il GRUB centrale.
+Fallback manuale: usa le tre voci ruolo e poi sudo populate-cache.sh su ciascun sistema.

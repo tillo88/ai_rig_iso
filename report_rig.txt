@@ -1,0 +1,65 @@
+### DISCHI (usa la colonna SERIAL in config/disks.env) ###
+NAME    SIZE MODEL            SERIAL               TRAN
+loop0 158.6M                                       
+loop1 141.1M                                       
+loop2 670.5M                                       
+loop3 255.6M                                       
+loop4 158.6M                                       
+loop5 141.1M                                       
+loop6    74M                                       
+loop7  48.1M                                       
+loop8  20.3M                                       
+sda   111.8G PNY CS900 120GB  PNY213821092201013D8 sata
+sdb   111.8G OCZ-AGILITY3     OCZ-DM2287ZA59Z7J3UJ sata
+sdc   149.1G WDC WD1600BEVT-2 WD-WXW0E69SSR66      sata
+sdd    14.5G Cruzer Edge      4C530099971020116440 usb
+
+### Se SERIAL e' vuoto per qualche disco, fallback su by-path: ###
+total 0
+drwxr-xr-x  2 root root 640 Jul  7 12:26 .
+drwxr-xr-x 11 root root 220 Jul  7 12:26 ..
+lrwxrwxrwx  1 root root   9 Jul  7 12:26 pci-0000:00:14.0-usb-0:1:1.0-scsi-0:0:0:0 -> ../../sdd
+lrwxrwxrwx  1 root root  10 Jul  7 12:26 pci-0000:00:14.0-usb-0:1:1.0-scsi-0:0:0:0-part1 -> ../../sdd1
+lrwxrwxrwx  1 root root  10 Jul  7 12:26 pci-0000:00:14.0-usb-0:1:1.0-scsi-0:0:0:0-part2 -> ../../sdd2
+lrwxrwxrwx  1 root root   9 Jul  7 12:26 pci-0000:00:14.0-usbv2-0:1:1.0-scsi-0:0:0:0 -> ../../sdd
+lrwxrwxrwx  1 root root  10 Jul  7 12:26 pci-0000:00:14.0-usbv2-0:1:1.0-scsi-0:0:0:0-part1 -> ../../sdd1
+lrwxrwxrwx  1 root root  10 Jul  7 12:26 pci-0000:00:14.0-usbv2-0:1:1.0-scsi-0:0:0:0-part2 -> ../../sdd2
+lrwxrwxrwx  1 root root   9 Jul  7 12:26 pci-0000:00:17.0-ata-3 -> ../../sda
+lrwxrwxrwx  1 root root   9 Jul  7 12:26 pci-0000:00:17.0-ata-3.0 -> ../../sda
+lrwxrwxrwx  1 root root  10 Jul  7 12:26 pci-0000:00:17.0-ata-3.0-part1 -> ../../sda1
+lrwxrwxrwx  1 root root  10 Jul  7 12:26 pci-0000:00:17.0-ata-3.0-part2 -> ../../sda2
+lrwxrwxrwx  1 root root  10 Jul  7 12:26 pci-0000:00:17.0-ata-3.0-part3 -> ../../sda3
+lrwxrwxrwx  1 root root  10 Jul  7 12:26 pci-0000:00:17.0-ata-3-part1 -> ../../sda1
+lrwxrwxrwx  1 root root  10 Jul  7 12:26 pci-0000:00:17.0-ata-3-part2 -> ../../sda2
+lrwxrwxrwx  1 root root  10 Jul  7 12:26 pci-0000:00:17.0-ata-3-part3 -> ../../sda3
+lrwxrwxrwx  1 root root   9 Jul  7 12:26 pci-0000:00:17.0-ata-5 -> ../../sdb
+lrwxrwxrwx  1 root root   9 Jul  7 12:26 pci-0000:00:17.0-ata-5.0 -> ../../sdb
+lrwxrwxrwx  1 root root  10 Jul  7 12:26 pci-0000:00:17.0-ata-5.0-part1 -> ../../sdb1
+lrwxrwxrwx  1 root root  10 Jul  7 12:26 pci-0000:00:17.0-ata-5.0-part2 -> ../../sdb2
+lrwxrwxrwx  1 root root  10 Jul  7 12:26 pci-0000:00:17.0-ata-5.0-part3 -> ../../sdb3
+lrwxrwxrwx  1 root root  10 Jul  7 12:26 pci-0000:00:17.0-ata-5.0-part4 -> ../../sdb4
+lrwxrwxrwx  1 root root  10 Jul  7 12:26 pci-0000:00:17.0-ata-5.0-part5 -> ../../sdb5
+lrwxrwxrwx  1 root root  10 Jul  7 12:26 pci-0000:00:17.0-ata-5-part1 -> ../../sdb1
+lrwxrwxrwx  1 root root  10 Jul  7 12:26 pci-0000:00:17.0-ata-5-part2 -> ../../sdb2
+lrwxrwxrwx  1 root root  10 Jul  7 12:26 pci-0000:00:17.0-ata-5-part3 -> ../../sdb3
+lrwxrwxrwx  1 root root  10 Jul  7 12:26 pci-0000:00:17.0-ata-5-part4 -> ../../sdb4
+lrwxrwxrwx  1 root root  10 Jul  7 12:26 pci-0000:00:17.0-ata-5-part5 -> ../../sdb5
+lrwxrwxrwx  1 root root   9 Jul  7 12:26 pci-0000:00:17.0-ata-6 -> ../../sdc
+lrwxrwxrwx  1 root root   9 Jul  7 12:26 pci-0000:00:17.0-ata-6.0 -> ../../sdc
+lrwxrwxrwx  1 root root  10 Jul  7 12:26 pci-0000:00:17.0-ata-6.0-part1 -> ../../sdc1
+lrwxrwxrwx  1 root root  10 Jul  7 12:26 pci-0000:00:17.0-ata-6-part1 -> ../../sdc1
+
+### INTERFACCE DI RETE (MAC per config/network.env: LAN_MAC / WOL_MAC) ###
+  eno1  MAC=2c:f0:5d:56:08:bc  link=?
+  wlx9418655e0d59  MAC=94:18:65:5e:0d:59  link=1
+
+### GPU rilevate (verifica che siano tutte e 7) ###
+0000:17:00.0 VGA compatible controller: NVIDIA Corporation GP102 [GeForce GTX 1080 Ti] (rev a1)
+0000:17:00.1 Audio device: NVIDIA Corporation GP102 HDMI Audio Controller (rev a1)
+0000:b3:00.0 VGA compatible controller: NVIDIA Corporation TU116 [GeForce GTX 1660 Ti] (rev a1)
+0000:b3:00.1 Audio device: NVIDIA Corporation TU116 High Definition Audio Controller (rev a1)
+0000:b3:00.2 USB controller: NVIDIA Corporation TU116 USB 3.1 Host Controller (rev a1)
+0000:b3:00.3 Serial bus controller: NVIDIA Corporation TU116 USB Type-C UCSI Controller (rev a1)
+
+### Se serve smartctl per il serial (dischi che non lo espongono via lsblk): ###
+  sudo apt install -y smartmontools && sudo smartctl -i /dev/sdX | grep -i serial

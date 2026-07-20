@@ -1,0 +1,178 @@
+#!/bin/bash
+# =============================================================================
+# select-next-role.sh — early-command della voce autoinstall AUTO.
+# Sceglie il prossimo ruolo non ancora completamente provisionato per la BUILD
+# corrente e riscrive /autoinstall.yaml in modo atomico. Non esegue wipe
+# manuali: la cancellazione avviene solo dopo la validazione di Subiquity/Curtin.
+# =============================================================================
+set -Eeuo pipefail
+
+AUTOINSTALL="/autoinstall.yaml"
+CACHE_LABEL="ai-rig-cache"
+BUILD_ID_FILE="/cdrom/cache/BUILD_ID"
+CACHE_CHECK_MNT="/run/ai-rig-cache-check"
+CACHE_AUTO_MOUNTED=0
+ROLE_MARKER="var/lib/ai-rig/stage-role-done"
+INSTALLED_BUILD_ID="etc/ai-rig/build-id"
+
+declare -A SERIAL=(
+  [devin]="__DEVIN_DISK_SERIAL__"
+  [hermes]="__HERMES_DISK_SERIAL__"
+  [teacher]="__TEACHER_DISK_SERIAL__"
+)
+ORDER=(devin hermes teacher)
+
+die() { echo "!!! select-next-role: $*" >&2; exit 1; }
+trim() { awk '{$1=$1; print}' <<<"${1:-}"; }
+trim_file() { tr -d '\r\n[:space:]' < "$1"; }
+cleanup() {
+    if [ "$CACHE_AUTO_MOUNTED" -eq 1 ]; then
+        umount "$CACHE_CHECK_MNT" 2>/dev/null || true
+        CACHE_AUTO_MOUNTED=0
+    fi
+}
+trap cleanup EXIT
+
+_smart_serial() {
+    local dev="$1" dtype="$2"
+    smartctl -i -d "$dtype" "$dev" 2>/dev/null \
+        | awk -F: '/^Serial Number:/{gsub(/^[ \t]+|[ \t]+$/, "", $2); print $2; exit}'
+}
+
+# Stampa tutti i dischi che corrispondono al seriale. Il chiamante richiede
+# esattamente un match: zero o più di uno bloccano l'installazione.
+devices_for_serial() {
+    local want="$1" dev serial dtype matched
+    while read -r dev; do
+        matched=0
+        serial="$(trim "$(lsblk -dno SERIAL "$dev" 2>/dev/null | head -n1)")"
+        if [ "$serial" = "$want" ]; then
+            echo "$dev"
+            continue
+        fi
+        if command -v smartctl >/dev/null 2>&1; then
+            for dtype in auto sntrealtek; do
+                serial="$(trim "$(_smart_serial "$dev" "$dtype" || true)")"
+                if [ "$serial" = "$want" ]; then
+                    matched=1
+                    break
+                fi
+            done
+        fi
+        [ "$matched" -eq 1 ] && echo "$dev"
+    done < <(lsblk -dnpo NAME,TYPE | awk '$2=="disk"{print $1}')
+}
+
+dev_for_serial() {
+    local want="$1"
+    local -a matches=()
+    mapfile -t matches < <(devices_for_serial "$want" | sort -u)
+    case "${#matches[@]}" in
+        1) printf '%s\n' "${matches[0]}" ;;
+        0) return 1 ;;
+        *) die "seriale '$want' associato a più dischi: ${matches[*]}" ;;
+    esac
+}
+
+role_fully_done() {
+    local dev="$1" part mp="/run/roleprobe" rc=1 installed_id=""
+    mkdir -p "$mp"
+    while read -r part; do
+        [ -b "$part" ] || continue
+        mount -o ro "$part" "$mp" 2>/dev/null || continue
+        if [ -f "$mp/$ROLE_MARKER" ] && [ -s "$mp/$INSTALLED_BUILD_ID" ]; then
+            installed_id="$(trim_file "$mp/$INSTALLED_BUILD_ID")"
+            if [ "$installed_id" = "$BUILD_ID" ]; then
+                rc=0
+            else
+                echo "    installazione precedente rilevata (build ${installed_id:-sconosciuta}), verrà aggiornata"
+            fi
+        fi
+        umount "$mp" 2>/dev/null || true
+        [ "$rc" -eq 0 ] && break
+    done < <(lsblk -lnpo NAME,TYPE "$dev" | awk '$2=="part"{print $1}')
+    return "$rc"
+}
+
+patch_autoinstall() {
+    local role="$1" serial="$2" tmp
+    [ -f "$AUTOINSTALL" ] || die "$AUTOINSTALL non trovato"
+    grep -q '__TARGET_SERIAL__' "$AUTOINSTALL" || die "placeholder __TARGET_SERIAL__ assente"
+    grep -q '__ROLE__' "$AUTOINSTALL" || die "placeholder __ROLE__ assente"
+
+    tmp="$(mktemp /run/autoinstall.yaml.XXXXXX)"
+    cp -- "$AUTOINSTALL" "$tmp"
+    sed -i \
+        -e "s|__TARGET_SERIAL__|${serial}|g" \
+        -e "s|__ROLE__|${role}|g" \
+        "$tmp"
+
+    grep -q '__TARGET_SERIAL__\|__ROLE__' "$tmp" \
+        && { rm -f "$tmp"; die "placeholder residui dopo il rendering"; }
+    grep -q "${serial}" "$tmp" \
+        || { rm -f "$tmp"; die "seriale scelto non presente nel file renderizzato"; }
+    grep -q "tilloGPT-${role}" "$tmp" \
+        || { rm -f "$tmp"; die "hostname del ruolo non renderizzato"; }
+
+    chmod --reference="$AUTOINSTALL" "$tmp" 2>/dev/null || true
+    chown --reference="$AUTOINSTALL" "$tmp" 2>/dev/null || true
+    mv -f -- "$tmp" "$AUTOINSTALL"
+}
+
+echo "=== select-next-role $(date -Iseconds) ==="
+udevadm settle 2>/dev/null || true
+[ -s "$BUILD_ID_FILE" ] || die "$BUILD_ID_FILE assente o vuoto"
+BUILD_ID="$(trim_file "$BUILD_ID_FILE")"
+[[ "$BUILD_ID" =~ ^[A-Za-z0-9._-]+$ ]] || die "BUILD_ID non valido: '$BUILD_ID'"
+echo "Build corrente: $BUILD_ID"
+
+CACHE_DEV="$(blkid -L "$CACHE_LABEL" 2>/dev/null || true)"
+[ -n "$CACHE_DEV" ] || die "disco-cache '$CACHE_LABEL' non collegato"
+CACHE_ROOT="$(findmnt -rn -S "$CACHE_DEV" -o TARGET 2>/dev/null | head -n1 || true)"
+if [ -z "$CACHE_ROOT" ]; then
+    mkdir -p "$CACHE_CHECK_MNT"
+    mount -o ro "$CACHE_DEV" "$CACHE_CHECK_MNT"
+    CACHE_ROOT="$CACHE_CHECK_MNT"
+    CACHE_AUTO_MOUNTED=1
+fi
+[ -s "$CACHE_ROOT/cache/BUILD_ID" ] || die "BUILD_ID assente sul disco-cache ($CACHE_ROOT/cache/BUILD_ID)"
+CACHE_BUILD_ID="$(trim_file "$CACHE_ROOT/cache/BUILD_ID")"
+[ "$CACHE_BUILD_ID" = "$BUILD_ID" ] \
+    || die "ISO e disco-cache appartengono a build diverse: ISO=$BUILD_ID, cache=$CACHE_BUILD_ID"
+echo "OK: cache presente su $CACHE_DEV, build $CACHE_BUILD_ID"
+
+CHOSEN="" CHOSEN_SERIAL="" CHOSEN_DEV=""
+for role in "${ORDER[@]}"; do
+    serial="${SERIAL[$role]}"
+    [ -n "$serial" ] && [[ "$serial" != CHANGEME* ]] \
+        || die "seriale del ruolo $role non configurato"
+    dev="$(dev_for_serial "$serial" || true)"
+    [ -n "$dev" ] || die "disco $role con seriale $serial non collegato"
+    if role_fully_done "$dev"; then
+        echo "  $role ($dev, $serial): build $BUILD_ID completa — salto"
+        continue
+    fi
+    CHOSEN="$role"
+    CHOSEN_SERIAL="$serial"
+    CHOSEN_DEV="$dev"
+    break
+done
+
+[ -n "$CHOSEN" ] \
+    || die "tutti i ruoli risultano completi per build $BUILD_ID; avvia DEVIN per la finalizzazione globale"
+
+# Il selettore e Curtin devono riconoscere lo stesso disco. Se il seriale è
+# visibile solo tramite smartctl ma non nell'ID_SERIAL udev, il match.serial di
+# Subiquity non funzionerebbe: fermarsi qui evita qualsiasi installazione ambigua.
+UDEV_SERIAL="$(udevadm info --query=property --name="$CHOSEN_DEV" 2>/dev/null \
+    | awk -F= '/^ID_SERIAL=/{print $2; exit}')"
+[[ "$UDEV_SERIAL" == *"$CHOSEN_SERIAL"* ]] \
+    || die "il disco $CHOSEN_DEV è stato trovato, ma udev ID_SERIAL ('$UDEV_SERIAL') non contiene '$CHOSEN_SERIAL'; Curtin non potrebbe selezionarlo"
+
+patch_autoinstall "$CHOSEN" "$CHOSEN_SERIAL"
+printf 'build_id=%s\nrole=%s\nserial=%s\ndevice=%s\n' \
+    "$BUILD_ID" "$CHOSEN" "$CHOSEN_SERIAL" "$CHOSEN_DEV" > /run/ai-rig-selected-role
+sync
+
+echo "AUTO: installerò $CHOSEN su $CHOSEN_DEV (seriale $CHOSEN_SERIAL)"
+echo "Nessun wipe anticipato: Curtin cancellerà esclusivamente il disco selezionato."

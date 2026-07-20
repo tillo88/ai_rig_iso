@@ -1,0 +1,89 @@
+Per mantenere il massimo livello di privacy mentre dai al tuo agente Hermes l'accesso a Internet, la regola d'oro è isolare le richieste web ed eliminare i tracciatori personali. Non devi usare API commerciali esterne (come Tavily o Perplexity) perché inviano i tuoi dati ai loro server.
+
+Ecco l'architettura ideale, completamente locale e privata, per il tuo server Ubuntu 24.04:
+
+[Hermes Agent] ──> [SearXNG (Motore di ricerca Locale Privato)] ──> Tor Network / Proxy
+
+
+1. Il Motore di Ricerca: Configura SearXNG in locale
+
+SearXNG è un motore di ricerca meta-ricerca open-source che puoi ospitare sul tuo server. Interroga Google, Bing, DuckDuckGo e altri motori per conto tuo, ma rimuove tutti i cookie, i dati di tracciamento e gli IP. Per Hermes, sembrerà un'unica API di ricerca privata.
+
+Puoi installarlo rapidamente tramite Docker. Crea un file docker-compose.yml:
+
+yaml
+
+version: '3.7'
+
+services:
+  searxng:
+    image: docker.io/searxng/searxng:latest
+    container_name: searxng
+    volumes:
+      - ./searxng:/etc/searxng:rw
+    ports:
+      - "8080:8080"
+    environment:
+      - SEARXNG_BASE_URL=http://localhost:8080/
+    restart: unless-stopped
+
+
+Usa il codice con cautela.
+
+Nel file di configurazione di SearXNG (settings.yml), assicurati di attivare l'output in formato JSON. Questo permetterà a Hermes di leggere i risultati della ricerca in modo nativo.
+
+2. Offuscare l'IP del Server (Opzionale ma Consigliato)
+
+Anche se SearXNG pulisce i dati, Google vedrà comunque le richieste arrivare dall'IP pubblico della tua casa o del tuo server. Per proteggere anche il tuo IP hai due opzioni sul server Ubuntu:
+
+
+
+
+
+Soluzione Hardcore (Tor): Configura SearXNG per far passare tutto il traffico in uscita attraverso la rete Tor (usando socks5://127.0.0.1:9050). È la massima privacy possibile, ma la ricerca web per l'agente diventerà molto lenta.
+
+
+
+Soluzione Bilanciata (VPN commerciale con Port Forwarding / WireGuard): Installa una VPN nativa sul server Ubuntu (es. ⁠Mullvad o ProtonVPN, che non richiedono dati personali per l'iscrizione). Tutto il traffico di ricerca web di Hermes passerà dall'IP della VPN, mischiandosi a quello di migliaia di altri utenti.
+
+3. Lo Scraper Locale: Evita servizi Cloud per leggere le pagine
+
+Quando l'agente trova un link utile su Internet, deve "leggerlo" (fare lo scraping del testo). Non usare servizi cloud come Firecrawl API per questa operazione.
+
+Configura Hermes per usare uno scraper headless locale o una libreria Python locale come BeautifulSoup o Playwright eseguita direttamente dentro il server. In questo modo:
+
+
+
+
+
+L'agente chiede i link a SearXNG.
+
+
+
+Scarica la pagina web direttamente sul tuo server Ubuntu.
+
+
+
+Estrae il testo e lo passa a llama.cpp tramite la memoria locale. Nessun server di terze parti saprà mai cosa l'agente sta leggendo o studiando.
+
+4. Collegare Hermes a SearXNG e llama.cpp
+
+Nella configurazione di Hermes (tramite il comando CLI hermes tools), imposta il provider di ricerca su Custom/SearXNG e inserisci l'indirizzo del tuo container locale: http://localhost:8080.
+
+In questo modo l'intero ciclo di vita del dato è protetto:
+
+
+
+
+
+Prompt dell'utente: Rimane sulla tua RAM/VRAM con llama.cpp.
+
+
+
+Ricerca Web: Anonimizzata da SearXNG ed eventualmente mascherata da VPN/Tor.
+
+
+
+Analisi della pagina: Eseguita in locale sul testo scaricato direttamente.
+
+Vuoi procedere con la configurazione dettagliata del file settings.yml di SearXNG per abilitare l'API JSON corretta per Hermes, oppure preferisci vedere come isolare il traffico di ricerca sotto una VPN su Ubuntu Server?

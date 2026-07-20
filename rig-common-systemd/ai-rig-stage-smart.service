@@ -1,0 +1,9 @@
+[Unit]
+Description=AI Rig - SMART drivedb update (enclosure USB Realtek RTL9220)
+After=ai-rig-stage-network.service
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/55-smart-drivedb.sh
+RemainAfterExit=yes
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,21 @@
+=== Stage shared-disk - Fri Jul 17 12:45:22 UTC 2026 ===
+4° disco condiviso individuato via smartctl: /dev/sdd (serial 2210VC0S036H0163)
+!!! /dev/sdd contiene partizioni/filesystem NON nostri (nessuna label ai-rig-shared).
+!!! Per sicurezza NON formatto niente. Se questo disco va inizializzato:
+!!!   1) salva altrove i dati che ti servono
+!!!   2) sudo wipefs -a /dev/sdd
+!!!   3) riavvia: questo stage lo inizializzera' da solo.
+=== Stage shared-disk - ven 17 lug 2026, 12:46:57, UTC ===
+4° disco condiviso individuato via smartctl: /dev/sdd (serial 2210VC0S036H0163)
+!!! /dev/sdd contiene partizioni/filesystem NON nostri (nessuna label ai-rig-shared).
+!!! Per sicurezza NON formatto niente. Se questo disco va inizializzato:
+!!!   1) salva altrove i dati che ti servono
+!!!   2) sudo wipefs -a /dev/sdd
+!!!   3) riavvia: questo stage lo inizializzera' da solo.
+=== Stage shared-disk - ven 17 lug 2026, 13:35:19, UTC ===
+4° disco condiviso individuato via smartctl: /dev/sdd (serial 2210VC0S036H0163)
+!!! /dev/sdd contiene partizioni/filesystem NON nostri (nessuna label ai-rig-shared).
+!!! Per sicurezza NON formatto niente. Se questo disco va inizializzato:
+!!!   1) salva altrove i dati che ti servono
+!!!   2) sudo wipefs -a /dev/sdd
+!!!   3) riavvia: questo stage lo inizializzera' da solo.
