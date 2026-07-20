@@ -68,7 +68,7 @@ def prepara_e_invia():
     print("Nota: se il repository è molto grande, questo processo potrebbe richiedere qualche minuto.")
     
     # Il flag -u serve per collegare la cartella locale al server remoto per i push futuri
-    successo = esegui_comando(f"git push -u origin {RAMO_PRINCIPALE}", CARTELLA_LOCALE)
+    successo = esegui_comando(f"git push -u origin {RAMO_PRINCIPALE} --force", CARTELLA_LOCALE)
     
     if successo:
         print("\n Tutto completato con successo! Le cartelle e i file (sotto i 30MB) sono su GitHub.")
