@@ -1,102 +1,169 @@
 #!/bin/bash
 # =============================================================================
-# 4° disco condiviso tra i 3 ruoli — dati AutoMem (FalkorDB+Qdrant) e sessioni KV
-# salvate. Formatta SOLO se il disco non ha gia' un filesystem (cosi' il primo
-# ruolo che boota lo inizializza, i successivi lo trovano gia' pronto e NON lo
-# ri-formattano mai — altrimenti cancelleresti la memoria ad ogni cambio ruolo).
+# 4° disco condiviso tra i 3 ruoli — dati AutoMem (FalkorDB+Qdrant), modelli,
+# receipt e sessioni KV.
+#
+# IDENTITA': UUID del filesystem, non il serial dell'hardware.
+# Il serial cambia quando cambia enclosure; lo UUID no. Dopo l'incidente del
+# 2026-08-10 (OP-DEVIN-USB-ASMEDIA-RESET-002) il disco si e' ri-enumerato con un
+# nome di device diverso e un bridge diverso: l'unica identita' sopravvissuta e'
+# stata lo UUID del filesystem.
+#
+# FAIL-CLOSED: se il disco e' dichiarato necessario e non si trova, questo stage
+# FALLISCE. Prima usciva 0 e la unit restava "active (exited)" pur avendo saltato
+# il disco: un PASS che non provava niente.
+#
+# Formatta SOLO un disco davvero vergine, e solo quando e' stato individuato per
+# serial (primo boot). Un disco gia' nostro viene trovato per UUID o label e non
+# viene mai toccato.
 # =============================================================================
-set -e
+set -uo pipefail
 exec >> /var/log/ai-rig-stage-shareddisk.log 2>&1
-echo "=== Stage shared-disk - $(date) ==="
+echo "=== Stage shared-disk - $(date -Is) ==="
 
 mkdir -p /var/lib/ai-rig
+
 SERIAL="__SHARED_DISK_SERIAL__"
 MOUNT_PATH="__SHARED_MOUNT_PATH__"
-# Override post-install: se in futuro aggiorni /opt/cache/config/shared-disk.env
-# (es. quando arriva il 4° disco) e riavvii, viene letto qui SENZA bisogno di
-# rigenerare o rifare la ISO sui 3 dischi gia' installati.
+# I due parametri seguenti non passano dal generatore: arrivano da
+# /opt/cache/config/shared-disk.env, che e' gia' installato e gia' letto qui
+# sotto. Cosi' si aggiornano su un rig gia' installato senza rifare la ISO.
+SHARED_DISK_UUID="${SHARED_DISK_UUID:-}"
+SHARED_DISK_REQUIRED="${SHARED_DISK_REQUIRED:-true}"
+SHARED_DISK_LABEL="ai-rig-shared"
+
+# Uno UUID e' valido solo se ne ha la forma. Non si confronta col testo del
+# placeholder: il generatore sostituisce anche quello, e la sentinella
+# sparirebbe insieme al controllo che doveva proteggere.
+_uuid_valido() { [[ "${1:-}" =~ ^[0-9a-fA-F]{8}(-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$ ]]; }
+
+# Override post-install: aggiornare /opt/cache/config/shared-disk.env e riavviare
+# basta, senza rigenerare la ISO. E' la via per registrare un nuovo UUID o un
+# nuovo enclosure sui ruoli gia' installati.
+# shellcheck disable=SC1091
 [ -f /opt/cache/config/shared-disk.env ] && source /opt/cache/config/shared-disk.env
 
-if [ "$SERIAL" = "CHANGEME_SHARED_SERIAL" ]; then
-    echo "!!! SHARED_DISK_SERIAL non configurato in config/shared-disk.env. Salto (nessun 4° disco)." >&2
+case "${SHARED_DISK_REQUIRED,,}" in
+    false|no|0) REQUIRED=0 ;;
+    *)          REQUIRED=1 ;;
+esac
+
+# --- uscita unica, cosi' l'esito e' sempre esplicito ------------------------
+_giu() {  # $1 = messaggio
+    echo "!!! $1" >&2
+    if [ "$REQUIRED" -eq 1 ]; then
+        echo "AI_RIG_SHARED_DISK=FAIL reason=$2" >&2
+        echo "!!! Il disco condiviso e' dichiarato necessario (SHARED_DISK_REQUIRED)." >&2
+        echo "!!! Questo stage fallisce di proposito: un disco assente non deve" >&2
+        echo "!!! sembrare uno stage riuscito. Per un rig senza 4° disco impostare" >&2
+        echo "!!! SHARED_DISK_REQUIRED=false in /opt/cache/config/shared-disk.env." >&2
+        exit 1
+    fi
+    echo "AI_RIG_SHARED_DISK=SKIP reason=$2 (SHARED_DISK_REQUIRED=false, scelta dichiarata)"
     exit 0
+}
+
+# --- 1) identita' primaria: UUID del filesystem -----------------------------
+part=""
+modo=""
+if _uuid_valido "$SHARED_DISK_UUID"; then
+    # udev puo' non aver ancora ricreato il symlink dopo una ri-enumerazione:
+    # si prova by-uuid e, se manca, si interroga blkid direttamente.
+    if [ -e "/dev/disk/by-uuid/${SHARED_DISK_UUID}" ]; then
+        part=$(readlink -f "/dev/disk/by-uuid/${SHARED_DISK_UUID}")
+        modo="uuid"
+    else
+        p=$(blkid -U "$SHARED_DISK_UUID" 2>/dev/null || true)
+        if [ -n "$p" ]; then
+            part="$p"
+            modo="uuid-blkid"
+            echo "Nota: /dev/disk/by-uuid/${SHARED_DISK_UUID} assente, risolto via blkid (udev in ritardo?)."
+        fi
+    fi
+    [ -n "$part" ] && echo "Disco condiviso individuato per UUID: $part (UUID $SHARED_DISK_UUID)"
 fi
 
-# --- Trova il 4° disco per SERIAL INTERNO via smartctl (NON lsblk). ------------
-# Dietro l'enclosure USB (bridge Realtek RTL9220, 0bda:9220) lsblk mostra il
-# serial del BRIDGE, non quello interno dell'NVMe: quindi il vecchio match
-# `lsblk NAME,SERIAL` NON agganciava MAI il disco. Unico modo affidabile:
-# interrogare ogni disco con smartctl (-d auto, poi -d sntrealtek per il bridge)
-# e confrontarne il Serial Number interno. Stesso principio della preflight.
-_smart_serial() {  # $1=device $2=tipo-smartctl -> stampa Serial Number interno
-    smartctl -i -d "$2" "$1" 2>/dev/null \
-        | awk -F: '/^Serial Number:/{gsub(/^[ \t]+|[ \t]+$/,"",$2);print $2;exit}'
-}
-_find_shared_dev() {
-    local dev s t
-    while read -r dev; do
-        for t in auto sntrealtek; do
-            s=$(_smart_serial "$dev" "$t" || true)
-            [ "$s" = "$SERIAL" ] && { echo "$dev"; return 0; }
-            [ -n "$s" ] && break   # serial letto ma diverso -> prossimo disco
-        done
-    done < <(lsblk -dnpo NAME,TYPE | awk '$2=="disk"{print $1}')
-    return 1
-}
+# --- 2) identita' secondaria: label, anch'essa indipendente dall'enclosure ---
+if [ -z "$part" ]; then
+    p=$(blkid -o device -t "LABEL=${SHARED_DISK_LABEL}" 2>/dev/null | head -n1 || true)
+    if [ -n "$p" ]; then
+        part="$p"
+        modo="label"
+        echo "Disco condiviso individuato per label ${SHARED_DISK_LABEL}: $part"
+        u=$(blkid -s UUID -o value "$part" 2>/dev/null || true)
+        [ -n "$u" ] && echo "    UUID effettivo: $u  <-- registrarlo come SHARED_DISK_UUID"
+    fi
+fi
 
+# --- 3) ultima risorsa: serial interno, solo per il primo boot ---------------
+# Serve unicamente a individuare un disco NUOVO da inizializzare. Il tipo
+# smartctl non e' piu' un'assunzione fissa sul bridge: si provano i tipi noti.
 DEV=""
-if command -v smartctl >/dev/null 2>&1; then
-    DEV=$(_find_shared_dev || true)
-else
-    echo "!!! smartctl assente: fallback lsblk (rischia di non vedere il serial dietro l'enclosure)." >&2
-    d=$(lsblk -dno NAME,SERIAL | awk -v s="$SERIAL" '$2==s {print $1}' | head -n1)
-    [ -n "$d" ] && DEV="/dev/${d}"
+if [ -z "$part" ] && [ -n "$SERIAL" ] && [ "$SERIAL" != "CHANGEME_SHARED_SERIAL" ] \
+   && [[ "$SERIAL" != __*__ ]]; then
+    _smart_serial() { smartctl -i -d "$2" "$1" 2>/dev/null \
+        | awk -F: '/^Serial Number:/{gsub(/^[ \t]+|[ \t]+$/,"",$2);print $2;exit}'; }
+    if command -v smartctl >/dev/null 2>&1; then
+        while read -r dev; do
+            for t in auto sat sntasmedia sntrealtek scsi; do
+                s=$(_smart_serial "$dev" "$t" || true)
+                if [ "$s" = "$SERIAL" ]; then DEV="$dev"; break 2; fi
+                [ -n "$s" ] && break
+            done
+        done < <(lsblk -dnpo NAME,TYPE 2>/dev/null | awk '$2=="disk"{print $1}')
+    else
+        echo "!!! smartctl assente: fallback su lsblk (dietro un enclosure USB legge il serial del bridge)." >&2
+        d=$(lsblk -dno NAME,SERIAL 2>/dev/null | awk -v s="$SERIAL" '$2==s {print $1}' | head -n1)
+        [ -n "$d" ] && DEV="/dev/${d}"
+    fi
+    [ -n "$DEV" ] && { modo="serial"; echo "Disco individuato per serial interno: $DEV (serial $SERIAL)"; }
 fi
-if [ -z "$DEV" ]; then
-    echo "!!! Nessun disco col serial interno $SERIAL (smartctl -d auto/sntrealtek su tutti). 4° disco non collegato o enclosure non pronta. Salto." >&2
-    exit 0
-fi
-echo "4° disco condiviso individuato via smartctl: $DEV (serial $SERIAL)"
+
+[ -z "$part" ] && [ -z "$DEV" ] && _giu \
+    "Disco condiviso non trovato: ne' per UUID (${SHARED_DISK_UUID:-non impostato}), ne' per label ${SHARED_DISK_LABEL}, ne' per serial ${SERIAL:-non impostato}." \
+    "not-found"
+
 mkdir -p "$MOUNT_PATH"
 
-# --- Logica a 3 stadi, a prova di dati altrui ---
-# 1) Esiste gia' una NOSTRA partizione (label ai-rig-shared)? -> monta e basta.
-# 2) Il disco contiene QUALSIASI altra cosa (partizioni, filesystem)? -> NON
-#    toccare nulla: istruzioni nel log e esci. (Il vecchio check guardava solo
-#    il device intero: un FAT32 dentro una partizione risultava "vuoto" e
-#    veniva sovrascritto — bug di perdita dati, corretto.)
-# 3) Disco davvero vergine -> GPT + ext4 con label.
-part=$(blkid -o device -t LABEL=ai-rig-shared 2>/dev/null | grep "^${DEV}" | head -n1)
-if [ -n "$part" ]; then
-    echo "Partizione ai-rig-shared gia' presente: $part — nessuna formattazione."
-elif lsblk -no FSTYPE,PTTYPE "$DEV" 2>/dev/null | grep -q '[^[:space:]]'; then
-    echo "!!! $DEV contiene partizioni/filesystem NON nostri (nessuna label ai-rig-shared)." >&2
-    echo "!!! Per sicurezza NON formatto niente. Se questo disco va inizializzato:" >&2
-    echo "!!!   1) salva altrove i dati che ti servono" >&2
-    echo "!!!   2) sudo wipefs -a $DEV" >&2
-    echo "!!!   3) riavvia: questo stage lo inizializzera' da solo." >&2
-    exit 0
-else
+# --- inizializzazione: solo per un disco trovato per serial e davvero vergine -
+# Tre stadi a prova di dati altrui. Un disco gia' nostro non arriva mai qui:
+# e' stato risolto per UUID o label sopra.
+if [ -z "$part" ]; then
+    if lsblk -no FSTYPE,PTTYPE "$DEV" 2>/dev/null | grep -q '[^[:space:]]'; then
+        _giu "$DEV contiene partizioni o filesystem che non sono nostri (nessuna label ${SHARED_DISK_LABEL}, nessuno UUID atteso). NON formatto niente. Se va inizializzato: salva i dati, 'wipefs -a $DEV', poi riavvia." "foreign-data"
+    fi
     echo "Disco $DEV realmente vuoto: creo GPT + ext4 (prima volta)."
-    parted -s "$DEV" mklabel gpt
-    parted -s "$DEV" mkpart primary ext4 0% 100%
-    partprobe "$DEV"
-    sleep 2
-    part="${DEV}1"
-    [ -e "$part" ] || part="${DEV}p1"
-    mkfs.ext4 -F -L ai-rig-shared "$part"
+    parted -s "$DEV" mklabel gpt || _giu "parted mklabel fallito su $DEV" "parted-failed"
+    parted -s "$DEV" mkpart primary ext4 0% 100% || _giu "parted mkpart fallito su $DEV" "parted-failed"
+    partprobe "$DEV"; sleep 2
+    part="${DEV}1"; [ -e "$part" ] || part="${DEV}p1"
+    mkfs.ext4 -F -L "$SHARED_DISK_LABEL" "$part" || _giu "mkfs.ext4 fallito su $part" "mkfs-failed"
+    modo="serial-init"
 fi
 
-UUID=$(blkid -s UUID -o value "$part" 2>/dev/null)
-if [ -z "$UUID" ]; then
-    echo "!!! Non riesco a determinare lo UUID della partizione condivisa." >&2
-    exit 1
+UUID=$(blkid -s UUID -o value "$part" 2>/dev/null || true)
+[ -n "$UUID" ] || _giu "impossibile determinare lo UUID di $part" "no-uuid"
+
+# Se conoscevamo gia' uno UUID atteso, quello trovato deve coincidere: montare
+# un disco diverso al posto dello shared sarebbe peggio che non montarlo.
+if _uuid_valido "$SHARED_DISK_UUID" && [ "$UUID" != "$SHARED_DISK_UUID" ]; then
+    _giu "UUID inatteso su $part: trovato $UUID, atteso $SHARED_DISK_UUID." "uuid-mismatch"
 fi
 
 grep -q "$UUID" /etc/fstab 2>/dev/null || \
     echo "UUID=${UUID}  ${MOUNT_PATH}  ext4  defaults,nofail  0  2" >> /etc/fstab
 
 mount -a
+
+# --- verifica reale del mount ------------------------------------------------
+# findmnt + UUID sono l'autorita' stabilita dall'incidente del 2026-08-10.
+montato=$(findmnt -no SOURCE --target "$MOUNT_PATH" 2>/dev/null || true)
+[ -n "$montato" ] || _giu "${MOUNT_PATH} non risulta montato dopo 'mount -a'." "mount-failed"
+uuid_montato=$(blkid -s UUID -o value "$montato" 2>/dev/null || true)
+[ "$uuid_montato" = "$UUID" ] || _giu \
+    "${MOUNT_PATH} e' montato da $montato (UUID ${uuid_montato:-ignoto}), non dal disco condiviso (UUID $UUID)." \
+    "wrong-device-mounted"
+
 mkdir -p \
     "${MOUNT_PATH}/automem/falkordb" \
     "${MOUNT_PATH}/automem/qdrant" \
@@ -111,4 +178,5 @@ mkdir -p \
     "${MOUNT_PATH}/understory/bundle/policy" \
     "${MOUNT_PATH}/kv-sessions-shared"
 
-echo "=== Shared disk pronto su ${MOUNT_PATH} (UUID $UUID) - $(date) ==="
+echo "AI_RIG_SHARED_DISK=PASS mount=${MOUNT_PATH} device=${montato} uuid=${UUID} mode=${modo}"
+echo "=== Shared disk pronto su ${MOUNT_PATH} (UUID $UUID, via ${modo}) - $(date -Is) ==="
